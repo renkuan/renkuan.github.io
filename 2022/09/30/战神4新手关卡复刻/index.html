@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>父子打猎[GOW4] | 任宽的主页</title><meta name="author" content="RK"><meta name="copyright" content="RK"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="项目介绍  项目目标：复刻《战神4》中父子打猎（新手）关卡 团队: 个人项目  使用工具: UE4，UE4 Blueprints，Blender，AI，UE4-IWALS插件 我做了什么：反拆关卡：关卡目标，任务流程梳理2D原型重制：地图绘制彩盒关卡：使用Blender和UE4制作关卡布局游戏元素整合：调整AI战斗，事件触发，玩家拾取物等脚本设计：使用UE4蓝图编写游戏脚本，以实现游戏交互  演示">
+<meta property="og:type" content="article">
+<meta property="og:title" content="父子打猎[GOW4]">
+<meta property="og:url" content="http://example.com/2022/09/30/%E6%88%98%E7%A5%9E4%E6%96%B0%E6%89%8B%E5%85%B3%E5%8D%A1%E5%A4%8D%E5%88%BB/index.html">
+<meta property="og:site_name" content="任宽的主页">
+<meta property="og:description" content="项目介绍  项目目标：复刻《战神4》中父子打猎（新手）关卡 团队: 个人项目  使用工具: UE4，UE4 Blueprints，Blender，AI，UE4-IWALS插件 我做了什么：反拆关卡：关卡目标，任务流程梳理2D原型重制：地图绘制彩盒关卡：使用Blender和UE4制作关卡布局游戏元素整合：调整AI战斗，事件触发，玩家拾取物等脚本设计：使用UE4蓝图编写游戏脚本，以实现游戏交互  演示">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-30T13:06:00.000Z">
+<meta property="article:modified_time" content="2022-10-07T08:16:41.685Z">
+<meta property="article:author" content="RK">
+<meta name="twitter:card" content="summary"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/09/30/%E6%88%98%E7%A5%9E4%E6%96%B0%E6%89%8B%E5%85%B3%E5%8D%A1%E5%A4%8D%E5%88%BB/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '父子打猎[GOW4]',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-07 16:16:41'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">任宽的主页</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">父子打猎[GOW4]</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-30T13:06:00.000Z" title="发表于 2022-09-30 21:06:00">2022-09-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-10-07T08:16:41.685Z" title="更新于 2022-10-07 16:16:41">2022-10-07</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="父子打猎[GOW4]"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h1><p><img src="https://s3.bmp.ovh/imgs/2022/10/07/32cc2c98190dcf85.jpg"></p>
+<ul>
+<li><strong>项目目标</strong>：复刻《战神4》中父子打猎（新手）关卡</li>
+<li><strong>团队</strong>: 个人项目 </li>
+<li><strong>使用工具</strong>: UE4，UE4 Blueprints，Blender，AI，UE4-IWALS插件</li>
+<li><strong>我做了什么：</strong><br><strong>反拆关卡</strong>：关卡目标，任务流程梳理<br><strong>2D原型重制</strong>：地图绘制<br><strong>彩盒关卡</strong>：使用Blender和UE4制作关卡布局<br><strong>游戏元素整合</strong>：调整AI战斗，事件触发，玩家拾取物等<br><strong>脚本设计</strong>：使用UE4蓝图编写游戏脚本，以实现游戏交互</li>
+</ul>
+<h1 id="演示视频以及设计重点分析"><a href="#演示视频以及设计重点分析" class="headerlink" title="演示视频以及设计重点分析"></a>演示视频以及设计重点分析</h1><iframe width="100%" height="549" src="//player.bilibili.com/player.html?aid=688497254&bvid=BV1i24y1R7kL&cid=845553137&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<!-- <video src="https://activity.hdslb.com/blackboard/activity68698/public/static/2xv.mp4" style="width: 976px; height: 549px; left: 2px; top: 0px;" controls="controls" width="500" height="300">您的浏览器不支持播放该视频！</video> -->
+
+<h1 id="关卡反拆"><a href="#关卡反拆" class="headerlink" title="关卡反拆"></a>关卡反拆</h1><h2 id="关卡目标"><a href="#关卡目标" class="headerlink" title="关卡目标"></a>关卡目标</h2><h3 id="1-主要目标：奎托斯与儿子一同猎鹿，然后回到家中"><a href="#1-主要目标：奎托斯与儿子一同猎鹿，然后回到家中" class="headerlink" title="1.主要目标：奎托斯与儿子一同猎鹿，然后回到家中"></a>1.主要目标：奎托斯与儿子一同猎鹿，然后回到家中</h3><p>1.第一次猎鹿</p>
+<p>2.追踪鹿来到神庙</p>
+<p>3.第二次猎鹿，遇袭</p>
+<p>4.抄近路回家</p>
+<h3 id="2-其他目标："><a href="#2-其他目标：" class="headerlink" title="2.其他目标："></a>2.其他目标：</h3><p>1.教学：在新手关卡学会玩家基本操作与战斗</p>
+<p>2.探索：在积雪的北欧森林探索</p>
+<h2 id="任务流程图"><a href="#任务流程图" class="headerlink" title="任务流程图"></a>任务流程图</h2><p><img src="https://s3.bmp.ovh/imgs/2022/10/07/80f6f5c564995558.png" alt="任务流程"></p>
+<h2 id="地图"><a href="#地图" class="headerlink" title="地图"></a>地图</h2><p><img src="https://s3.bmp.ovh/imgs/2022/10/07/7e3a7d9103f8a439.jpg" alt="关卡地图"></p>
+<h2 id="任务流程"><a href="#任务流程" class="headerlink" title="任务流程"></a>任务流程</h2><h3 id="主线流程"><a href="#主线流程" class="headerlink" title="主线流程"></a>主线流程</h3><h4 id="1-第一次猎鹿"><a href="#1-第一次猎鹿" class="headerlink" title="1.第一次猎鹿"></a>1.第一次猎鹿</h4><ul>
+<li><p>寻找鹿的蹄印<br>1.奎托斯跟随儿子从家出来进入古老神秘的森林<br>2.刚进入森林阿特柔斯就发现了一些蹄印，但是其他动物的<br>3.奎托斯紧接着发现一些蹄印，并招呼儿子，试图考验他，阿特柔斯轻松的辨认出是山羊的蹄印<br>4.继续向前阿特柔斯在覆雪的石桥上发现了一些野猪的蹄印<br>5.但由于桥断了，父子两没法前进，奎托斯示范轻松跳过了断桥，阿特柔斯也冲刺跳过断桥<br>6.然后阿特柔斯兴奋的发现新鲜的鹿蹄印</p>
+</li>
+<li><p>根据脚印追踪鹿<br>7.在二人越过一根横在路上的倒木后，阿特柔斯发现了白色的神秘角鹿的身影<br>8.在追逐鹿的过程中，一块残破的木板挡在小桥上，阻止了二人的去路，奎托斯用飞斧击碎了木板</p>
+</li>
+<li><p>第一次狩猎，失败<br>9.冲在前面的阿特柔斯发现了鹿就在眼前10米远处，但由于鹿在移动，他没能射中</p>
+</li>
+</ul>
+<h4 id="2-追踪鹿来到神庙"><a href="#2-追踪鹿来到神庙" class="headerlink" title="2.追踪鹿来到神庙"></a>2.追踪鹿来到神庙</h4><ul>
+<li>路遇敌人，击败敌人<br>10.继续向前，在一片林间空地遇到了几个亡灵战士<br>11.奎托斯轻松地使用斧头击败了敌人</li>
+<li>来到失落的神庙<br>12.紧接着，来到了一个小的圆形广场，一共有三条岔路<br>13.沿着左边的岔路，跟随阿特柔斯来到神庙方向的桥上，并且发现了跳进神庙里的鹿<br>14.奎托斯用力推开厚重的木门，阿特柔斯进去残破的神庙，并发现了远处的鹿</li>
+<li>击败神庙里的敌人，并通过机关打开后门<br>15.二人通过神庙的石阶下来到神庙的一层<br>16.在一层遇到了几个亡灵战士，奎托斯轻松解决了敌人<br>17.神庙的正门紧锁，奎托斯操作一个机关并同时使用飞斧打开了正门</li>
+</ul>
+<h4 id="3-第二次猎鹿，遇袭"><a href="#3-第二次猎鹿，遇袭" class="headerlink" title="3.第二次猎鹿，遇袭"></a>3.第二次猎鹿，遇袭</h4><ul>
+<li>穿过神庙正门继续追踪鹿<br>18.二人走出正门，再往前走了一段时间，发现了角鹿在不远处觅食</li>
+<li>第二次狩猎，成功<br>19.二人悄悄的走进，阿特柔斯小心使用弓箭射中了鹿</li>
+<li>被山怪袭击，击败山怪<br>20.二人前去查看受伤倒下的鹿，结果遇到一个巨大凶猛的山妖袭击<br>21.奎托斯为了救儿子，和山妖展开激烈的战斗，阿特柔斯也帮助战斗</li>
+</ul>
+<h4 id="4-抄近路回家"><a href="#4-抄近路回家" class="headerlink" title="4.抄近路回家"></a>4.抄近路回家</h4><ul>
+<li>返程回家路遇敌人，击败敌人<br>22.击倒山妖后，对地形更熟悉的阿特柔斯引着父亲从另一个近路回家<br>23.在回家途中路过的一个野外营地，发现了几个亡灵战士，二人配合解决了敌人<br>24.爬上营地高台就快到家了，但又遇到了亡灵战士，二人合力解决了敌人</li>
+<li>回到家中<br>25.奎托斯用飞斧破坏了阻挡通往家方向的残破木板，下了高台二人回到家</li>
+</ul>
+<h3 id="支线流程"><a href="#支线流程" class="headerlink" title="支线流程"></a>支线流程</h3><h4 id="1-去往狼穴"><a href="#1-去往狼穴" class="headerlink" title="1.去往狼穴"></a>1.去往狼穴</h4><p>1.沿着右边的岔路前进，来到一个悬崖旁<br>2.抓着锁链下到悬崖底，有几只狼在巡逻<br>3.消灭所以敌人后，可以打开一个箱子</p>
+<h4 id="2-去往石室"><a href="#2-去往石室" class="headerlink" title="2.去往石室"></a>2.去往石室</h4><p>4.沿着前方的岔路前进，奎托斯用飞斧击碎石室的残破木门<br>5.进入石室后，使用斧头击打散落在附近的三个符文就可以解锁三女神宝箱</p>
+<h4 id="3-去往冰冻的湖面"><a href="#3-去往冰冻的湖面" class="headerlink" title="3.去往冰冻的湖面"></a>3.去往冰冻的湖面</h4><p>6.打开一个不起眼的侧门就可以来到神庙外的冰冻湖面，有几只狼在湖上游荡，击败狼群，打开它们守护的宝箱</p>
+<h4 id="4-去往神庙的侧室"><a href="#4-去往神庙的侧室" class="headerlink" title="4.去往神庙的侧室"></a>4.去往神庙的侧室</h4><ul>
+<li>侧室二层<br>7.走出正门后沿着一条小径来到一个锁链旁<br>8.爬上锁链发现这里是石庙的侧室，位于二层<br>9.不过进入室内的们被杂物挡着，奎托斯使用飞斧击打挂着的大油灯，油灯落下爆炸清除了杂物<br>10.进入室内发现一个宝箱</li>
+<li>侧室三层<br>11.沿着二层的石阶来到三层<br>12.用斧头击碎残破的木门后，发现了木图腾</li>
+</ul>
+<h3 id="路线图"><a href="#路线图" class="headerlink" title="路线图"></a>路线图</h3><p><img src="https://s3.bmp.ovh/imgs/2022/10/07/404891df404d5c97.jpg" alt="关卡路线"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">RK</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/09/30/%E6%88%98%E7%A5%9E4%E6%96%B0%E6%89%8B%E5%85%B3%E5%8D%A1%E5%A4%8D%E5%88%BB/">http://example.com/2022/09/30/%E6%88%98%E7%A5%9E4%E6%96%B0%E6%89%8B%E5%85%B3%E5%8D%A1%E5%A4%8D%E5%88%BB/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">任宽的主页</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/09/30/TLOU5%E5%8F%B7%E5%85%AC%E8%B7%AF%E5%85%B3%E5%8D%A1%E5%A4%8D%E5%88%BB/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">5号公路[TLOU2]</div></div></a></div><div class="next-post pull-right"><a href="/2019/10/10/jiuzhouxing/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">九州行</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">RK</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">项目介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91%E4%BB%A5%E5%8F%8A%E8%AE%BE%E8%AE%A1%E9%87%8D%E7%82%B9%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">演示视频以及设计重点分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E5%8D%A1%E5%8F%8D%E6%8B%86"><span class="toc-number">3.</span> <span class="toc-text">关卡反拆</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E5%8D%A1%E7%9B%AE%E6%A0%87"><span class="toc-number">3.1.</span> <span class="toc-text">关卡目标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%BB%E8%A6%81%E7%9B%AE%E6%A0%87%EF%BC%9A%E5%A5%8E%E6%89%98%E6%96%AF%E4%B8%8E%E5%84%BF%E5%AD%90%E4%B8%80%E5%90%8C%E7%8C%8E%E9%B9%BF%EF%BC%8C%E7%84%B6%E5%90%8E%E5%9B%9E%E5%88%B0%E5%AE%B6%E4%B8%AD"><span class="toc-number">3.1.1.</span> <span class="toc-text">1.主要目标：奎托斯与儿子一同猎鹿，然后回到家中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%85%B6%E4%BB%96%E7%9B%AE%E6%A0%87%EF%BC%9A"><span class="toc-number">3.1.2.</span> <span class="toc-text">2.其他目标：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">3.2.</span> <span class="toc-text">任务流程图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%B0%E5%9B%BE"><span class="toc-number">3.3.</span> <span class="toc-text">地图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E6%B5%81%E7%A8%8B"><span class="toc-number">3.4.</span> <span class="toc-text">任务流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E7%BA%BF%E6%B5%81%E7%A8%8B"><span class="toc-number">3.4.1.</span> <span class="toc-text">主线流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%8C%8E%E9%B9%BF"><span class="toc-number">3.4.1.1.</span> <span class="toc-text">1.第一次猎鹿</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BF%BD%E8%B8%AA%E9%B9%BF%E6%9D%A5%E5%88%B0%E7%A5%9E%E5%BA%99"><span class="toc-number">3.4.1.2.</span> <span class="toc-text">2.追踪鹿来到神庙</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%AC%AC%E4%BA%8C%E6%AC%A1%E7%8C%8E%E9%B9%BF%EF%BC%8C%E9%81%87%E8%A2%AD"><span class="toc-number">3.4.1.3.</span> <span class="toc-text">3.第二次猎鹿，遇袭</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%8A%84%E8%BF%91%E8%B7%AF%E5%9B%9E%E5%AE%B6"><span class="toc-number">3.4.1.4.</span> <span class="toc-text">4.抄近路回家</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E7%BA%BF%E6%B5%81%E7%A8%8B"><span class="toc-number">3.4.2.</span> <span class="toc-text">支线流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%8E%BB%E5%BE%80%E7%8B%BC%E7%A9%B4"><span class="toc-number">3.4.2.1.</span> <span class="toc-text">1.去往狼穴</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%8E%BB%E5%BE%80%E7%9F%B3%E5%AE%A4"><span class="toc-number">3.4.2.2.</span> <span class="toc-text">2.去往石室</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%8E%BB%E5%BE%80%E5%86%B0%E5%86%BB%E7%9A%84%E6%B9%96%E9%9D%A2"><span class="toc-number">3.4.2.3.</span> <span class="toc-text">3.去往冰冻的湖面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%8E%BB%E5%BE%80%E7%A5%9E%E5%BA%99%E7%9A%84%E4%BE%A7%E5%AE%A4"><span class="toc-number">3.4.2.4.</span> <span class="toc-text">4.去往神庙的侧室</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%BA%BF%E5%9B%BE"><span class="toc-number">3.4.3.</span> <span class="toc-text">路线图</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/09/30/TLOU5%E5%8F%B7%E5%85%AC%E8%B7%AF%E5%85%B3%E5%8D%A1%E5%A4%8D%E5%88%BB/" title="5号公路[TLOU2]"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="5号公路[TLOU2]"/></a><div class="content"><a class="title" href="/2022/09/30/TLOU5%E5%8F%B7%E5%85%AC%E8%B7%AF%E5%85%B3%E5%8D%A1%E5%A4%8D%E5%88%BB/" title="5号公路[TLOU2]">5号公路[TLOU2]</a><time datetime="2022-09-30T13:06:00.000Z" title="发表于 2022-09-30 21:06:00">2022-09-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/30/%E6%88%98%E7%A5%9E4%E6%96%B0%E6%89%8B%E5%85%B3%E5%8D%A1%E5%A4%8D%E5%88%BB/" title="父子打猎[GOW4]"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="父子打猎[GOW4]"/></a><div class="content"><a class="title" href="/2022/09/30/%E6%88%98%E7%A5%9E4%E6%96%B0%E6%89%8B%E5%85%B3%E5%8D%A1%E5%A4%8D%E5%88%BB/" title="父子打猎[GOW4]">父子打猎[GOW4]</a><time datetime="2022-09-30T13:06:00.000Z" title="发表于 2022-09-30 21:06:00">2022-09-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2019/10/10/jiuzhouxing/" title="九州行"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="九州行"/></a><div class="content"><a class="title" href="/2019/10/10/jiuzhouxing/" title="九州行">九州行</a><time datetime="2019-10-10T02:00:00.000Z" title="发表于 2019-10-10 10:00:00">2019-10-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2019/10/10/proiect-dazhuankuai/" title="圣斗士星矢：重生"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="圣斗士星矢：重生"/></a><div class="content"><a class="title" href="/2019/10/10/proiect-dazhuankuai/" title="圣斗士星矢：重生">圣斗士星矢：重生</a><time datetime="2019-10-10T02:00:00.000Z" title="发表于 2019-10-10 10:00:00">2019-10-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2019/10/10/shengdoushi/" title="代号：打砖块"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="代号：打砖块"/></a><div class="content"><a class="title" href="/2019/10/10/shengdoushi/" title="代号：打砖块">代号：打砖块</a><time datetime="2019-10-10T02:00:00.000Z" title="发表于 2019-10-10 10:00:00">2019-10-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By RK</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
