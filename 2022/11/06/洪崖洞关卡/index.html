@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-<title>5号公路[TLOU]——宽线性关卡-RKs</title>
+<title>洪崖洞[TLOU]——魂系箱庭关卡-RKs</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -245,7 +245,7 @@
             
         </ul>
         
-        <h1>5号公路[TLOU]——宽线性关卡</h1>
+        <h1>洪崖洞[TLOU]——魂系箱庭关卡</h1>
         <div class="post-header-info">
             <div class="post-header-info-author">
                 
@@ -261,7 +261,7 @@
                 <div class="post-header-info-author-categories">
                     
                 </div>
-                <p>2022-09-30 21:06:00</p>
+                <p>2022-11-06 22:23:00</p>
             </div>
         </div>
     </div>
@@ -271,70 +271,63 @@
   <div id="article" class="post-content-info">
     
 
-    <h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><p><img src="https://s3.bmp.ovh/imgs/2022/10/07/2fb4e7a1c6972eba.jpg"></p>
-<ul>
-<li><strong>项目目标</strong>：用白盒方式复刻《最后生还者2》中西雅图线5号公路关卡</li>
+    <p><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zuxxxynxj31hc0u0doc.jpg"></p>
+<h1 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h1><h5 id="简介："><a href="#简介：" class="headerlink" title="简介："></a><strong>简介：</strong></h5><ul>
+<li><strong>游戏简介</strong>：最后生还者的世界观和基本玩法，故事发生地在中国重庆；关卡以洪崖洞建筑群作为场景参考，以魂系箱庭关卡思维为设计理念参考</li>
 <li><strong>项目类型</strong>: 个人项目 </li>
 <li><strong>使用工具</strong>: UE4，UE4 Blueprints，Blender，AI，UE4-IWALS</li>
+<li><strong>开发时间</strong>: 3周</li>
 </ul>
-<h5 id="演示视频以及设计重点分析"><a href="#演示视频以及设计重点分析" class="headerlink" title="演示视频以及设计重点分析"></a>演示视频以及设计重点分析</h5><iframe width="100%" height="549" src="//player.bilibili.com/player.html?aid=218932374&bvid=BV1e8411W7rD&cid=857046477&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<h5 id="玩法演示以及解说"><a href="#玩法演示以及解说" class="headerlink" title="玩法演示以及解说"></a><strong>玩法演示以及解说</strong></h5><!--  -->
+<iframe width="100%" height="549" src="//player.bilibili.com/player.html?aid=432432229&bvid=BV1JG411w7pK&cid=885271465&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe width="100%" height="549" src="//player.bilibili.com/player.html?aid=987380838&bvid=BV1Ut4y1K7tA&cid=887136419&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>" 
+
 <!-- <video src="https://activity.hdslb.com/blackboard/activity68698/public/static/2xv.mp4" style="width: 976px; height: 549px; left: 2px; top: 0px;" controls="controls" width="500" height="300">您的浏览器不支持播放该视频！</video> -->
 
 <h5 id="我做了什么："><a href="#我做了什么：" class="headerlink" title="我做了什么："></a><strong>我做了什么：</strong></h5><ul>
-<li><strong>反拆关卡</strong>：梳理关卡目标，任务流程</li>
-<li><strong>2D原型重制</strong>：地图绘制，路线制定</li>
+<li><strong>原型设计</strong>：从纸质关卡概念到可玩demo的完整流程设计</li>
+<li><strong>文档撰写</strong>：玩法设定文档，逻辑图绘制，地图绘制</li>
 <li><strong>白盒关卡</strong>：使用Blender和UE4制作关卡布局</li>
 <li><strong>游戏元素整合</strong>：调整AI战斗逻辑，设置事件触发，玩家拾取物等功能</li>
 <li><strong>脚本设计</strong>：使用UE4蓝图编写游戏脚本，以实现各种游戏交互功能</li>
+<li><strong>过场动画</strong>：使用UE4-Sequence制作过场动画</li>
 </ul>
-<h2 id="关卡背景"><a href="#关卡背景" class="headerlink" title="关卡背景"></a>关卡背景</h2><p>玩家历经艰苦卓绝的战斗，终于顺利逃出，来到自己的住所。在这里得知了”诺拉”（剧情任务目标）现在身在医院的线索，玩家决定只身前往医院，寻找”诺拉”的踪迹。此关卡是寻找”诺拉”任务线的起始关卡。</p>
-<h2 id="关卡目标"><a href="#关卡目标" class="headerlink" title="关卡目标"></a>关卡目标</h2><h3 id="1-主要目标：沿着5号公路，穿过一个街区，接近医院"><a href="#1-主要目标：沿着5号公路，穿过一个街区，接近医院" class="headerlink" title="1.主要目标：沿着5号公路，穿过一个街区，接近医院"></a>1.主要目标：沿着5号公路，穿过一个街区，接近医院</h3><p>1.穿过截断公路的检疫隔离区来到超市</p>
-<p>2.从超市侧窗回到5号公路，并沿着公路前进</p>
-<p>3.来到废弃仓库，推出垃圾车</p>
-<p>4.爬上建筑的顶部，接近医院。</p>
-<h3 id="2-其他目标："><a href="#2-其他目标：" class="headerlink" title="2.其他目标："></a>2.其他目标：</h3><p>1.补给：更新装备，补充弹药和物资，为下个关卡的战斗做准备</p>
-<p>2.支线叙事：了解WLF组织4名逃兵的故事</p>
-<p>3.玩家不久之前经历了激烈的战斗，所以此关卡需要把节奏放缓，尽量避免遭遇战，主要以探索和搜集为主</p>
-<h2 id="任务流程图"><a href="#任务流程图" class="headerlink" title="任务流程图"></a>任务流程图</h2><p><img src="https://s3.bmp.ovh/imgs/2022/10/07/15c9f40780765586.png" alt="任务流程"></p>
-<h2 id="布局图"><a href="#布局图" class="headerlink" title="布局图"></a>布局图</h2><p><img src="https://s3.bmp.ovh/imgs/2022/10/07/86833aa18044ca74.jpg" alt="布局图"></p>
-<h2 id="任务流程"><a href="#任务流程" class="headerlink" title="任务流程"></a>任务流程</h2><h3 id="主线流程"><a href="#主线流程" class="headerlink" title="主线流程"></a>主线流程</h3><h4 id="1-穿过截断公路的检疫隔离区来到超市。"><a href="#1-穿过截断公路的检疫隔离区来到超市。" class="headerlink" title="1.穿过截断公路的检疫隔离区来到超市。"></a>1.穿过截断公路的检疫隔离区来到超市。</h4><p>1.来到5号公路起始点</p>
-<p>2.通过简单的防御公事，来到检疫隔离区前。</p>
-<p>3.通过旋转门进入隔离区</p>
-<p>4.翻越隔离区的围栏，进入超市</p>
-<h4 id="2-从超市侧窗回到5号公路，并沿着公路前进。"><a href="#2-从超市侧窗回到5号公路，并沿着公路前进。" class="headerlink" title="2.从超市侧窗回到5号公路，并沿着公路前进。"></a>2.从超市侧窗回到5号公路，并沿着公路前进。</h4><p>1.进入超市探索</p>
-<p>2.翻过超市侧窗，回到5号公路</p>
-<p>3.沿着公路指示牌前进</p>
-<h4 id="3-来到废弃仓库，推出垃圾车。"><a href="#3-来到废弃仓库，推出垃圾车。" class="headerlink" title="3.来到废弃仓库，推出垃圾车。"></a>3.来到废弃仓库，推出垃圾车。</h4><p>1.公路再次被围墙阻断，发现仓库</p>
-<p>2.仓库门上锁，翻越栅栏门进入仓库</p>
-<p>3.进入仓库，打开仓库卷帘门，推出垃圾车</p>
-<h4 id="4-爬上石头建筑的顶部，接近医院。"><a href="#4-爬上石头建筑的顶部，接近医院。" class="headerlink" title="4.爬上石头建筑的顶部，接近医院。"></a>4.爬上石头建筑的顶部，接近医院。</h4><p>1.使用垃圾车进入石头建筑</p>
-<p>2.沿着楼梯爬上建筑顶部</p>
-<p>3.接近医院</p>
-<h3 id="支线流程"><a href="#支线流程" class="headerlink" title="支线流程"></a>支线流程</h3><h4 id="1-爬上隔离区屋顶，搜寻物资"><a href="#1-爬上隔离区屋顶，搜寻物资" class="headerlink" title="1.爬上隔离区屋顶，搜寻物资"></a>1.爬上隔离区屋顶，搜寻物资</h4><p>1.从堆放的货物爬上屋顶</p>
-<p>2.在屋顶搜寻，然后回到地面</p>
-<h4 id="2-进入公路旁的餐厅，消灭感染者"><a href="#2-进入公路旁的餐厅，消灭感染者" class="headerlink" title="2.进入公路旁的餐厅，消灭感染者"></a>2.进入公路旁的餐厅，消灭感染者</h4><p>1.击碎玻璃进入餐厅</p>
-<p>2.消灭感染者</p>
-<p>3.进入后厨</p>
-<p>4.回到5号公路</p>
-<h4 id="3-进入公路旁的购物中心，搜寻物资"><a href="#3-进入公路旁的购物中心，搜寻物资" class="headerlink" title="3.进入公路旁的购物中心，搜寻物资"></a>3.进入公路旁的购物中心，搜寻物资</h4><p>1.进入购物中心一层</p>
-<p>2.从电梯井的梯子爬上二层，来到房间A</p>
-<p>3.击碎房间A窗户玻璃，使用钩锁荡到B房间遮阳板</p>
-<p>4.进入B房间，搜集物资</p>
-<p>5，回到5号公路</p>
-<h4 id="4-遭遇WLF逃兵"><a href="#4-遭遇WLF逃兵" class="headerlink" title="4.遭遇WLF逃兵"></a>4.遭遇WLF逃兵</h4><p>1.来到居民楼，发现大门紧锁</p>
-<p>2.爬上门前的货车顶部，跳上二楼的遮阳板</p>
-<p>3.击碎二楼A房间的窗户玻璃进入A房间</p>
-<p>4.开房门进入二楼B房间，搜集物资</p>
-<p>5.使用B房间的工作台，遭遇敌人</p>
-<p>6.消灭敌人</p>
-<p>7.进入敌人藏匿处C房间，搜集物资</p>
-<p>8.来到二楼D房间的遮阳板，击碎窗户进入</p>
-<p>9.发现屋内的信件，获得保险箱密码</p>
-<p>10.开房门，进入E房间，打开保险箱</p>
-<p>11离开二楼沿着楼梯来到一楼大厅。</p>
-<p>12.打开大门，离开居民楼，回到5号公路</p>
-<h3 id="路线图"><a href="#路线图" class="headerlink" title="路线图"></a>路线图</h3><p>（图中的标记[1.1]对应着<strong>任务流程</strong>中的相应事件）<br><img src="https://s3.bmp.ovh/imgs/2022/10/07/7d3defdbb4fbc59f.jpg" alt="关卡路线"></p>
-<h2 id="项目图片"><a href="#项目图片" class="headerlink" title="项目图片"></a>项目图片</h2><p><img src="https://s3.bmp.ovh/imgs/2022/10/09/1a73f03c682df44a.jpg"><br><img src="https://s3.bmp.ovh/imgs/2022/10/09/6062adc98d0be7d2.jpg"><br><img src="https://s3.bmp.ovh/imgs/2022/10/09/89fd5d35103452fd.jpg"><br><img src="https://s3.bmp.ovh/imgs/2022/10/09/750a86554041773a.jpg"><br><img src="https://s3.bmp.ovh/imgs/2022/10/09/bf875529cf4f09f2.jpg"><br><img src="https://s3.bmp.ovh/imgs/2022/10/09/ea525448119473bb.jpg"><br><img src="https://s3.bmp.ovh/imgs/2022/10/09/b569c8998d86f550.jpg"><br><img src="https://s3.bmp.ovh/imgs/2022/10/09/6c5770996f7eac15.jpg"><br><img src="https://s3.bmp.ovh/imgs/2022/10/09/0e3a478add421c8e.jpg"></p>
+<h5 id="项目目标："><a href="#项目目标：" class="headerlink" title="项目目标："></a><strong>项目目标：</strong></h5><ul>
+<li>制作一个最后生还者非线性箱庭关卡，试图用自己的理解回答：“最后生还者+魂类地图设计是什么样的？”这个问题</li>
+<li>关卡规模，体量相当于魂类游戏中的大中型箱庭关卡，50%-75%火山官邸那么大，完整游玩流程大概需要40分钟。</li>
+<li>以重庆为游戏发生的地点，展现中国式末日废墟城市的景象</li>
+<li>参考“类魂拓扑学”理论，实现局部开放式探索，整体回溯式探索的关卡体验，验证魂系关卡设计思路是否可以在其他题材或者游戏类型中使用。</li>
+</ul>
+<h5 id="游戏基本系统介绍（基于IWALS项目）："><a href="#游戏基本系统介绍（基于IWALS项目）：" class="headerlink" title="游戏基本系统介绍（基于IWALS项目）："></a><strong>游戏基本系统介绍（基于IWALS项目）：</strong></h5><ul>
+<li>战斗系统：枪械射击、弓箭射击、潜行暗杀、近身武器战斗、手榴弹系统。</li>
+<li>运动系统：走路，跑步，快跑，跨越低障碍物（50cm）。</li>
+<li>交互系统：开门，爬梯子，	推石头，电梯等。</li>
+</ul>
+<h1 id="设计过程"><a href="#设计过程" class="headerlink" title="设计过程"></a>设计过程</h1><h2 id="关卡目标"><a href="#关卡目标" class="headerlink" title="关卡目标"></a>关卡目标</h2><h3 id="1-主要目标：寻找舌火帮的踪迹，击败其首领，获得情报"><a href="#1-主要目标：寻找舌火帮的踪迹，击败其首领，获得情报" class="headerlink" title="1.主要目标：寻找舌火帮的踪迹，击败其首领，获得情报"></a>1.主要目标：寻找舌火帮的踪迹，击败其首领，获得情报</h3><p>1.穿过滨江路沉船区域，沿着楼梯来到洪崖滴翠亭</p>
+<p>2.穿越下层防空洞击杀感染者，去往吊脚楼</p>
+<p>3.消灭吊脚楼屋顶以及建筑物里的舌火帮，并且去到栈道入口</p>
+<p>4.沿着栈道进入防空洞，穿越防空洞来到迎宾楼废墟处</p>
+<p>5.击杀露台BOSS，来到迎宾楼屋顶，并且进入迎宾楼废墟里</p>
+<p>6.从废墟2层做电梯去往千厮门大敲，并击败最终boss</p>
+<h3 id="2-其他目标：探索洪崖洞各个区域"><a href="#2-其他目标：探索洪崖洞各个区域" class="headerlink" title="2.其他目标：探索洪崖洞各个区域"></a>2.其他目标：探索洪崖洞各个区域</h3><p>1.探索沉船，迎宾楼阳台，防空洞下层，千厮门轻轨站等区域</p>
+<p>2.搜集散落在地图各处的食物配方（收藏品）</p>
+<h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><p>1.最简逻辑图<br><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zufw2zknj31dw15jk16.jpg" alt="最简逻辑图.png"><br>2.完整POI逻辑图<br><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zuibo637j31re1exnag.jpg" alt="洪崖洞逻辑图.png"><br>3.关卡节奏图<br><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zufw7lbvj33q41x8wtd.jpg" alt="节奏图.png"></p>
+<h2 id="布局图"><a href="#布局图" class="headerlink" title="布局图"></a>布局图</h2><p><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zuf8jkw4j34ad4a5x6q.jpg" alt="平面图不带路线.png"></p>
+<!-- ## 任务流程 -->
+
+
+
+<h2 id="路线图"><a href="#路线图" class="headerlink" title="路线图"></a>路线图</h2><p><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zueo1qwmj34ad4a57wk.jpg" alt="平面图带路线.png"></p>
+<h2 id="视觉参考"><a href="#视觉参考" class="headerlink" title="视觉参考"></a>视觉参考</h2><p><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zyntpx6oj31o01d4b2a.jpg"><br><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zynrg9hpj30vl0wgke4.jpg"><br><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zyns36pqj30vd0t54i8.jpg"><br><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zynu9af9j31ux148e83.jpg"><br><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zynqamw4j30jg0b9th4.jpg"></p>
+<h2 id="关卡白盒"><a href="#关卡白盒" class="headerlink" title="关卡白盒"></a>关卡白盒</h2><p>1.关卡总览<br><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zzgx4lexj32yo1n1aqk.jpg" alt="关卡总览1.jpg"><br><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zzgx5lqyj32yo1n17nq.jpg" alt="关卡总览2.jpg"><br><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zzgxyp74j32yo1n1nge.jpg" alt="千厮门大桥俯瞰.jpg"><br>2.关卡区域</p>
+<ul>
+<li>滨江路沉船<br><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zzgx4kltj32yo1n1nhx.jpg" alt="滨江路沉船.jpg"></li>
+<li>洪崖滴翠亭<br><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zzgxio44j32yo1n1tlj.jpg" alt="洪崖滴翠亭.jpg"></li>
+<li>吊脚楼<br><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zzgxc7mkj32yo1n17na.jpg" alt="吊脚楼.jpg"></li>
+<li>防空洞<br><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zzgwpqwnj32yo1n10yq.jpg" alt="防空洞.jpg"></li>
+<li>迎宾楼废墟<br><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zzgymmrij32yo1n1e7r.jpg" alt="迎宾楼废墟.jpg"></li>
+<li>千厮门大桥<br><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zzgxbhbaj32yo1n1h23.jpg" alt="千厮门大桥.jpg"><br>3.室内<br><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zzgxqnzwj32yo1n1tu2.jpg" alt="室内1.jpg"><br><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zzgxkus2j32yo1n1qaq.jpg" alt="室内2.jpg"><br><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zzgxs4ozj32yo1n1108.jpg" alt="室内3.jpg"><br><img src="http://tva1.sinaimg.cn/large/0075kL53ly1h7zzgxrpm0j32yo1n1alc.jpg" alt="室内4.jpg"></li>
+</ul>
 
   </div>
   <div id="gitalk-container"></div>
@@ -395,19 +388,12 @@ Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
 
     <div class="post-paging">
     
-    <a href="/2022/11/06/%E6%B4%AA%E5%B4%96%E6%B4%9E%E5%85%B3%E5%8D%A1/">
-        <div class="post-paging-last">
-            <span>上个项目</span>
-            <p>洪崖洞[TLOU]——魂系箱庭关卡</p>
-        </div>
-    </a>
-    
 
     
-    <a href="/2022/09/15/%E6%88%98%E7%A5%9E4%E6%96%B0%E6%89%8B%E5%85%B3%E5%8D%A1%E5%A4%8D%E5%88%BB/">
+    <a href="/2022/09/30/TLOU5%E5%8F%B7%E5%85%AC%E8%B7%AF%E5%85%B3%E5%8D%A1%E5%A4%8D%E5%88%BB/">
         <div class="post-paging-next">
             <span>下个项目</span>
-            <p>父子打猎[GOW4]——新手关卡</p>
+            <p>5号公路[TLOU]——宽线性关卡</p>
         </div>
     </a>
     
