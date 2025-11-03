@@ -6,29 +6,81 @@
   font-size: 1.1rem;
   transition: all 0.4s ease-in-out;
 }
-.grouping p {
+.grouping .grouping-year {
+  display: none;
   font-size: 1.55rem;
   margin-bottom: 20px;
   font-weight: 500;
   line-height: 1.2;
   margin-top: 20px;
+  color: #3C4858;
 }
-.grouping a {
+.grouping .grouping-item {
   display: flex;
   text-decoration: none;
   color: #3C4858;
-  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
 }
-.grouping a span {
-  flex-grow: 1;
+.grouping .grouping-item:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
 }
-.grouping a time {
-  white-space: nowrap;
-}
-.grouping a:hover {
-  background: #F8F9FB;
+.grouping .grouping-item:hover .grouping-item-title {
   color: #4CA5CE;
-  border-radius: 6px;
+}
+.grouping .grouping-item .grouping-item-cover {
+  width: 240px;
+  height: 140px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+.grouping .grouping-item .grouping-item-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.grouping .grouping-item:hover .grouping-item-cover img {
+  transform: scale(1.05);
+}
+.grouping .grouping-item .grouping-item-content {
+  flex: 1;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.grouping .grouping-item .grouping-item-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+  color: #3C4858;
+  transition: color 0.3s ease;
+}
+.grouping .grouping-item .grouping-item-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: #999;
+}
+.grouping .grouping-item .grouping-item-tag {
+  padding: 4px 12px;
+  background: #F8F9FB;
+  border-radius: 4px;
+  color: #666;
+  font-size: 0.85rem;
+}
+.grouping .grouping-item .grouping-item-time {
+  white-space: nowrap;
+  color: #999;
 }
 @media screen and (max-width: 600px) {
   .grouping {
@@ -37,10 +89,23 @@
     padding: 50px 15px;
     font-size: 1rem;
   }
-  .grouping p {
+  .grouping .grouping-year {
     font-size: 1.5rem;
   }
-  .grouping a {
-    padding: 15px;
+  .grouping .grouping-item {
+    flex-direction: column;
+  }
+  .grouping .grouping-item .grouping-item-cover {
+    width: 100%;
+    height: 180px;
+  }
+  .grouping .grouping-item .grouping-item-content {
+    padding: 16px;
+  }
+  .grouping .grouping-item .grouping-item-title {
+    font-size: 1rem;
+  }
+  .grouping .grouping-item .grouping-item-meta {
+    font-size: 0.85rem;
   }
 }

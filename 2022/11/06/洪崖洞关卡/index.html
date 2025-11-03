@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-<title>洪崖洞[TLOU]——魂系箱庭关卡-RKs</title>
+<title>洪崖洞-RKs</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/css/index.css">
 
 
-<meta name="keywords" content="关卡策划,系统策划,游戏">
+<meta name="keywords" content="关卡策划,游戏策划">
 <meta name="description" content="描述">
 
 
@@ -32,7 +32,7 @@
 
 <script src="/js/hljs.min.js"></script>
  
-<script>hljs.initHighlightingOnLoad();</script>
+<script>hljs.highlightAll();</script>
 
 	<meta name="generator" content="Hexo 6.3.0"></head>
 
@@ -43,6 +43,7 @@
 			<div class="h-left">
 				<a href="/">
 					<img src="/image/favicon.png" alt="Quiet">
+					<span>任宽·关卡设计</span>
 				</a>
 			</div>
 			<div class="h-right">
@@ -119,10 +120,6 @@
     </ul>
     <div class="my_foot">
         
-        <a href="">
-            <img src="/image/nothing.png" alt="Quiet主题">
-        </a>
-        
     </div>
 </div>
 <div class='shelter'>
@@ -141,16 +138,16 @@
         z-index: 1998;
     }
     .sidebar {
-        width: 0;
+        width: 66%;
         height: 100%;
         position: fixed;
         top: 0;
-        right: 0;
+        right: -100%;
         bottom: 0;
         background: #fff;
         z-index: 1999;
         text-align: center;
-        box-shadow: -6px 0 20px rgba(98, 94, 94, .815)
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
     }
 
     .topo {
@@ -231,7 +228,7 @@
 		.click( function () {
 			$( '.sidebar' )
 				.animate( {
-					width: "66%"
+					right: "0"
 				}, 500 );
 			$( '.shelter' )
 				.fadeIn( "slow" )
@@ -240,7 +237,7 @@
 		.click( function ( e ) {
 			$( '.sidebar' )
 				.animate( {
-					width: "0"
+					right: "-100%"
 				}, 500 );
 			$( '.shelter' )
 				.fadeOut( "slow" )
@@ -258,7 +255,7 @@
             
         </ul>
         
-        <h1>洪崖洞[TLOU]——魂系箱庭关卡</h1>
+        <h1>洪崖洞</h1>
         <div class="post-header-info">
             <div class="post-header-info-author">
                 
@@ -397,20 +394,29 @@ Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
     }
 </style>
 
+    <div class="post-paging">
     
+    <a href="/2022/11/15/%E6%88%98%E7%A5%9E5%E8%8B%B9%E6%9E%9C%E6%A0%B8%E5%8C%BA%E5%9F%9F/">
+        <div class="post-paging-last">
+            <span>上一篇</span>
+            <p>《战神5》矮人矿洞苹果核关卡复刻以及设计分析</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2022/09/30/TLOU5%E5%8F%B7%E5%85%AC%E8%B7%AF%E5%85%B3%E5%8D%A1%E5%A4%8D%E5%88%BB/">
+        <div class="post-paging-next">
+            <span>下一篇</span>
+            <p>5号公路</p>
+        </div>
+    </a>
+    
+</div>
 </div>
 		
 <div class="footer">
-	<div class="Copyright">
-		©2023 By 任宽. 主题：<a
-			style="text-decoration: none;display: contents; color: #898F9F;"
-			target="_blank" rel="noopener" href="https://github.com/qiaobug/hexo-theme-quiet">Quiet</a>
-	</div>
 	<div class="contact">
-		
-		<a href="">
-			<img src="/image/nothing.png" alt="Quiet主题">
-		</a>
 		
 	</div>
 </div>
@@ -501,11 +507,14 @@ Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
             id:location.pathname,
             distractionFreeMode:false
         })
-        gitalk.render('gitalk-container')
+        
+        if(Boolean('true')){
+            gitalk.render('gitalk-container')
+        }
     </script>
 
 <script>
-	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/QiaoBug/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
 </script>
 	</body>
 </html>

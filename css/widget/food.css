@@ -4,7 +4,7 @@
   height: 80px;
 }
 .footer .Copyright {
-  display: none;
+  display: flex;
   margin-left: 18px;
   color: #898fa0;
   font-size: 14px;

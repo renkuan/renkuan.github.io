@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/css/index.css">
 
 
-<meta name="keywords" content="关卡策划,系统策划,游戏">
+<meta name="keywords" content="关卡策划,游戏策划">
 <meta name="description" content="描述">
 
 
@@ -32,7 +32,7 @@
 
 <script src="/js/hljs.min.js"></script>
  
-<script>hljs.initHighlightingOnLoad();</script>
+<script>hljs.highlightAll();</script>
 
 	<meta name="generator" content="Hexo 6.3.0"></head>
 
@@ -43,6 +43,7 @@
 			<div class="h-left">
 				<a href="/">
 					<img src="/image/favicon.png" alt="Quiet">
+					<span>任宽·关卡设计</span>
 				</a>
 			</div>
 			<div class="h-right">
@@ -119,10 +120,6 @@
     </ul>
     <div class="my_foot">
         
-        <a href="">
-            <img src="/image/nothing.png" alt="Quiet主题">
-        </a>
-        
     </div>
 </div>
 <div class='shelter'>
@@ -141,16 +138,16 @@
         z-index: 1998;
     }
     .sidebar {
-        width: 0;
+        width: 66%;
         height: 100%;
         position: fixed;
         top: 0;
-        right: 0;
+        right: -100%;
         bottom: 0;
         background: #fff;
         z-index: 1999;
         text-align: center;
-        box-shadow: -6px 0 20px rgba(98, 94, 94, .815)
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
     }
 
     .topo {
@@ -231,7 +228,7 @@
 		.click( function () {
 			$( '.sidebar' )
 				.animate( {
-					width: "66%"
+					right: "0"
 				}, 500 );
 			$( '.shelter' )
 				.fadeIn( "slow" )
@@ -240,7 +237,7 @@
 		.click( function ( e ) {
 			$( '.sidebar' )
 				.animate( {
-					width: "0"
+					right: "-100%"
 				}, 500 );
 			$( '.shelter' )
 				.fadeOut( "slow" )
@@ -256,7 +253,6 @@
         <span>
             <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imgblogmyCategory.svg" alt="Quiet">
         </span>
-
         <h2>文章分类</h2>
     </div>
 </div>
@@ -281,16 +277,7 @@
 </div>
 		
 <div class="footer">
-	<div class="Copyright">
-		©2023 By 任宽. 主题：<a
-			style="text-decoration: none;display: contents; color: #898F9F;"
-			target="_blank" rel="noopener" href="https://github.com/qiaobug/hexo-theme-quiet">Quiet</a>
-	</div>
 	<div class="contact">
-		
-		<a href="">
-			<img src="/image/nothing.png" alt="Quiet主题">
-		</a>
 		
 	</div>
 </div>
@@ -381,11 +368,14 @@
             id:location.pathname,
             distractionFreeMode:false
         })
-        gitalk.render('gitalk-container')
+        
+        if(Boolean('true')){
+            gitalk.render('gitalk-container')
+        }
     </script>
 
 <script>
-	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/QiaoBug/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
 </script>
 	</body>
 </html>
