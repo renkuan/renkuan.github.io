@@ -1,0 +1,67 @@
+.header-body-background {
+  width: 100%;
+  display: flex;
+  flex-shrink: 0;
+  background: linear-gradient(to top, #ffffff, #ffffff);
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+}
+.header-body-background-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  gap: 20px;
+}
+.header-body-background-content h2 {
+  display: flex;
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 32px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #12183A;
+  justify-content: center;
+  align-items: center;
+}
+.header-body-background-content span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+.header-body-background-content span img {
+  width: 80px;
+  height: 80px;
+}
+.home .header-body-background {
+  height: 250px;
+}
+.home .header-body-background-content h2 {
+  display: none;
+}
+.home .header-body-background-content span img {
+  display: none;
+}
+.archive .header-body-background {
+  height: 150px;
+}
+.archive .header-body-background-content h2 {
+  display: none;
+}
+.archive .header-body-background-content span img {
+  display: none;
+}
+.links .header-body-background {
+  height: 150px;
+}
+.links .header-body-background-content h2 {
+  display: none;
+}
+.links .header-body-background-content span img {
+  display: none;
+}
