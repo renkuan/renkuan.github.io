@@ -95,8 +95,8 @@
 }
 @media screen and (max-width: 768px) {
   .home .main .post-card {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 40px 20px;
+    grid-template-columns: 1fr;
+    gap: 40px;
     padding: 40px 20px;
   }
   .home .main .post-card-display {
