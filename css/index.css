@@ -954,7 +954,7 @@ hue-6-2: #e6c07b
 }
 @media screen and (max-width: 768px) {
   .home .main .post-card {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     gap: 40px;
     padding: 40px 20px;
   }
@@ -978,7 +978,7 @@ hue-6-2: #e6c07b
 }
 @media screen and (max-width: 480px) {
   .home .main .post-card {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     gap: 35px;
     padding: 30px 16px;
   }
