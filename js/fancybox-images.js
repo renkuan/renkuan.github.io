@@ -5,7 +5,7 @@ $(document).ready(function() {
       var alt = this.alt;
       $(this).wrap(
           '<a href="' + ($(this).attr('data-src') == null ? this.src : 
-          $(this).attr('data-src')) + '" title="' + alt + '" data-src="'+ this.src +'" class="fancybox" data-fancybox="fancybox-gallery-img"></a>');
+          $(this).attr('data-src')) + '" data-src="'+ this.src +'" class="fancybox" data-fancybox="fancybox-gallery-img"></a>');
     });
     $(this).find('.fancybox').each(function(){
       $(this).attr('rel', 'article');
