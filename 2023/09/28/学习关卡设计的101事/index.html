@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+<title>学习关卡设计的101点体会-RKs</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.png">
+
+<link rel="stylesheet" href="/css/index.css">
+
+
+<meta name="keywords" content="关卡策划,游戏策划">
+<meta name="description" content="描述">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/index.js"></script>
+
+
+<script src="/js/fancybox.umd.js"></script>
+
+
+<script src="/js/fancybox-images.js"></script>
+
+
+<script src="/js/gitalk.min.js"></script>
+
+
+<script src="/js/hljs.min.js"></script>
+ 
+<script>hljs.highlightAll();</script>
+
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		
+	<div class="header">
+		<div class="header-top" id="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/favicon.png" alt="Quiet">
+					<span>任宽·关卡设计</span>
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										关卡
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										文章
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										简历
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										关于我
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>任宽</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">关卡</a>
+        </li>
+        
+        <li>
+            <a href="/archives">文章</a>
+        </li>
+        
+        <li>
+            <a href="/links">简历</a>
+        </li>
+        
+        <li>
+            <a href="/about">关于我</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+    </div>
+</div>
+<div class='shelter'>
+</div>
+<style>
+    .shelter{
+        background-color: #333;
+        opacity:0.5;
+        cursor: pointer;
+        display: none; 
+        position: fixed;
+        left: 0;
+        top: 0; 
+        right: 0;
+        bottom: 0;
+        z-index: 1998;
+    }
+    .sidebar {
+        width: 66%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        background: #fff;
+        z-index: 1999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $( function () {
+	$( '.h-right-close>svg' )
+		.click( function () {
+			$( '.sidebar' )
+				.animate( {
+					right: "0"
+				}, 500 );
+			$( '.shelter' )
+				.fadeIn( "slow" )
+		} );
+	$( '.shelter' )
+		.click( function ( e ) {
+			$( '.sidebar' )
+				.animate( {
+					right: "-100%"
+				}, 500 );
+			$( '.shelter' )
+				.fadeOut( "slow" )
+		} )
+} )
+
+</script>
+
+<div class="post">
+    <div class="post-header-background post-header-color"
+    style="background: url('')" 
+>
+    <div class="post-header-background-content">
+        <ul class="post-header-tag">
+            
+        </ul>
+        
+        <h1>学习关卡设计的101点体会</h1>
+        <div class="post-header-info">
+            <div class="post-header-info-author">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                        <g>
+                            <path fill="#12183A"
+                                d="M6.187 15.265A6.47 6.47 0 0 0 10 16.5a6.47 6.47 0 0 0 3.813-1.235A4.99 4.99 0 0 0 10 13.5a4.99 4.99 0 0 0-3.813 1.765zM5.082 14.25A6.485 6.485 0 0 1 10 12c1.965 0 3.726.872 4.918 2.25a6.5 6.5 0 1 0-9.836 0zM10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+                            </path>
+                        </g>
+                    </svg>
+                
+                <span class="post-header-info-author-text"> <a href="../../about">任宽</a></span>
+                <div class="post-header-info-author-categories">
+                    
+                </div>
+                <p>2023-09-28 18:42:15</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="post-content" id="content">
+  
+  <div id="article" class="post-content-info">
+    
+
+    <h1 id="学习关卡设计的101点体会"><a href="#学习关卡设计的101点体会" class="headerlink" title="学习关卡设计的101点体会"></a>学习关卡设计的101点体会</h1><ol>
+<li><p>写实解谜游戏比想象的要难做：玩法组件的可读性将是头等大事。想想就连战神和神海这种顶级游戏都不可避免的在可交互组件上加上符文或者白色涂装这种东西。</p>
+</li>
+<li><p>取景框里的每一件事物都是被选中的，关卡里的也是。</p>
+</li>
+<li><p>如果觉得自己的关卡平淡死板，试试加入更多的”动态”，能让你的关卡更加生动。</p>
+</li>
+<li><p>简单的关卡动态设计思路：敌人出场设计、主角移动方式切换、系统层面的环境实时变化。</p>
+</li>
+<li><p>平面构图陷阱：玩家镜头是不受控的，要么把玩家引导到构图处，要么采用”游乐场设计”式空间构图。</p>
+</li>
+<li><p>对比是形成节拍的关键，节奏就是把节拍排列组合以形成我们想要的情绪波动曲线。</p>
+</li>
+<li><p>blockout时不要为了旋转倾斜而旋转倾斜，要么为了塑造空间形状，要么为了形成视觉构图。</p>
+</li>
+<li><p>机制教学：提前展示结果，减少玩家选择。</p>
+</li>
+<li><p>简单易懂的空间结构容易形成mental map心理映射地图，魂系关卡是在用简单局部结构构成复杂全局结构。复杂就约等于乐趣，谜题，游戏，宇宙。</p>
+</li>
+<li><p>立体空间与实体本身一样，像阴与阳。</p>
+</li>
+<li><p>一个令人难忘的开场设计绝对能让关卡大大加分。</p>
+</li>
+<li><p>简单的开场设计思路：强对比呈现场景视觉奇观（旷野之息开场）、叙事反转增加戏剧性、高潮段落闪回制造反差（神秘海域4）</p>
+</li>
+<li><p>关卡设计中隐藏的底层游戏规则：视觉感知与理解</p>
+</li>
+<li><p>控制关卡规模尺寸。时常问自己我做这么大有必要吗？</p>
+</li>
+<li><p>每一次摄影机的被游戏系统玩法限制住时，都是表演的好时机。</p>
+</li>
+<li><p>无侵犯限制摄像机的示例：对马岛俯身爬过地洞时镜头机位下落视野受限，古墓丽影沿着悬崖走时镜头固定在任务背后且无法旋转，半条命把玩家锁在一个只有一面透明玻璃的房间里，透明玻璃的另一边的房间里进行脚本演出。</p>
+</li>
+<li><p>关卡设计流程不是必须要遵守的。或者说不是非得按固定的顺序。比如设计平面布局图个3D白盒的顺序，可以先做3D白盒然后反过来再做2D布局，因为2D平面设计可以用来更清晰的呈现区域划分，约束3D空间，或者用来和其他设计师交流。但不一定非得在白盒之前就出来。</p>
+</li>
+<li><p>主角的移动能力强的，大多数关卡场景都不是正常比例尺寸，比如鬼泣（失真的幻想场景），星战（外星球，尺寸比较随意），只狼（虽然是写实风格，但建筑明显被放大）。</p>
+</li>
+<li><p>有z轴无限移动能力的游戏（装甲核心）的关卡设计亮点：充分利用Z轴空间来设计超高速长距离上升下落，从而带来的爽快独特的体验；为了能承载如此变态的移动能力，科幻场景主要用巨大体块建筑和开阔空间构成，形状简单，风格冷硬但巨物震撼。</p>
+</li>
+<li><p>一个好关卡的基本要求：至少有一处给留下深刻印象</p>
+</li>
+<li><p>写实关卡：比起创造空间，找到合适的已有现实空间往往是更好的选择。</p>
+</li>
+<li><p>具有美感的关卡平面layout往往是一个<strong>结果：3D空间合理设计的结果。</strong>而不是反过来：平面设计作为空间设计的起点。在空间中行动的感受永远是最重要的。</p>
+</li>
+</ol>
+<hr>
+<p><em>持续更新中</em></p>
+
+  </div>
+  <div id="gitalk-container"></div>
+</div>
+
+<script>
+  
+Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
+  dragToClose: true,
+  Toolbar: true,
+  closeButton: "top",
+  Image: {
+    zoom: true,
+  },
+  on: {
+    initCarousel: (fancybox) => {
+      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+    "Carousel.change": (fancybox, carousel, to, from) => {
+      const slide = carousel.slides[to];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+  },
+});
+</script>
+
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 9999;
+        /* width: 600px !important; */
+        min-width: 0%;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            max-width: 88%
+        }
+    }
+</style>
+
+    
+<div class="post-paging">
+    
+    <a href="/2023/10/28/%E7%99%BD%E7%9B%92%E3%80%81%E8%A7%A3%E8%B0%9C%E8%AE%BE%E8%AE%A1%E3%80%81Z%E8%BD%B4/">
+        <div class="post-paging-last">
+            <span>上一篇</span>
+            <p>量产关卡、解谜设计、Z轴</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2023/08/22/%E3%80%8A%E5%9F%8E%E5%B8%82%E6%84%8F%E5%90%91%E3%80%8B%E8%AF%BB%E5%90%8E/">
+        <div class="post-paging-next">
+            <span>下一篇</span>
+            <p>《城市意向》读后感</p>
+        </div>
+    </a>
+    
+</div>
+</div>
+		
+<div class="footer">
+	<div class="contact">
+		
+	</div>
+</div>
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            transition: border .5s;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $( '#js-go_top' )
+	.gotoTop( {
+		offset: 500,
+		speed: 300,
+		animationShow: {
+			'transform': 'translate(0,0)',
+			'transition': 'transform .5s ease-in-out'
+		},
+		animationHide: {
+			'transform': 'translate(100px,0)',
+			'transition': 'transform .5s ease-in-out'
+		}
+	} );
+</script>
+
+
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+</html>
+

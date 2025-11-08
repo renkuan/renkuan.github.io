@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+<title>2022年游戏短评-RKs</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.png">
+
+<link rel="stylesheet" href="/css/index.css">
+
+
+<meta name="keywords" content="关卡策划,游戏策划">
+<meta name="description" content="描述">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/index.js"></script>
+
+
+<script src="/js/fancybox.umd.js"></script>
+
+
+<script src="/js/fancybox-images.js"></script>
+
+
+<script src="/js/gitalk.min.js"></script>
+
+
+<script src="/js/hljs.min.js"></script>
+ 
+<script>hljs.highlightAll();</script>
+
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		
+	<div class="header">
+		<div class="header-top" id="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/favicon.png" alt="Quiet">
+					<span>任宽·关卡设计</span>
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										关卡
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										文章
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										简历
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										关于我
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>任宽</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">关卡</a>
+        </li>
+        
+        <li>
+            <a href="/archives">文章</a>
+        </li>
+        
+        <li>
+            <a href="/links">简历</a>
+        </li>
+        
+        <li>
+            <a href="/about">关于我</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+    </div>
+</div>
+<div class='shelter'>
+</div>
+<style>
+    .shelter{
+        background-color: #333;
+        opacity:0.5;
+        cursor: pointer;
+        display: none; 
+        position: fixed;
+        left: 0;
+        top: 0; 
+        right: 0;
+        bottom: 0;
+        z-index: 1998;
+    }
+    .sidebar {
+        width: 66%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        background: #fff;
+        z-index: 1999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $( function () {
+	$( '.h-right-close>svg' )
+		.click( function () {
+			$( '.sidebar' )
+				.animate( {
+					right: "0"
+				}, 500 );
+			$( '.shelter' )
+				.fadeIn( "slow" )
+		} );
+	$( '.shelter' )
+		.click( function ( e ) {
+			$( '.sidebar' )
+				.animate( {
+					right: "-100%"
+				}, 500 );
+			$( '.shelter' )
+				.fadeOut( "slow" )
+		} )
+} )
+
+</script>
+
+<div class="post">
+    <div class="post-header-background post-header-color"
+    style="background: url('')" 
+>
+    <div class="post-header-background-content">
+        <ul class="post-header-tag">
+            
+        </ul>
+        
+        <h1>2022年游戏短评</h1>
+        <div class="post-header-info">
+            <div class="post-header-info-author">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                        <g>
+                            <path fill="#12183A"
+                                d="M6.187 15.265A6.47 6.47 0 0 0 10 16.5a6.47 6.47 0 0 0 3.813-1.235A4.99 4.99 0 0 0 10 13.5a4.99 4.99 0 0 0-3.813 1.765zM5.082 14.25A6.485 6.485 0 0 1 10 12c1.965 0 3.726.872 4.918 2.25a6.5 6.5 0 1 0-9.836 0zM10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+                            </path>
+                        </g>
+                    </svg>
+                
+                <span class="post-header-info-author-text"> <a href="../../about">任宽</a></span>
+                <div class="post-header-info-author-categories">
+                    
+                </div>
+                <p>2022-12-28 16:45:10</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="post-content" id="content">
+  
+  <div id="article" class="post-content-info">
+    
+
+    <h2 id="掠食"><a href="#掠食" class="headerlink" title="掠食"></a>掠食</h2><p><img src="https://cdn.ipfsscan.io/weibo/large/0075kL53ly1i6zygofr0tj31hc0u016n.jpg" alt="."><br>作为一款典型的Arkane制作的沉浸式模拟类游戏，和同是2017年的旷野之息共享一个最重要的玩法设计原则：谜题的多解性设计。虽然不及塞尔达的物理化学系统那般千变万化无穷无尽，但贵在缜密设计，算得上是精妙绝伦，就这个方面绝对是游戏业界顶尖水平。严肃深刻的故事设定，艺术性十足的美术风格，前卫独特的音乐。最重要！多样的互动方式和自由的游玩体验。被媒体评分埋没的神作，不要错过。</p>
+<h2 id="时之笛-水神殿"><a href="#时之笛-水神殿" class="headerlink" title="时之笛-水神殿"></a>时之笛-水神殿</h2><p><img src="https://cdn.ipfsscan.io/weibo/large/0075kL53ly1i6zykqrm7qj31hc0u07wh.jpg" alt="《塞尔达传说：时之笛3D》"><br><strong>1. 放水机制</strong>：放水机制千千万，三档水位可调整仅此一家。而且调整水位不是像旷野之息里直接通过UI面板操作，而是共有三个水位调整开关，每个开关分布在不同层，每个开关只可以进行升降操作，玩家需要先移动到开关处才可以调整水位。在这样的基础机制上，再融合铁鞋子、升级版钩锁的主题机制，想一想就能感觉有多复杂。但正是这样的复杂度，需要玩家完全吃透整个空间结构对机制使用有深入的理解，从而在完成关卡的那一刻给予玩家无与伦比的成就感。整个关卡的体验像是摆弄一个精妙的仪器，复杂度高但是精妙至极。空间、游戏机制有机结合展现出来的趣味性让人直呼精彩。</p>
+<p><strong>2. 流程节奏</strong>：虽然是相当复杂的关卡，但是整个流程阶段感区分还是比较明显，关卡使用最基本的【能力（钩锁）—锁】【钥匙-锁】的机制对空间进行了切割，也就是说再某一时间段玩家可以选择探索的空间是有限的，刚开始的区域主要是磨炼玩家对新机制的理解，然后在玩家突破”蚂蚁的细腰”（即炸毁二层的墙壁）后整个关卡完全展现再玩家的面前，各种复合机制的谜题出现，最终通过一个BOSS房钥匙使得关卡收束到最终BOSS战，整个节奏也是老任拿手的起承转合四步走。节奏明晰，难而不乱。重置版加上了更加明确的视觉引导算是补完了最后一块拼图，整个关卡趋近于完美，个人觉得是那种只能仰望的关卡设计。</p>
+<p><strong>3. 机制理解</strong>：令我印象深刻的还有任天堂对机制的深入理解，这个关卡里一个重要的能力是升级版的钩锁，也就是说玩家之前已经获得了钩锁，这个关卡里会获得一个升级道具使得钩锁能伸更长。这个能力是通关的关键，因为BOSS房所在区域的入口需要这个能力才能进入。正常思路我们会怎么设计这个入口呢，最可能的就是把玩家位置放的离钩锁点足够远，普通钩锁无法够到，需要升级版加长钩锁。任天堂的设计是：入口处有一个机制门，需要跳到对面平台射箭才能打开门，门打开后会徐徐落下。钩锁点在门里面普通钩锁也能够到，精妙之处在于时间的把控，打开门，跳回原平台不等玩家进入门使用普通钩锁门就会落下，而升级版的钩锁够长可以直接在对面的平台上使用，钩锁回收速度较快，所以玩家得以进入门内。当玩家对普通钩锁使用趋于熟练时会产生惯性思维，设计者利用这点摆了玩家一道，让玩家误以为是自己操作有误跑的不够快，而正确的解法是要换一个思维。这是任天堂在设计”起承转合”节奏中的”转”时很长用的手段。</p>
+<p><strong>4. 设计背景</strong>：时之笛是青沼英二参与的第一个塞尔达系列游戏，水神殿可以说是青沼英二游戏设计的代表作，而他加入任天堂前是做机关人偶的。所以这种精妙复杂如仪器般的关卡和他的专业背景如此吻合，宫本茂有句玩笑话说任天堂不喜欢招特别爱玩游戏的设计师，因为他们的设计哲学强调要做出好的游戏设计需要从其他事物上汲取灵感。</p>
+<h2 id="Sifu-贫民窟楼道战"><a href="#Sifu-贫民窟楼道战" class="headerlink" title="Sifu-贫民窟楼道战"></a>Sifu-贫民窟楼道战</h2><p><img src="https://cdn.ipfsscan.io/weibo/large/0075kL53ly1i6zyepr9rtj32yo1o0e82.jpg" alt="SIFU"><br><strong>1. 电影情节融入</strong>：把电影情节融入到关卡设计的优秀范例，这个关卡的核心灵感来自于朴赞郁导演的电影《老男孩》经典桥段。可以说是一种致敬，而这个致敬还不仅仅像GTA5里那些致敬经典电影的任务（比如垃圾车抢劫案致敬《盗火线》）单纯的情节复刻演绎，重要的是把电影情节和游戏机制融合的相当巧妙。</p>
+<p><strong>2. 情节复刻</strong>：先说说情节复刻，《老男孩》里主人公被关押十几年练就一身格斗能力，重获自由后他去之前关押他的地方调查+复仇，电影里的情节主要是通过一段丝滑的长镜头展现他以一当十的战斗能力，场景是一个楼道，摄影景别像是从纵截面角度平面拍摄这段打戏，空间基本简化成2D的；而《师父》游戏中这段关卡的故事背景也是玩家扮演的角色经过十几年的修炼，找到之前杀害自己父亲的凶手复仇并调查当年事情的起因，整个场景布置，镜头景别的运用，主角敌人的位置关系和人物运动路线基本还原电影场景。</p>
+<p><strong>3. 机制融合</strong>：仅仅还原电影场景也称不上牛逼，重要的是这段特殊处理的近乎于2D空间的战斗关卡和游戏本身的联系与呼应。首先，贫民窟是游戏的第一个关卡，楼道战可能开始游戏半小时就可以体验到。我们都知道，sifi这个游戏的战斗体验会有一个从1对1到1对多的过渡，其实玩家是必须要学会1对多战斗的，谁让我们是功夫大师呢。而这个关卡的关键意义就是作为承接1对1战斗到1对多战斗的中间关卡，也算是对1对多战斗的一次教学。所以，把3D战斗场景简化成2D场景的意义就体现出来了，少了一个维度，玩家会更容易注意到多个敌人的位置和进攻的动作，使得玩家慢慢的熟悉1对多的战斗节奏、学习如何控制与敌人的距离、怎么快速解决敌人从而降低敌人数量、如何在进攻中腾出手来防御两外一个敌人的偷袭等这些后面需要再1对多战斗中使用的技能。可以说是真正的凸显出这个电影情节的在景别角度设计上的精髓。</p>
+<p><strong>4. 设计思考</strong>：我一直觉得电影是游戏设计灵感的一个宝库，但比起那种把过场动画或剧情做的更像电影的游戏我更喜欢这种能够洞察电影在视听语言上特有的表达方式和核心魅力，并且将其融入到游戏中的设计。说个有趣的点，据说朴赞郁拍这个场景的时候也是在致敬，赤手空拳的主角，2D平面场景对战，血槽很厚拿棍子的胖子有没有很熟悉，就是红白机上的经典游戏《功夫》。电影作者从游戏找灵感，反过来游戏设计师又借鉴电影，还挺奇妙的。</p>
+<h2 id="合金装备5-蜜蜂于何处安歇：斯玛瑟要塞"><a href="#合金装备5-蜜蜂于何处安歇：斯玛瑟要塞" class="headerlink" title="合金装备5-蜜蜂于何处安歇：斯玛瑟要塞"></a>合金装备5-蜜蜂于何处安歇：斯玛瑟要塞</h2><p><img src="https://cdn.ipfsscan.io/weibo/large/0075kL53ly1i6zyd9vgcxj31as0q71kx.jpg" alt="image"><br><strong>1. 关卡节奏</strong>：区域阶段感明显玩法节奏清晰，依次为野外—骑马赶路，大桥哨卡—获取情报，要塞—潜行，洞窟—寻物+高潮战斗，最终寻物获得的强力武器刚好可在BOSS战中使用，加之剧情过场动画渲染情绪以及最后整个流程使用沙尘暴天气营造的紧张危险感，一同将整个关卡的体验推向高潮。</p>
+<p><strong>2. 场景美学</strong>：中东地区特色石窟遗迹和现代化军事基地结合的主题场景有非常独特的美学风格。荒凉贫瘠的自然环境映衬古代遗迹的人文气质，又与军事基地那种钢铁肃杀的气氛产生冲撞对比，给人留下深刻印象。</p>
+<p><strong>3. 开放世界设计</strong>：虽然我在1里把这个关卡描述的像一个线性关卡，但这是一个不折不扣的开放世界关卡。每一个区域阶段内都做了密度极高的设计，玩家可以规划数条清晰路线，使用多种游玩风格进行通关。拿要塞举例，这个区域的初始位置是非常经典的可以俯瞰整个关卡结构的高处，然后区域形状大致为一个圆形的盆地，圆形被中间一条大路一份为二，两块子区域面积大概2:1，较大的子区域适合从外围潜行进入，注意走位和时机的话基本不用和敌人交互，难度较低；较小的区域则适合暗杀或者战斗，敌人密度较大，但是也布置了比较密集的资源和可收集物，这个区域还设置了一些重型武器可供玩家使用来降低战斗难度，同时这个路线离最终的洞窟入口比较近。</p>
+<p><strong>4. 节奏感思考</strong>：有的游戏在开放区域里嵌入线性流程（老头环，战神5），有的游戏在线性流程里制作开放区域（本关卡），所以不可或缺的”线性”能提供的是什么重要的东西，我觉得是节奏感，不管什么体验，只要是会持续一段时间的体验，都需要情绪的起伏。</p>
+<h2 id="最后生还者2-木桩海滩"><a href="#最后生还者2-木桩海滩" class="headerlink" title="最后生还者2-木桩海滩"></a>最后生还者2-木桩海滩</h2><p><img src="https://cdn.ipfsscan.io/weibo/large/0075kL53ly1i6zyb4ua0tj32yo1o0qv5.jpg" alt="THE_LAST_OF_US_2"></p>
+<p><strong>情节一</strong>：当艾莉离开原本关押埃比的监狱前往海滩时，她拖着重伤的身体，嘴里一遍遍念叨着埃比的名字盼望着她不要死，作为玩家其实很容易想象成是艾莉要去救以为自己的朋友而非仇人。设计者从这里开始暗暗模糊艾莉和埃比单纯的仇敌关系，让我们重新去审视这场复仇的意义。</p>
+<p><strong>情节二</strong>：去往海滩的途中，伴随着响尾蛇与被关押者交火的背景音画。这里我们可以思考下为什么最后关卡的势力要设置成响尾蛇这个组织。从第一部开始，Fedra和杰克逊，wlf和疤脸帮，大多数势力之间的对抗和仇杀是因为各自立场不同，大家都想保护自己的人。而这里的响尾蛇帮则是纯粹的残暴，他们把流浪者当做奴隶，甚至抓住感染者当宠物，蛇在圣经里是撒旦的符号，这里是用一个绝对邪恶的势力符号作为隐喻，来对比埃比之前犯下的恶行，从而显现出”绝对的恶”与”事出有因的恶”之间的区别，进一步来模糊埃比作为仇敌这一动机。</p>
+<p><strong>情节三</strong>：艾莉来到木桩海滩，被眼前地狱般的的场景震撼。这里木桩上绑人很明显是借用耶稣受难的符号，这里又是一处暗示也是一处对比，艾莉眼中罪不可赦的埃比与为世人承受罪的圣子耶稣，设计者再次敲打玩家，让我们更加深入的去反思埃比。从疤脸帮开始到最终一直都在埃比身边的福勒非常重要，埃比拯救了他也在他家人死后给了他生活的意义，从此救一人的埃比和救世人的耶稣有了联系起来的可能，也为后面艾莉放下心中的仇恨，完成属于自己的救赎埋下伏笔。</p>
+<p><strong>情节四</strong>：最后的惨斗，埃比咬下艾莉左手两根手指，艾莉试图把埃比按到水中溺死但最终还是放弃复仇。溺死埃比的意象是可以解读成耶稣受洗的，呼应情结三里的耶稣受难。通过前面情节的铺垫，艾莉在此时完成了动机的转变，埃比被折磨后巨大的变化以及最终战斗极致的残酷性，最终击溃了艾莉筑起的仇恨之墙。失去的手指让艾莉不能再弹吉他，吉他作为链接乔尔的羁绊，也预示着她放下了乔尔死亡带给她的愧疚和对埃比的仇恨，连同一起放下的还有他对乔尔剥夺她拯救人类权利的怨恨。艾莉的经历是杀戮生存的经历，她从来没有做成过道德上高尚的事情，她曾经试图献出自己的生命拯救全人类，但是被乔尔屠杀医院的行为所制止，虽然保住了她的生命，但也剥夺了她的意义。所以原谅别人拯救别人是艾莉人生意义的弥补，是她内心深处的一个愿望，也是她完成自己救赎的唯一方式。至此设计者用了各种各样隐秘深刻的意象符号去暗示艾莉放弃复仇的转变。</p>
+<p><strong>总结</strong>：”对电影来说，取景框里的每个事物都有其存在的意义”对游戏来说亦如此，关卡中的任何景象和物品都在暗示情绪。《最后生还者2》把游戏叙事提到一种新的高度，我们可以像对待电影那样—用放大镜去挖掘每一帧包含的信息量那样去对待游戏。</p>
+<h2 id="对马岛之鬼-父子决斗"><a href="#对马岛之鬼-父子决斗" class="headerlink" title="对马岛之鬼-父子决斗"></a>对马岛之鬼-父子决斗</h2><p><img src="https://cdn.ipfsscan.io/weibo/large/0075kL53ly1i6zy5uixu8j32yo1o0u0z.jpg" alt="GHOST_OF_TSUSHIMA"></p>
+<p>关于首尾两次战斗的叙事主题非常耐人寻味。</p>
+<p><strong>首</strong>：志村大人教导仁如何成为一个武士：武士必须坚守原则，忠于信条，荣誉至上。但什么叫”荣誉”要由仁自己去践行。</p>
+<p><strong>尾</strong>：仁在”荣誉”问题上做出了选择，他背弃了武士的信条，变成了战鬼，但拯救对马万千百姓。而恪守武士信条的志村大人选择和仁决斗以贯彻自己的荣誉。</p>
+<p>至此整个游戏所探讨的主题，传统延续与时代变革，道德普遍主义与相对主义，亲情与礼法，全都凝结在这场父与子的决斗上。结合战斗的背景音乐《Sacrifice of Tradition》（传统的消亡），以及红枫叶飞舞的唯美场景，直接将情绪推向了整个游戏最高潮。</p>
+<p>设计者在志村大人的受击动作上也做了改变，当我击中两鬓斑白的志村大人他踉跄后退的动作真的特别让人心疼，这一切都更让最后是否要杀死志村大人的选择沉重且充满意义，是选择成全他的武士道让他死在决斗中，还是放过自己唯一的最爱的舅舅。</p>
+<p>太沉重了，太美了！！！</p>
+<h2 id="合金装备5：捏脸系统与叙事"><a href="#合金装备5：捏脸系统与叙事" class="headerlink" title="合金装备5：捏脸系统与叙事"></a>合金装备5：捏脸系统与叙事</h2><p><img src="https://cdn.ipfsscan.io/weibo/large/0075kL53ly1i6zy157qw5j31hc0u0x0p.jpg" alt="合金装备5"></p>
+<p>捏脸前玩家在镜子里看到自己的样子（面孔A，同时也代表此时玩家扮演的是BigBoss），捏脸后玩家看到自己新的样子（面孔B，依然BigBoss）医生解释变脸是为了躲避追杀自己的仇人；然后黑屏拆完绷带，玩家又从镜子里看到了自己，但这时又是面孔A，而不是面孔B，从此以后玩家的脸一直是面孔A，而其他人都称玩家扮演的角色为BigBoss，我们也以为自己是。但直到游戏通关时，玩家和游戏中的主角才发现自己不是BigBoss，只是一个普通士兵被换脸成面孔A，作为BigBoss的替身，从而让真正的BigBoss逃离追杀。也就是说从拆完绷带后，玩家就扮演的一直是BigBoss的替身—毒蛇，也就是说玩家是作为一个普通士兵而不是传奇的BigBoss完成了伟大的游戏旅程。同时揭示这个想表达设计的主题：当人坚定不移的相信自己的时候究竟能激发出自己多大的潜能。</p>
+<p>当我看到这个情节时，我真的惊了，首先这游戏提供了功能极其强大的捏脸系统，但捏好的脸真正的用武之地就是两个时刻，新手关卡展示面孔B，游戏尾声展示面孔B；因为游戏其他时间玩家一直用的是bigboss的脸。其次岛哥哥利用捏脸系统来叙事这件事情真的太高明了，捏完脸就感觉怪怪的，怎么我捏的脸又变回去了，然后藏了一整个游戏流程，到故事结尾揭露出来，真的是牛逼。</p>
+
+  </div>
+  <div id="gitalk-container"></div>
+</div>
+
+<script>
+  
+Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
+  dragToClose: true,
+  Toolbar: true,
+  closeButton: "top",
+  Image: {
+    zoom: true,
+  },
+  on: {
+    initCarousel: (fancybox) => {
+      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+    "Carousel.change": (fancybox, carousel, to, from) => {
+      const slide = carousel.slides[to];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+  },
+});
+</script>
+
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 9999;
+        /* width: 600px !important; */
+        min-width: 0%;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            max-width: 88%
+        }
+    }
+</style>
+
+    
+<div class="post-paging">
+    
+    <a href="/2023/08/22/%E3%80%8A%E5%9F%8E%E5%B8%82%E6%84%8F%E5%90%91%E3%80%8B%E8%AF%BB%E5%90%8E/">
+        <div class="post-paging-last">
+            <span>上一篇</span>
+            <p>《城市意向》读后感</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2022/11/20/%E6%88%98%E7%A5%9E5%E5%85%B3%E5%8D%A1%E8%AE%BE%E8%AE%A1%E5%88%86%E6%9E%90/">
+        <div class="post-paging-next">
+            <span>下一篇</span>
+            <p>《战神5》是如何构建线性关卡和开放区域的？</p>
+        </div>
+    </a>
+    
+</div>
+</div>
+		
+<div class="footer">
+	<div class="contact">
+		
+	</div>
+</div>
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            transition: border .5s;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $( '#js-go_top' )
+	.gotoTop( {
+		offset: 500,
+		speed: 300,
+		animationShow: {
+			'transform': 'translate(0,0)',
+			'transition': 'transform .5s ease-in-out'
+		},
+		animationHide: {
+			'transform': 'translate(100px,0)',
+			'transition': 'transform .5s ease-in-out'
+		}
+	} );
+</script>
+
+
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+</html>
+

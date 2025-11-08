@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+<title>《战神5》是如何构建线性关卡和开放区域的？-RKs</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.png">
+
+<link rel="stylesheet" href="/css/index.css">
+
+
+<meta name="keywords" content="关卡策划,游戏策划">
+<meta name="description" content="描述">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/index.js"></script>
+
+
+<script src="/js/fancybox.umd.js"></script>
+
+
+<script src="/js/fancybox-images.js"></script>
+
+
+<script src="/js/gitalk.min.js"></script>
+
+
+<script src="/js/hljs.min.js"></script>
+ 
+<script>hljs.highlightAll();</script>
+
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		
+	<div class="header">
+		<div class="header-top" id="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/favicon.png" alt="Quiet">
+					<span>任宽·关卡设计</span>
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										关卡
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										文章
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										简历
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										关于我
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>任宽</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">关卡</a>
+        </li>
+        
+        <li>
+            <a href="/archives">文章</a>
+        </li>
+        
+        <li>
+            <a href="/links">简历</a>
+        </li>
+        
+        <li>
+            <a href="/about">关于我</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+    </div>
+</div>
+<div class='shelter'>
+</div>
+<style>
+    .shelter{
+        background-color: #333;
+        opacity:0.5;
+        cursor: pointer;
+        display: none; 
+        position: fixed;
+        left: 0;
+        top: 0; 
+        right: 0;
+        bottom: 0;
+        z-index: 1998;
+    }
+    .sidebar {
+        width: 66%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        background: #fff;
+        z-index: 1999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $( function () {
+	$( '.h-right-close>svg' )
+		.click( function () {
+			$( '.sidebar' )
+				.animate( {
+					right: "0"
+				}, 500 );
+			$( '.shelter' )
+				.fadeIn( "slow" )
+		} );
+	$( '.shelter' )
+		.click( function ( e ) {
+			$( '.sidebar' )
+				.animate( {
+					right: "-100%"
+				}, 500 );
+			$( '.shelter' )
+				.fadeOut( "slow" )
+		} )
+} )
+
+</script>
+
+<div class="post">
+    <div class="post-header-background post-header-color"
+    style="background: url('')" 
+>
+    <div class="post-header-background-content">
+        <ul class="post-header-tag">
+            
+        </ul>
+        
+        <h1>《战神5》是如何构建线性关卡和开放区域的？</h1>
+        <div class="post-header-info">
+            <div class="post-header-info-author">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                        <g>
+                            <path fill="#12183A"
+                                d="M6.187 15.265A6.47 6.47 0 0 0 10 16.5a6.47 6.47 0 0 0 3.813-1.235A4.99 4.99 0 0 0 10 13.5a4.99 4.99 0 0 0-3.813 1.765zM5.082 14.25A6.485 6.485 0 0 1 10 12c1.965 0 3.726.872 4.918 2.25a6.5 6.5 0 1 0-9.836 0zM10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+                            </path>
+                        </g>
+                    </svg>
+                
+                <span class="post-header-info-author-text"> <a href="../../about">任宽</a></span>
+                <div class="post-header-info-author-categories">
+                    
+                </div>
+                <p>2022-11-20 13:25:50</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="post-content" id="content">
+  
+  <div id="article" class="post-content-info">
+    
+
+    <p><img src="https://s3.bmp.ovh/imgs/2023/02/02/cb02a8ea330dbfca.jpg" alt="banner.jpg"></p>
+<h2 id="引言：作为设计者如何更加有效的评价游戏"><a href="#引言：作为设计者如何更加有效的评价游戏" class="headerlink" title="引言：作为设计者如何更加有效的评价游戏"></a>引言：作为设计者如何更加有效的评价游戏</h2><p>首先，这是一个我所理解的关于游戏是怎么被评价的理想模型：<br><img src="https://s3.bmp.ovh/imgs/2023/02/02/e25fbb2d75ff6a16.jpg" alt="游戏是怎么被评价的理性模型.JPG"></p>
+<p>这个模型假设：</p>
+<ul>
+<li>设计者也是玩家</li>
+<li>设计者做符合自己品味的游戏</li>
+</ul>
+<p>同为游戏设计者，相比结合自己的品味和游戏体验去评价游戏，我逐渐的更加关注虚线框里的那一个部分：设计者是如何通过设计来实现他们的意图。<br>原因大抵是我认为：</p>
+<ol>
+<li>游戏品味是建构性的（重轻老师的观点），再完美的游戏也没法取悦所有玩家，就像作为一个毫无JRPG品味的人，优秀如天下第一的《P5》我也玩不下去。</li>
+<li>在意识形态前所未有对立的时期，我们已经很难接受不同的事物，仅凭自己的品味做武断的价值判断，我会错过太多的东西。</li>
+<li>游戏设计领域还处于非常稚嫩的时期，特别是国内的关卡设计领域，关注“如何做出符合设计师意图的游戏”更加务实。</li>
+</ol>
+<p>所以我不再执着于评判设计者的品味和我的品味有几分相似几分不同。而是更加在意如何从1到100的设计过程。<br>之所以聊这些和我的分析方法有关，我大概会沿着这样的思路去探究《战神 诸神黄昏》（《战神5》）的关卡设计：</p>
+<ol>
+<li>结合游戏体验以及设计者的表达去猜测作者的设计意图</li>
+<li>分析设计者是如何通过关卡设计来实现自己的意图</li>
+<li>主观评价他们做到了吗？或者做到了多少。</li>
+</ol>
+<p>下面提到的内容很大一部分基于2019年GDC演讲：<strong>《战神》的关卡设计（YouTube视频：The Level Design of God of War）</strong>，强烈建议先去了解下这个演讲再来阅读此文章。</p>
+<h2 id="华纳海姆——线性关卡教科书"><a href="#华纳海姆——线性关卡教科书" class="headerlink" title="华纳海姆——线性关卡教科书"></a>华纳海姆——线性关卡教科书</h2><p>我会从支柱体验，空间结构，关卡主题，场景复用，关卡流这几个方面（也是GDC演讲中的几个主题），或对比或阐述《战神5》设计理念的继承和演进。而华纳海姆则是一个非常有代表性的关卡，很多例子都来自于这个关卡。我自己做了一些分析工作，比如绘制流程路线，摘录重点，推测总结。水平有限，如有错误，还请各位在评论区斧正。</p>
+<p>简单介绍下华纳海姆这个关卡，它首次出现于游戏流程的中段，它应该是游戏规模最大的关卡了，玩家会在此经历两段线性主线流程，两条重要支线内容。</p>
+<h3 id="1-稳固的三大支柱"><a href="#1-稳固的三大支柱" class="headerlink" title="1.稳固的三大支柱"></a>1.稳固的三大支柱</h3><p>基于设计者在gdc的分享内容，结合游戏各个关卡最后呈现出的结果以及整个流程下来不同玩法体验的分布情况，我们可以说：叙事，战斗，探索在《战神5》里仍是雷打不动的三大支柱。<br><img src="https://s1.ax1x.com/2023/02/02/pSDjnDf.png" alt="关卡设计的核心支柱.png"></p>
+<p>关于这三大支柱是怎么决定下来的，在我看来就是完全依托于设计者的品味。</p>
+<p>即使《战神》是一款历史悠久的ACT系列作品，即使新《战神》的越肩视角带来的战斗问题在本作尤其突显，也很难去评价为了叙事需要而做出的视角调整的利弊。同样的，类似解谜设计在关卡设计中承担那么重要的地位是否合理，也不是我想讨论的。</p>
+<p>我会无条件接受三大支柱这个品味的结果，而更关注于如何用设计来支撑三大支柱这类的问题。以华纳海姆这个关卡为例，三大支柱的设计意图在整个关卡的层面可以提取为：</p>
+<ul>
+<li>叙事：</li>
+</ul>
+<ol>
+<li>芙蕾雅作为女主角，她是华纳海姆的代表人物，华纳海姆的故事经历需要很大程度能完善她的人物塑造。</li>
+<li>华纳神族有风格迥异的风土人情和自然景观，北欧神话中《追逐日月的斯库尔和哈提》《弗雷的船》《尼德霍格》等相关故事将在此展开。</li>
+</ol>
+<ul>
+<li>战斗：</li>
+</ul>
+<ol>
+<li>英灵殿系敌人大考，更多的敌人种类（盾弓箭手，镰刀战士，双足飞龙）更丰富的敌人配置以及更高的游戏难度</li>
+<li>屠戮龙之家族，玩家将在大坑区域遭遇所有种类的龙系敌人</li>
+<li>与巨兽（唯二的非人型BOSS)尼德霍格的史诗级BOSS战</li>
+<li>与“拥有可怕直觉”的海姆达尔的BOSS战，德罗普尼尔长矛的高光时刻。</li>
+</ol>
+<ul>
+<li>探索：</li>
+</ul>
+<ol>
+<li>玩家会带着不同的目的多次进入华纳海姆展开风格各异的冒险</li>
+<li>解锁符文箭和昼夜交替的机制，至此，已经解锁游戏中所有的玩法机制，所以整个关卡是一个融合各种机制的综合性关卡。</li>
+<li>需要提供一个规模相当大的区域供玩家探索游玩，并且是一个开放度很高的区域。</li>
+</ol>
+<p>下图是玩家第一次进入华纳海姆执行主线任务“清算”时的路线图，同时我把三种游戏行为标记在这个流程中（颜色区分行为，大小代表行为强度）。<br><img src="https://s1.ax1x.com/2023/02/02/pSDjgr6.jpg" alt="主线任务“清算”时的路线图.jpg"></p>
+<p>可以清楚的看到，不同行为在流程中的分布和排列节奏。在如何创造一个强调三大支柱的关卡这一点上，《战神5》完全继承了前一作的做法，那就是通过精确且合理地布置不同的游戏行为区块，从而构建一个具备多样性和节奏感的动作冒险关卡。</p>
+<p>这样的设计方法可以推广到所有的主线流程和支线任务中，经典且最成熟的做法，而且保持了一贯的水准。</p>
+<p>印象比较深刻的就是在大坑这个区域中，与龙系敌人的战斗体验，这种非人形大体型的弱机制怪物在《战神》中比较少见。但其流畅的动作反馈，十足的打击感一度让我产生了打《怪物猎人》的错觉。</p>
+<p>而具体到每段剧情，每场战斗的体验在此就不做赘述，请更专业的Narrative Design和Combat Design去分析。至于探索体验的分析会在后续的内容有所涉及。</p>
+<h3 id="2-被偏爱的中心辐射结构"><a href="#2-被偏爱的中心辐射结构" class="headerlink" title="2.被偏爱的中心辐射结构"></a>2.被偏爱的中心辐射结构</h3><p>关卡是承载游戏的内容的游戏空间。所以关卡设计和建筑学有非常密切的联系，因为两者都是注重于塑造空间。在关卡设计的理论中有很多组织游戏空间的方式，不同的组织方式适用于不同的场景，并且提供不同的游玩感受。比如：<br>线性空间结构本身具有较灵活的可变性，可以适应不同的场景要求，同时线性空间往往传达一种推进感。<br><img src="https://s1.ax1x.com/2023/02/02/pSDjtK0.jpg" alt="线性空间结构的特征.jpeg"></p>
+<p>集中式的空间结构会显得非常紧凑，很容易形成环状路线，并且有很高的空间利用率，比如我之前分析过的一个小关卡“矮人国度的苹果核”就是这种结构。<br><img src="https://s1.ax1x.com/2023/02/02/pSDjcKx.png" alt="矮人国度苹果核区域空间结构.jpg"></p>
+<p>中心辐射式结构是《战神4》里面世界关卡的组织方式，以九界之湖为中心，向外辐射数条路径，沿着路径到达对应的分支关卡。<br><img src="https://s1.ax1x.com/2023/02/02/pSDjyx1.png" alt="战神4世界关卡的组织方式.png"></p>
+<p>《战神5》中九个界域的结构也是如此，虽然在物理空间上已经模糊了路径的存在（并没有真正的路，而是直接通过神秘门传送到不同的界域），但是在游戏流程上依然遵循中心——&gt;分支关卡A——&gt;中心——&gt;分支关卡B的方式。<br><img src="https://s1.ax1x.com/2023/02/02/pSDjcKx.png" alt="战神5九个界域的组织方式.png"></p>
+<p>这是来自于的CGMA里Emilia Schatz的观点，她认为游戏中空间构成的目的一般有以下几种：</p>
+<ol>
+<li>串联起叙事，玩法要素</li>
+<li>展现结构本身的美感，像建筑那样</li>
+<li>在某些游玩节点上提供清晰的空间构图</li>
+<li>帮助玩家在心理层面建立地图映射</li>
+</ol>
+<p>而对于中心辐射式结构，这类结构一般包含一个位于中心的主导空间，多个线性组合从这里呈放射状向外延伸，所以：</p>
+<ol>
+<li>在游戏中主导空间通常设置为一个密闭的规则的空间（圆形），作为玩家的绝对安全区域，在这里玩家可以在紧张激烈的冒险后放松下来休整准备下一次旅程，它很好的串联起每个关卡流程；</li>
+<li>在《战神5》里，中心空间（辛德里的家）还有一个叙事上的重要功能，这里是主角团的大本营，很多的描写角色的情感戏和冲突事件在这里发生，重大决定也在这里做出，由此推进叙事进程。</li>
+<li>此类空间通常保持着总体形式的规整性，或者相当程度的对称性，玩家很容易理解其构造。</li>
+<li>中心空间作为每个分支关卡向外辐射的的起点，这里四通八达，可以以最快速度去到任何一个分支关卡。</li>
+</ol>
+<p>因为这样的结构在调整游玩节奏和推进游戏进程方面有独特的优势，所以不仅在大关卡层面使用了这种结构，在具体的关卡内部这种结构也多次出现，比如华纳海姆的南部丛林区域以及北部的隐藏区域大坑都是类似的空间结构。<br><img src="https://s3.bmp.ovh/imgs/2023/02/02/0df87f12ff4a35d8.jpg" alt="华纳海姆北部隐藏区域大坑空间结构.png"></p>
+<p><img src="https://s1.ax1x.com/2023/02/02/pSDjl5Q.jpg" alt="华纳海姆南部丛林区域空间结构.jpg"></p>
+<p>在华纳海姆的南部丛林区域，此结构的功能与其在界域关卡层面基本类似：</p>
+<ul>
+<li>弗雷的营地作为关卡的中心并承载其所有的功能，有商店篝火供玩家调整休憩，有通往各个区域的路径码头等。</li>
+<li>四个辐射出的次要区域分别对应的游戏流程为：</li>
+</ul>
+<ol>
+<li>紫色：首次进入华纳海姆“清算”任务的前半段</li>
+<li>蓝色：“清算”任务的中段以及“天空之狼”任务</li>
+<li>橙色：“清算”任务的后半段以及“营救弗雷”任务</li>
+<li>绿色：支线任务“芙蕾雅难求的安宁”</li>
+</ol>
+<p>因为华纳海姆这张地图要完成两段主线流程以及两段支线任务，前后多次在中心点周转，我们甚至可以把弗雷的营地看做一个缩小版的《战神4》九界之湖。</p>
+<p>至于“大坑”则纯粹的是物理空间结构为中心辐射，虽然他们只发挥了此结构的部分功能，但也能够看出这种结构是一个相当有层次且经典的空间组织方式。</p>
+<h3 id="3-不再工整但更加优秀的关卡主题"><a href="#3-不再工整但更加优秀的关卡主题" class="headerlink" title="3.不再工整但更加优秀的关卡主题"></a>3.不再工整但更加优秀的关卡主题</h3><p>在关卡流程中每隔一段时间增加一种新机制，这同样是相当经典的设计方法，任天堂系的很多游戏，MetroidVania类游戏，FPS中优秀的单人战役（《半条命》，《Titanfall 2》）等都沿用了这样的设计。</p>
+<p>在这里回顾一下《战神4》中的关卡——机制对应情况（机制1——机制2：机制1在关卡的前3&#x2F;4分布，机制2在关卡的后1&#x2F;4分布）<br><img src="https://s3.bmp.ovh/imgs/2023/02/02/bc950aa1f013987c.jpg" alt="战神4关卡主题"></p>
+<p>再根据《战神5》的主线流程，把关卡——机制罗列出来：<br><img src="https://s3.bmp.ovh/imgs/2023/02/02/001d2d1390c2f483.jpg" alt="战神5关卡主题无人物角色"></p>
+<p>如果按照《战神4》的设计标准去看《战神5》中新加的机制，可以看到很多关卡压根没有主题和新机制，是制作组没钱做机制了吗？显然不是哈。接下来我们把每段流程玩家操作的角色和随行的角色添加在刚在的表中，你就可以发现，并不是制作组没钱了，而是因为钱都花在制作角色上了。<br><img src="https://s3.bmp.ovh/imgs/2023/02/02/bafae5c71585bfa1.jpg" alt="战神5关卡主题"></p>
+<p>本作可直接操作的角色新增了阿特柔斯，副角色新增芙蕾雅，随行角色新增了共7位，而且很好的分布在不同的关卡中。</p>
+<p>这是本作在关卡设计方面的第一大变化：关卡主题从玩法机制到人物角色的转变。让我们再回到三大支柱叙事，战斗以及探索，一个完美的机制应该在这三方面都起到作用。回过头看《战神4》里最好的机制设计应该就是波动箭了，它能作为武器战斗，破坏地形辅助探索，但在叙事方面却乏善可陈，只是在获得其能力时有一些叙事要素。</p>
+<p>我们再看看角色的加入，比如索尔，给《战神5》的关卡设计带来了什么，战斗层面他是毁天灭地的雷神和其他随行角色的战斗体验天差地别，在探索方面他可以破坏地形阻挡开路或者驾驶妙尔尼尔直接起飞，叙事上我们可以看到圣莫尼卡对洛基+索尔这对经典组合的全新演绎，体会到他被迫与杀子仇人共事的情节张力。</p>
+<p>这样对比下来，角色代替机制的加入无疑能更好的呼应三大支柱，考虑到制作一个角色需要额外花费的人力物力，这样的设计转变真的是诚意满满。</p>
+<p>而且，即便有了这么多新增角色，《战神5》仍然产出了类似于“德罗普尼尔”、“昼夜交替”这样的优秀机制，所以本人对这作的设计转变非常之认可，而且给与相当高的评价。</p>
+<h3 id="4-一个好的机制能解决多个问题"><a href="#4-一个好的机制能解决多个问题" class="headerlink" title="4.一个好的机制能解决多个问题"></a>4.一个好的机制能解决多个问题</h3><p>再看看这张表<br><img src="https://s3.bmp.ovh/imgs/2023/02/02/08842d1354934020.jpg" alt="战神5关卡主题重复标记"></p>
+<p>可以发现除了精灵国度，铁森林，尼弗尔海姆外，其他的关卡玩家都是去过2次的，那么如何在重复利用地图的基础上设计线性关卡流程，同时又带来多样性与变化就变成了一个重要的问题。</p>
+<p>下图是玩家两次进入华纳海姆，三次从弗雷的营地出发然后回到弗雷营地的主线路线图。可以看到路线中有很多重复路径。<br><img src="https://s3.bmp.ovh/imgs/2023/02/02/b9521f71837f0566.jpg" alt="华纳海姆主线路线图.jpg"></p>
+<p>接下来以华纳海姆为例，探究下《战神5》是如何处理这个问题的。</p>
+<ul>
+<li>更换npc位置，剧情对话内容，怪物配置等来塑造一些体验上的差异这是最常规手法，所有游戏都这样做。</li>
+</ul>
+<p>《战神5》显然也使用了这样的手法，比如华纳海姆主线前两次流程中，都有玩家从弗雷营地出发穿过东部巴雷森林的路线，但是随行角色分别是芙蕾雅和阿特柔斯，剧情的主题也分别为替芙蕾雅解开封印和找回月亮。再看看下面这张表不难发现，设计者一直在避免玩家使用相同的角色进入相同的关卡游玩重复的路线。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2023/02/02/08842d1354934020.jpg" alt="战神5关卡主题重复标记"></p>
+<p>比如在两次去穆斯贝尔海姆的流程中，主要角色-随行角色分别为：阿特柔斯-索尔和奎托斯-阿特柔斯；两次去赫尔海姆分别是：阿特柔斯-斯露德和奎托斯-阿特柔斯等等。</p>
+<ul>
+<li>相同的场景路线只要改变行进方向那么游玩体验也会截然不同。最典型的例子应该是魂系列游戏中从不同的方向使用同样的路线攻略敌人，玩家会有截然不同的游戏体验。</li>
+</ul>
+<p>得益于或许是全世界最优秀的环境美术的加持，再配合不同的随行角色，剧情对话，怪物配置在《战神5》中即使在相同的场景下只改变行进方向，你很少感觉到过于明显的重复感。比如下图中的这条路线：</p>
+<p><img src="https://s1.ax1x.com/2023/02/02/pSDjub8.jpg" alt="华纳海姆“清算”与“营救弗雷”任务路线图重合部分.jpg"></p>
+<ul>
+<li>相同的场景下不同的机制带来不同的体验，这也是相当经典的解决方案，在MetroidVania类游戏中被广泛使用。在战神中这种机制大致可以被分为两类：</li>
+</ul>
+<ol>
+<li>其一，类似于声波箭，符文箭，德罗普尼尔这种随身携带的灵活机制，并且这些机制可以相互组合叠加，形成复杂性和变化。</li>
+<li>其二，就是更加注重于场景交互的机制，典型例子为：华纳海姆的昼夜交替机制，大坑的放水机制，赫尔海姆的场景破坏机制等。其中放水机制和场景破坏机制是战神系列的老本行了，我们在之前的作品中都见过。再说点题外话放水和场景破坏机制都是单向的，意思就是玩家在放水或者破坏场景后，都无法再回到之前的状态，这种机制放在线性关卡里问题不大，但放在开放区域还是有些瑕疵，比如大坑这个开放区域，玩家放水后，很多之前可以去的地方都不能去了。而昼夜机制是玩家可以随意切换的双向机制，放在开放区域也非常适配（下篇分析大坑的区域会提到）。</li>
+</ol>
+<p>下图是华纳海姆中“清算”与“日月之狼”主线流程路线以及相同场景下不同机制的分布情况：<br><img src="https://s1.ax1x.com/2023/02/02/pSDjQUg.jpg" alt="华纳海姆“清算”与“日月之狼”任务路线图重合部分.jpg"></p>
+<p>下图中，设计者使用德罗普尼尔机制和昼夜交替机制在原有场景中分离了路线；</p>
+<p><img src="https://s1.ax1x.com/2023/02/02/pSDjMVS.jpg" alt="分离路径.jpg"></p>
+<p>下图中，设计者使用德罗普尼尔的机制改变了关卡结构，在原有关卡场景中创造出一条可探索路径。</p>
+<p><img src="https://s1.ax1x.com/2023/02/02/pSDjs2R.jpg" alt="制造探索路径.jpg"></p>
+<p>本人非常喜欢昼夜交替的机制，所以再多聊聊这个机制，看看这个机制到底有何独特之处：首先，昼夜机制能给关卡设计带来什么：</p>
+<ul>
+<li>场景氛围的变化，这是最明显玩家最容易察觉到的，直接在视觉上改变了玩家对关卡的印象。</li>
+<li>关卡结构的变化，白天会生出藤蔓，藤蔓会形成可通行的桥或道路，也可以阻挡一些交互物件；夜晚藤蔓则会消失，会打开某些藤蔓门或者被释放藤蔓阻挡的交互物件。玩家需要观察理解这些机制来决定如何切换昼夜。</li>
+<li>敌人配置的变化，白天和夜晚同一个地点的敌人配置不同，这点在玩家完全解锁这个机制后可以明显感觉到，特别是在大坑区域，很大程度上丰富了关卡的战斗体验。</li>
+<li>关卡引导的变化，由于场景色调的变化，那些在白天不起眼的灯光，火把，发光的粒子效果会在晚上更加显眼，从而影响玩家的探索决策，这点也是在大坑区域有很好展现（下篇文章会有关于大坑区域的详细分析）。</li>
+<li>新增叙事奇观，追逐日月的传说之狼从《战神4》就开始铺垫，终于在这里兑现。我记得一个小彩蛋，当玩家在营救弗雷的任务中第一次找到天体圣坛的时候，需要利用机制切换到白天通过藤蔓桥，如果这时你再使用一次机制切换到夜晚，芙蕾雅会吐槽说“你是有毛病吧，白天才能过去这座桥救我弟弟”，奎爷会回答说“人家想再看一次狼”，芙蕾雅无奈：“好吧，只准再看一次”。（大概意思，原话不记得了，不过狼是真的好看啊）</li>
+</ul>
+<p>然后我们看看昼夜是如何被合理的分布在华纳海姆这个关卡中的：</p>
+<p><img src="https://s3.bmp.ovh/imgs/2023/02/02/b34a36b5e2e9d6f7.jpg" alt="华纳海姆任务路线以及昼夜分布情况.jpg"></p>
+<ul>
+<li>第一次华纳海姆流程“清算”，随行角色芙蕾雅</li>
+</ul>
+<ol>
+<li>从南部荒野进入华纳海姆，到达弗雷的营地————夜晚</li>
+<li>到达弗雷德营地出发，穿越东部巴雷森林————夜晚</li>
+<li>到达废弃的村落，击败英灵战士敌人————夜晚</li>
+<li>来到瞭望塔击杀尼格霍格————夜晚</li>
+<li>从西部巴雷森林回到弗雷营地————通过剧情演出转为白天，沿着藤蔓近路返回</li>
+<li>芙蕾雅难求的安宁支线任务开启，河面在白天才可通过————白天</li>
+</ol>
+<ul>
+<li>第二次华纳海姆流程“日月之狼”，随行角色阿特柔斯</li>
+</ul>
+<ol>
+<li>从传送门到达弗雷的营地————白天</li>
+<li>从东部巴雷森林找到两只狼————白天</li>
+<li>找到月亮回到狼身边————通过剧情演出转为转为夜晚</li>
+<li>回到弗雷的营地————夜晚，沿着打开的藤蔓门返回</li>
+</ol>
+<ul>
+<li>第三次华纳海姆流程“营救弗雷”，随行角色芙蕾雅</li>
+</ul>
+<ol>
+<li>从弗雷营地出发到达天体圣坛————夜晚</li>
+<li>玩家主动切换到白天走藤蔓路到达北部荒野————白天</li>
+<li>玩家主动切换到黑夜，打开藤蔓门，击败打海姆达尔————黑夜</li>
+<li>在火光冲天的神庙营救弗雷，并坐船回营地————黑夜</li>
+</ol>
+<p>首先，那些看似重复的路线，除了是和不同的随行角色走过，而且当时所处的昼夜也不同；</p>
+<p>其次得益于一镜到底的表现方式，昼夜转换被无缝的添加在关卡流程中，玩家不会感到突兀。</p>
+<p>最后，每一次昼夜交替都被精巧的放置在合适的位置，完美契合主线以及在完成主线后探索支线的节奏。</p>
+<p>我们常说一个好机制可以解决多个问题，毫无疑问昼夜交替机制就是这样的好机制，它调整关卡节奏，重塑关卡结构，避免重复感并且兼顾叙事奇观和多样化战斗体验，也是本人今年最喜欢的游戏机制。</p>
+<h3 id="5-关卡流中后1-x2F-4流程是如何工作的"><a href="#5-关卡流中后1-x2F-4流程是如何工作的" class="headerlink" title="5.关卡流中后1&#x2F;4流程是如何工作的"></a>5.关卡流中后1&#x2F;4流程是如何工作的</h3><p>线性关卡设计的最后一块内容是讨论关于关卡流的，下图是设计者提到的关于：《战神4》是如何组织关卡间的关卡流的。<br><img src="https://s1.ax1x.com/2023/02/02/pSDjwaF.png" alt="战神4关卡间的关卡流.png"></p>
+<p>简单阐述下：每个关卡流程中前3&#x2F;4使用上个关卡解锁的机制，然后在3&#x2F;4处关卡体验达到高潮转折点，通常是Boss战，然后解锁新机制，在关卡后1&#x2F;4教学新机制，在下个关卡的前3&#x2F;4使用新机制，以此类推直到最后的综合性关卡不再获得新机制，而是所有机制的综合考察。</p>
+<p>同时，我们知道，这些关卡流程基本上呈环形结构，意味着：玩家在关卡达到转折点后，需要在接下来的1&#x2F;4流程中回到关卡起始点，通常是九界之湖这样的中心点，休整一番为下个主线关卡做准备。</p>
+<p>然后重点关注下这些关卡的后1&#x2F;4的返程流程，在《战神4》中全部是关于新机制的教学部分：也就是使用新机制开辟出新的近路，然后回到九界之湖。相当的工整，甚至有点缺少变化。</p>
+<p>但在之前的讨论中，我们知道《战神5》不再像前一作，很多新机制被新人物角色取代，新机制解锁的时间点也发生了变化，主线关卡不再是同一种规格。</p>
+<p>这也意味着主线关卡组织方式也不再和以前相似，如果我们找出本作中有明显的关卡转折点和节奏切换标志（Boss战或剧情演出）的标杆关卡，并且罗列出这些在后1&#x2F;4返程流程中使用的表现方式：</p>
+<p><img src="https://s3.bmp.ovh/imgs/2023/02/02/b72358f89ab3d830.jpg" alt="战神5标杆关卡"></p>
+<p>其中，华纳海姆“清算”依然使用上一作的表现方式；矮人国度和精灵国度都是充分利用了新加入的随行角色提尔的能力；铁森林，赫尔海姆以及华纳海姆“营救弗雷”关卡中，都是在关卡转折点利用对应的游戏机制突然加快了关卡的节奏，玩家不必再慢慢的解谜开路，而是能够以较为快速的速度穿过场景，回到营地。</p>
+<p>得益于尝试不同的表现方式，本作这些关卡后1&#x2F;4返程流程中的游戏体验更加丰富多样，其中奎爷扛着弗雷开无双以及铁森林飙车的过程可以说是相当的惊艳。甚至很多玩家称铁森林飙车的这个桥段拯救了铁森林整个关卡流程。</p>
+<p>这些改进对于圣莫尼卡来说也许不算是新尝试，在老战神系列中就有不少快节奏的关卡流程。但考虑到《战神5》环境美术的精致程度和游戏的整体时长，这依然是让人望而生畏的工作量和设计难度。这里对他们的工作报以最大的敬意。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>对于《战神5》线性关卡的分析部分到这就结束了，通篇下来可能大家的感受和我类似，《战神5》的关卡设计并没有使用什么奇淫巧技或者惊天动地的创新，相反他们选择的都是稳定且经典的设计方法。</p>
+<p>或许会有人不屑于他们地保守的风格，但同为设计者我深知“知易行难”的道理，在“行”这方面，我认为他们毫无疑问的做到了，他们通过这些方法论解决了高质量场景的渲染加载问题，克服了产能的不足，创造了无与伦比的游戏体验，在关卡设计层面实现了自己的意图。</p>
+<p>最后，我想说新《战神》系列的线性关卡设计无疑是这个世代的典范和标杆，而《战神5》给我带来的惊喜不止如此，下一篇我将探究他们在“开放世界”层面所做的尝试。</p>
+<h5 id="部分参考来源："><a href="#部分参考来源：" class="headerlink" title="部分参考来源："></a>部分参考来源：</h5><p>《建筑：形式空间和秩序（第3版）》第4章：组合<br>YouTube视频：GOD OF WAR RAGNAROK Gameplay Walkthrough FULL GAME PS5 4K 60FPS No Commentary<br>YouTube视频：The Level Design of God of War<br>bilibili视频：战神5矮人矿洞苹果核关卡复刻以及设计分析</p>
+
+  </div>
+  <div id="gitalk-container"></div>
+</div>
+
+<script>
+  
+Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
+  dragToClose: true,
+  Toolbar: true,
+  closeButton: "top",
+  Image: {
+    zoom: true,
+  },
+  on: {
+    initCarousel: (fancybox) => {
+      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+    "Carousel.change": (fancybox, carousel, to, from) => {
+      const slide = carousel.slides[to];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+  },
+});
+</script>
+
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 9999;
+        /* width: 600px !important; */
+        min-width: 0%;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            max-width: 88%
+        }
+    }
+</style>
+
+    
+<div class="post-paging">
+    
+    <a href="/2022/12/28/2022%E5%B9%B4%E6%B8%B8%E6%88%8F%E7%9F%AD%E8%AF%84/">
+        <div class="post-paging-last">
+            <span>上一篇</span>
+            <p>2022年游戏短评</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2022/10/25/%E6%88%98%E7%A5%9E5%E8%8B%B9%E6%9E%9C%E6%A0%B8%E5%8C%BA%E5%9F%9F/">
+        <div class="post-paging-next">
+            <span>下一篇</span>
+            <p>《战神5》矮人矿洞苹果核关卡复刻以及设计分析</p>
+        </div>
+    </a>
+    
+</div>
+</div>
+		
+<div class="footer">
+	<div class="contact">
+		
+	</div>
+</div>
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            transition: border .5s;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $( '#js-go_top' )
+	.gotoTop( {
+		offset: 500,
+		speed: 300,
+		animationShow: {
+			'transform': 'translate(0,0)',
+			'transition': 'transform .5s ease-in-out'
+		},
+		animationHide: {
+			'transform': 'translate(100px,0)',
+			'transition': 'transform .5s ease-in-out'
+		}
+	} );
+</script>
+
+
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+</html>
+
