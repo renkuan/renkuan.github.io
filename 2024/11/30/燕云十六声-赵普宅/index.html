@@ -288,56 +288,113 @@
     
 
     <!-- ![【至不见山】【4K60帧】《燕云十六声》全主线_残章_支线全剧情流程合集（至第六十六集）-清河、开封、河西、凉州、秦川、不见山_@18-45.61_1762392926639](https://cdn.ipfsscan.io/weibo/large/0075kL53ly1i728yyila0j32yo1o0u0x.jpg) -->
-<h1 id="关卡介绍"><a href="#关卡介绍" class="headerlink" title="关卡介绍"></a>关卡介绍</h1><h5 id="简介："><a href="#简介：" class="headerlink" title="简介："></a><strong>简介：</strong></h5><ul>
-<li><strong>游戏简介</strong>：燕云十六声是一款开放世界ARPG武侠游戏，故事背景设定在宋初。游戏中分布着各类战斗据点、解谜关卡、收集要素，以及注重叙事的主、支线线性关卡。</li>
-<li><strong>关卡简介</strong>：以洛美文明为设定背景，参考塞尔达传说：旷野之息的大世界设计思路的一个高塔兴趣点关卡</li>
-<li><strong>使用工具</strong>: UE4，Blender，UE4-PRPGMETANOIA</li>
-<li><strong>开发时间</strong>: 26周</li>
+
+<h1 id="雕栏剑影"><a href="#雕栏剑影" class="headerlink" title="雕栏剑影"></a>雕栏剑影</h1><h3 id="关卡介绍"><a href="#关卡介绍" class="headerlink" title="关卡介绍"></a>关卡介绍</h3><h5 id="简介："><a href="#简介：" class="headerlink" title="简介："></a><strong>简介：</strong></h5><ul>
+<li><strong>游戏简介</strong>：燕云十六声是一款开放世界ARPG武侠游戏，故事背景设定在宋初。游戏中分布着战斗据点、解谜关卡以及注重叙事的主、支线线性关卡。</li>
+<li><strong>关卡简介</strong>：江湖传闻，“曾偷得沧浪剑谱的神秘大侠重现江湖，并出现在赵普宅中”。为寻得剑谱，玩家来到赵普宅中，偶遇同样在找剑谱的中二小少爷赵承宗。二人联手，开始了他们的赵普宅冒险之旅。</li>
+<li><strong>使用工具</strong>: UE4，Messiah</li>
+<li><strong>开发时间</strong>: 2023年5-2024年12月</li>
 </ul>
-<h5 id="玩法演示"><a href="#玩法演示" class="headerlink" title="玩法演示"></a><strong>玩法演示</strong></h5><iframe width="100%" height="549" src="//player.bilibili.com/player.html?isOutside=true&aid=115511685880375&bvid=BV1tW1UBcEX4&cid=33809893468&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<h5 id="关卡演示"><a href="#关卡演示" class="headerlink" title="关卡演示"></a><strong>关卡演示</strong></h5><iframe width="100%" height="549" src="//player.bilibili.com/player.html?isOutside=true&aid=115511685880375&bvid=BV1tW1UBcEX4&cid=33809893468&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
 
 
 <h5 id="我做了什么："><a href="#我做了什么：" class="headerlink" title="我做了什么："></a><strong>我做了什么：</strong></h5><ul>
-<li>完成从概念设计到可玩demo的完整关卡流程设计</li>
-<li>撰写玩法设定文档，绘制逻辑流程图与关卡地图</li>
-<li>使用Blender和UE4进行关卡白盒搭建与布局设计</li>
-<li>整合游戏元素：配置AI战斗逻辑、事件触发机制及拾取物系统</li>
-<li>使用UE4蓝图编写游戏脚本，实现各类交互功能</li>
+<li>与剧情策划合作完成关卡概念设计。</li>
+<li>layout设计，白盒设计，玩家路线规划，环境组件配置，谜题设计以及装配。</li>
+<li>NPC叙事序列和互动设置，NPCAI行为树编写，敌人巡逻路径和基本行为配置。</li>
+<li>与各个部门合作制作游戏场景、gameplay组件和敌人。</li>
 </ul>
-<h5 id="项目目标："><a href="#项目目标：" class="headerlink" title="项目目标："></a><strong>项目目标：</strong></h5><ul>
-<li>制作一个旷野之息中的高塔探索区域，关卡规模大概200m×200m，可参考阿卡莱之塔，包含了从起始山脚一直到爬上高塔的全部关卡流程，单一路线游玩时间大概10-20min。</li>
-<li>严格遵从旷野之息中高塔区域的设计思路，遵从多路线，多分支，高自由度，动态引力法则等设计理念</li>
-<li>以游戏中洛美遗迹为关卡主题的出发点，试图通过此关卡补充一些关于洛美文明的信息，展现洛美遗迹的神秘景象。</li>
-</ul>
-<h5 id="游戏基本系统介绍（基于PRPGMETANOIA项目）："><a href="#游戏基本系统介绍（基于PRPGMETANOIA项目）：" class="headerlink" title="游戏基本系统介绍（基于PRPGMETANOIA项目）："></a><strong>游戏基本系统介绍（基于PRPGMETANOIA项目）：</strong></h5><ul>
-<li>战斗系统：近身武器战斗，弓箭射击，暗杀；</li>
-<li>运动系统：移动，跳跃，攀爬，滑翔；</li>
-<li>交互系统：开箱子，挖矿，破坏物体，攀瀑，灾厄等。</li>
-</ul>
-<h1 id="设计过程"><a href="#设计过程" class="headerlink" title="设计过程"></a>设计过程</h1><h2 id="高塔探索区域关卡设计注意点"><a href="#高塔探索区域关卡设计注意点" class="headerlink" title="高塔探索区域关卡设计注意点"></a>高塔探索区域关卡设计注意点</h2><ul>
-<li><p>A)	引导：塔作为游戏中最有吸引力的目标，需要在很远处也能看见。</p>
-</li>
-<li><p>B)	位于高处：由于存在滑翔机制，通常位于平原或者高处，不能位于区域的低处。</p>
-</li>
-<li><p>C)	多路线：到达塔的路线和方式多种多样。</p>
-</li>
-<li><p>D)	兴趣点分布：在到达塔的途中会遇到各种事件，一般为与怪物战斗，解谜，探索三类。</p>
-<p>  ①战斗：在攻略塔的过程中遭遇敌人非常常见，一般都会设计环境机制来降低战斗难度，比如：滚石，爆炸桶等。<br>  ②解谜：围绕塔周围的解谜要素都很简单，只会出现较直接的解谜逻辑，比如：用火烧掉荆棘，用火融化阻挡的冰	块，爬到高点然后滑翔过去；多数是使用基础的机制，避免出现额外复杂的机制，比如，神庙里用各种动力驱动	的装置。<br>  ③探索：围绕在塔周围散布比较多的探索点，大多数为：特殊的地形，遗迹，山洞等。玩家会获得宝箱，材料，收	集品等作为奖励。</p>
-</li>
-</ul>
-<h2 id="事件流程图"><a href="#事件流程图" class="headerlink" title="事件流程图"></a>事件流程图</h2><p><img src="https://pic.imgdb.cn/item/63d74068face21e9ef592aec.png"><br>流程图初步确定了关卡中的兴趣点（玩法事件），以及整个流程中的大致路线，可以看到大概有三条主要目标路线①②③④⑤⑥⑧，①②③④⑫⑬⑭⑯，⑮⑯；还有一些与主要目标无关的分支路线。</p>
-<h2 id="关卡结构图"><a href="#关卡结构图" class="headerlink" title="关卡结构图"></a>关卡结构图</h2><p><img src="https://pic.imgdb.cn/item/63d741a9face21e9ef5b4f37.jpg"><br>这里展示了关卡的地形结构，起始点位于低处的平原，目的地（高塔）位于高处的丘陵。整个关卡过程是一个海拔逐渐爬升的过程。</p>
-<!-- ## 任务流程 -->
+<h3 id="过程展示"><a href="#过程展示" class="headerlink" title="过程展示"></a>过程展示</h3><h4 id="开场"><a href="#开场" class="headerlink" title="开场"></a>开场</h4><p>和开封其他叙事关卡黑深残的基调不同，我们想在这个关卡里呈现一种轻松、明亮、有趣的主题，所以事件主角是一个心思单纯的话痨富家小少爷。为了让我们初次遇见他时更加有趣，我们设计了一个反转。在刚开始引入任务的阶段，我们用雷雨交加的天气、危机四伏的背景音乐和江湖人的严肃谈话来营造危险气氛，让玩家误以为故事又是一个复杂严肃的江湖仇杀；进入宅子时，我们仍在用两个江湖高手对决的对白来加深这种感觉。同时我们限制了玩家的视野景深，让玩家只闻其声不见其人，等玩家穿过闭塞的修建区才发现：原来是一个小孩子在对着话本表演江湖决斗。为后续完整的呈现小孩子的人物魅力开了一个令人印象深刻的好头。</p>
+<h4 id="魏芷昔其人和密室设计"><a href="#魏芷昔其人和密室设计" class="headerlink" title="魏芷昔其人和密室设计"></a>魏芷昔其人和密室设计</h4><p>魏芷昔的人生可以分为3个阶段，年少时作为摘星手肆意张扬璀璨耀眼，狼山一战后开始反思自己的侠道认识到一个人的局限，现在明面上为赵普妻子，实际是赵普代表的朝堂和开封地下江湖沟通的中间人。我们在设计密室的时候就在想用密室结构暗示魏芷昔的人生经历。密室的入口位于夫妻二人房间，密室的负一层是一个有起居功能的大型书房，她曾在这里和赵普研读典籍，商讨政事。同时也作为和江湖人士秘密会面场所。密室的负二层埋藏这她作为摘星手的过去，里面有她的夜行衣和和练功的道具，以及盗来的宝贝。打开密室的机关钥匙是魏的发钗，发钗可以变形为一把锋利的飞镖，也是在暗示魏作为江湖侠盗的过去和作为妻子母亲的现在。密室的最后房间设计成和地上御风楼连通，也暗示着魏的成熟和融贯，她没有完全否认过去，把深埋过去的密室完全封锁，而是利用这里作为一个连通朝堂和江湖的场所。</p>
+<div class="image-carousel-container" data-interval="2000" data-fit="cover">
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      <div class="carousel-slide">
+        <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d7an744pj30fp0bxjup.jpg" alt="宅子布局参考">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d7iivzp4j30k00dcdii.jpg" alt="宅子布局参考">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d7jbsuq5j311c0o3k87.jpg" alt="路线设计">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d7ktuva9j31hc0u0aic.jpg" alt="关卡白盒">
+      </div>
+      </div>
+  </div>
+  <button class="carousel-nav carousel-prev" aria-label="上一张"></button>
+  <button class="carousel-nav carousel-next" aria-label="下一张"></button>
+  <button class="carousel-play-pause" aria-label="暂停"></button>
+  <div class="carousel-dots"></div>
+</div>
 
-<h2 id="兴趣点分布图"><a href="#兴趣点分布图" class="headerlink" title="兴趣点分布图"></a>兴趣点分布图</h2><p><img src="https://pic.imgdb.cn/item/63d741a8face21e9ef5b4e04.jpg"><br>这里具体的标记出了兴趣点在关卡中的分布情况，越靠近目的地兴趣点越密集，不同种类的兴趣点按照一定的节奏均匀分布。</p>
-<h2 id="平面路线图"><a href="#平面路线图" class="headerlink" title="平面路线图"></a>平面路线图</h2><p><img src="https://pic.imgdb.cn/item/63d741a9face21e9ef5b4ea2.jpg"><br>这里标注了详细的玩家行进路线，对应①②③④⑤⑥⑧，①②③④⑫⑬⑭⑯，⑮⑯这三种兴趣点流程。</p>
-<h2 id="3D关卡路线图"><a href="#3D关卡路线图" class="headerlink" title="3D关卡路线图"></a>3D关卡路线图</h2><p><img src="https://pic.imgdb.cn/item/63d741a9face21e9ef5b4eeb.jpg"><br><img src="https://pic.imgdb.cn/item/63d741a9face21e9ef5b4f02.jpg"></p>
-<h2 id="场景和参考"><a href="#场景和参考" class="headerlink" title="场景和参考"></a>场景和参考</h2><h4 id="1-关卡场景设定"><a href="#1-关卡场景设定" class="headerlink" title="(1)关卡场景设定"></a>(1)关卡场景设定</h4><p>南洛美之塔是位于海拉鲁大陆南部费罗尼草原上的一座高塔。高塔周围是常青的丘陵草原和一片湖水，高塔坐落在较高处的山上，从远处即可看见。这里曾经是洛美文明遗迹的所在地，古老的遗迹废墟遍布在各处。后来这里被灾厄侵蚀，成为了怪物出没的危险之地。</p>
-<h4 id="2-地形环境参考"><a href="#2-地形环境参考" class="headerlink" title="(2)地形环境参考"></a>(2)地形环境参考</h4><p><img src="https://pic.imgdb.cn/item/63d743a0face21e9ef5eb9d1.jpg" alt="丘陵和湖泊"><br><img src="https://pic.imgdb.cn/item/63d74301face21e9ef5d9e4c.jpg" alt="湖泊上的遗迹"><br><img src="https://pic.imgdb.cn/item/63d74301face21e9ef5d9de2.jpg" alt="丘陵上的遗迹废墟"><br>因为位于大陆的南方，这里气候宜人，有郁郁葱葱的丘陵和清澈湛蓝的湖泊。丘陵不像高山那样险峻陡峭，相对比较平缓，而且植被比较多。</p>
-<p><img src="https://pic.imgdb.cn/item/63d74424face21e9ef5fa1ec.jpg" alt="被灾厄侵蚀后"><br>同时因为灾厄的入侵，这里早已无人居住，怪物盘踞在各个角落，占领了遗迹，危害沿途的旅人，随着靠近高塔，空气中逐渐地增添一些恐怖的氛围。</p>
-<h4 id="3-遗迹风格参考"><a href="#3-遗迹风格参考" class="headerlink" title="(3)遗迹风格参考"></a>(3)遗迹风格参考</h4><p><img src="https://pic.imgdb.cn/item/63d74483face21e9ef604ab6.jpg" alt="巨石大门"><br><img src="https://pic.imgdb.cn/item/63d74483face21e9ef604ad4.png" alt="神庙遗迹"><br><img src="https://pic.imgdb.cn/item/63d74483face21e9ef604a9d.jpg" alt="遗迹石块纹路"><br>洛美是一个相当古老神秘的文明，他们善于锻造平整的大体积石块，这些石块大多数是立方体，他们的建筑物就是使用这种石块建成，有时石块大的难以想象，他们如何搬运这些笨重的建筑材料不得而知，虽然已经破败，但这些废墟仍能呈现出一种庄严宏伟的感觉。<br>同时洛美也有源远流长的祭祀文化，那些体积庞大的神庙遗迹就是证明，现在依旧可以看到那些遗迹石表面镌刻的神秘纹路。</p>
-<h2 id="兴趣点玩法详情"><a href="#兴趣点玩法详情" class="headerlink" title="兴趣点玩法详情"></a>兴趣点玩法详情</h2><p><img src="https://pic.imgdb.cn/item/63d74a92face21e9ef6c9a99.jpg"></p>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
+  <div class="image-compare-container" data-position="40" style="flex: 1 1 calc(50% - 10px); min-width: 300px;">
+    <div class="image-before">
+      <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d6ro1bytj31hc0u0gx1.jpg" alt="修改前">
+      <span class="image-label label-before"></span>
+    </div>
+    <div class="image-after">
+      <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d6rnbrf6j31hc0u0dzs.jpg" alt="修改后">
+      <span class="image-label label-after"></span>
+    </div>
+    <div class="jx-handle"></div>
+  </div>
+
+  <div class="image-compare-container" data-position="60" style="flex: 1 1 calc(50% - 10px); min-width: 300px;">
+    <div class="image-before">
+      <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d6rmc50bj31hc0u0n4z.jpg" alt="修改前">
+      <span class="image-label label-before"></span>
+    </div>
+    <div class="image-after">
+      <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d6rlxvx2j31hc0u0dtv.jpg" alt="修改后">
+      <span class="image-label label-after"></span>
+    </div>
+    <div class="jx-handle"></div>
+  </div>
+
+  <div class="image-compare-container" data-position="40" style="flex: 1 1 calc(50% - 10px); min-width: 300px;">
+    <div class="image-before">
+     <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d6rl84qkj31hc0u0aiz.jpg" alt="修改前">
+      <span class="image-label label-before"></span>
+    </div>
+    <div class="image-after">
+      <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d6rk3kmyj31hc0u0qhh.jpg" alt="修改后">
+      <span class="image-label label-after"></span>
+    </div>
+    <div class="jx-handle"></div>
+  </div>
+
+  <div class="image-compare-container" data-position="55" style="flex: 1 1 calc(50% - 10px); min-width: 300px;">
+    <div class="image-before">
+      <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d6rjizf6j31hc0u0ajv.jpg" alt="修改前">
+      <span class="image-label label-before"></span>
+    </div>
+    <div class="image-after">
+      <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d6rj2lj8j31hc0u0wx9.jpg" alt="修改后">
+      <span class="image-label label-after"></span>
+    </div>
+    <div class="jx-handle"></div>
+  </div>
+</div>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   </div>
   <div id="gitalk-container"></div>
