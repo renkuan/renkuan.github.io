@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+<title>捕风寻影-RKs</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.png">
+
+<link rel="stylesheet" href="/css/index.css">
+
+
+<meta name="keywords" content="关卡策划,游戏策划">
+<meta name="description" content="描述">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/index.js"></script>
+
+
+<script src="/js/fancybox.umd.js"></script>
+
+
+<script src="/js/fancybox-images.js"></script>
+
+
+<script src="/js/image-compare.js"></script>
+
+
+<script src="/js/image-carousel.js"></script>
+
+
+<script src="/js/gitalk.min.js"></script>
+
+
+<script src="/js/hljs.min.js"></script>
+ 
+<script>hljs.highlightAll();</script>
+
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		
+	<div class="header">
+		<div class="header-top" id="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/favicon.png" alt="Quiet">
+					<span>任宽·关卡设计</span>
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										关卡
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										文章
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										简历
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										关于我
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>任宽</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">关卡</a>
+        </li>
+        
+        <li>
+            <a href="/archives">文章</a>
+        </li>
+        
+        <li>
+            <a href="/links">简历</a>
+        </li>
+        
+        <li>
+            <a href="/about">关于我</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+    </div>
+</div>
+<div class='shelter'>
+</div>
+<style>
+    .shelter{
+        background-color: #333;
+        opacity:0.5;
+        cursor: pointer;
+        display: none; 
+        position: fixed;
+        left: 0;
+        top: 0; 
+        right: 0;
+        bottom: 0;
+        z-index: 1998;
+    }
+    .sidebar {
+        width: 66%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        background: #fff;
+        z-index: 1999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $( function () {
+	$( '.h-right-close>svg' )
+		.click( function () {
+			$( '.sidebar' )
+				.animate( {
+					right: "0"
+				}, 500 );
+			$( '.shelter' )
+				.fadeIn( "slow" )
+		} );
+	$( '.shelter' )
+		.click( function ( e ) {
+			$( '.sidebar' )
+				.animate( {
+					right: "-100%"
+				}, 500 );
+			$( '.shelter' )
+				.fadeOut( "slow" )
+		} )
+} )
+
+</script>
+
+<div class="post">
+    <div class="post-header-background post-header-color"
+    style="background: url('')" 
+>
+    <div class="post-header-background-content">
+        <ul class="post-header-tag">
+            
+        </ul>
+        
+        <h1>捕风寻影</h1>
+        <div class="post-header-info">
+            <div class="post-header-info-author">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                        <g>
+                            <path fill="#12183A"
+                                d="M6.187 15.265A6.47 6.47 0 0 0 10 16.5a6.47 6.47 0 0 0 3.813-1.235A4.99 4.99 0 0 0 10 13.5a4.99 4.99 0 0 0-3.813 1.765zM5.082 14.25A6.485 6.485 0 0 1 10 12c1.965 0 3.726.872 4.918 2.25a6.5 6.5 0 1 0-9.836 0zM10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+                            </path>
+                        </g>
+                    </svg>
+                
+                <span class="post-header-info-author-text"> <a href="../../about">任宽</a></span>
+                <div class="post-header-info-author-categories">
+                    
+                </div>
+                <p>2026-03-30 15:17:00</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="post-content" id="content">
+  
+  <div id="article" class="post-content-info">
+    
+
+    <!-- ![【至不见山】【4K60帧】《燕云十六声》全主线_残章_支线全剧情流程合集（至第六十六集）-清河、开封、河西、凉州、秦川、不见山_@18-45.61_1762392926639](https://cdn.ipfsscan.io/weibo/large/0075kL53ly1i728yyila0j32yo1o0u0x.jpg) -->
+
+<h3 id="叙事主题：寻回尘封的童年"><a href="#叙事主题：寻回尘封的童年" class="headerlink" title="叙事主题：寻回尘封的童年"></a><strong>叙事主题：寻回尘封的童年</strong></h3><p>关卡的起点来自主线故事中的一句旁白：<strong>少东家失去了少年与童年时光</strong>。</p>
+<p>这让我想起《塞尔达传说：时之笛》的隐藏故事——林克拯救了海拉鲁大陆，却被自己的童年放逐。再加上双人游戏往往不可避免地带有更欢快的氛围，我们将关卡的叙事主题设定为：<strong>寻回尘封的童年时光</strong>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/image.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/image%201.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/image%202.png" alt="image.png"></p>
+<h3 id="用现有资产搭建童年记忆"><a href="#用现有资产搭建童年记忆" class="headerlink" title="用现有资产搭建童年记忆"></a><strong>用现有资产搭建童年记忆</strong></h3><p>由于工期紧张，无法制作更多美术资产，关卡设计的课题便转为：<strong>如何利用现有资产搭建童年记忆场景</strong>。</p>
+<p>我们设定了两个目标：</p>
+<ul>
+<li><strong>熟悉又陌生</strong></li>
+<li><strong>不真实的梦幻感</strong></li>
+</ul>
+<p>做法是以已有的场景要素为材料，通过变换——缩放尺寸、修改颜色——并进行拼接组合，营造”熟悉的陌生感”；再加入一些更反常的核心物件，例如巨大的花朵与灵芝、数十米高的巨鹅、蔬菜人等，以突出不真实的梦幻感。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/image%203.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/image%204.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/image%205.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/image%206.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/image%207.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/image%208.png" alt="image.png"></p>
+<h2 id="轻快欢乐的机制设计"><a href="#轻快欢乐的机制设计" class="headerlink" title="轻快欢乐的机制设计"></a>轻快欢乐的机制设计</h2><h3 id="调整双人合作玩法的占比"><a href="#调整双人合作玩法的占比" class="headerlink" title="调整双人合作玩法的占比"></a><strong>调整双人合作玩法的占比</strong></h3><p>《燕云十六声》的玩家更偏向泛化下沉：大多数玩家没有双人合作游戏经验，另有一部分偏单人游玩的玩家也较排斥社交。因此在关卡设计之初，我们需要做出取舍——</p>
+<blockquote>
+<p>是冒着玩家难以通关的风险，更侧重双人合作机制；还是弱化双人游戏最核心、最具特色的合作玩法，以保证更顺畅、对同玩伙伴依赖更低的体验？</p>
+</blockquote>
+<p>最终我们选择了后者。</p>
+<p><strong>山野关</strong>的做法是：玩家多数时间分开独自游玩，随后安排一段两人会合同行的流程；同行阶段的合作解谜也更轻度、更简单。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/image%209.png" alt="image.png"></p>
+<p><strong>灯会关</strong>延续同一思路：该关为开放区域游乐场，玩家需要通过游玩小游戏收集任务所需道具。小游戏设计上尽量避免必须两人强制配合才能完成的玩法，基本保证单人玩家也能通关。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/image%2010.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/image%2011.png" alt="image.png"></p>
+<p><strong>双人在场：弱机制、强表现</strong></p>
+<p>“双人在场”是一种比”双人合作”要求更低的双人体验模式。</p>
+<p>以第二关宴会关的<strong>双人蹴鞠</strong>为例：玩家只需同时参与，各自完成自己的操作。我们将双人互动的氛围放在表现层，而非机制层——既降低了难度，也在一定程度上保留了双人游戏的情感链接。</p>
+<p><strong>双人大鹅载具追逃</strong>同样采用了这一设计思路：弱机制、强表现。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/image%2012.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/%E5%A4%A7%E9%B9%85%E8%BD%BD%E5%85%B7%E8%BF%BD%E9%80%832.gif" alt="大鹅载具追逃2.gif"></p>
+<h3 id="双世界双人跑酷"><a href="#双世界双人跑酷" class="headerlink" title="双世界双人跑酷"></a><strong>双世界双人跑酷</strong></h3><p>起初这只是一个技术实验——我们想验证引擎是否能实现左右半屏渲染不同场景的功能。顺利实现后，我们决定用它做一个类似《双影奇景》中分裂世界的关卡。虽然核心创意有相似之处，但双世界的视觉表现与关卡叙事主题——寻找失去的童年记忆——恰好契合：两段记忆交融叠化，两个世界同时奔跑。于是我们没有多犹豫便着手制作了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/%E5%8F%8C%E4%B8%96%E7%95%8C%E5%88%9D%E8%A7%81.gif" alt="双世界初见.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/image%2013.png" alt="image.png"></p>
+<h3 id="快节奏追逐关卡的设计思路"><a href="#快节奏追逐关卡的设计思路" class="headerlink" title="快节奏追逐关卡的设计思路"></a><strong>快节奏追逐关卡的设计思路</strong></h3><p>借这个关卡，聊聊此类追逐关卡的设计方法。</p>
+<p><strong>前提：叙事赋予的紧迫感</strong></p>
+<p>追逐流程能够成立，前提是剧情上给出一个”不跑就会死”的理由。无论是被追还是追人，玩家需要一个清晰的动机让自己持续向前。这个关卡我们再一次利用了大鹅——作为玩家的一生之敌，它在身后穷追不舍。大鹅这个形象本身就兼具威胁感和荒诞感，放在一个童年记忆的梦境里，反而比任何正经的怪物都更合适。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/%E5%A4%A7%E9%B9%85%E8%BF%BD%E9%80%90.gif" alt="大鹅追逐.gif"></p>
+<p><strong>四段节拍：用运动方式的切换制造节奏</strong></p>
+<p>追逐流程如果从头跑到尾，玩家会很快疲劳。所以我们把整条追逐线拆成四个节拍，每一段切换玩家的核心运动方式，让手感和视觉都有明显的变化：</p>
+<table>
+<thead>
+<tr>
+<th><strong>节拍</strong></th>
+<th><strong>场景</strong></th>
+<th><strong>主要运动方式</strong></th>
+<th><strong>节奏感受</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第一段</td>
+<td>茶楼市井</td>
+<td>奔跑跳跃 + 骑乘坐骑</td>
+<td>热闹、密集，障碍物多，需要频繁反应</td>
+</tr>
+<tr>
+<td>第二段</td>
+<td>水（沙）面</td>
+<td>水面轻功 + 竖直方向飞檐走壁</td>
+<td>开阔、舒展，节奏稍缓，给玩家喘息</td>
+</tr>
+<tr>
+<td>第三段</td>
+<td>水下、高空</td>
+<td>游泳 + 骑乘飞鸢</td>
+<td>视野拉高，速度感强</td>
+</tr>
+<tr>
+<td>第四段</td>
+<td>雪山、熔炉岩浆</td>
+<td>俯冲</td>
+<td>最终高潮，速度最快，躲避子弹，视觉冲击</td>
+</tr>
+</tbody></table>
+<p>四段节拍背后是一条有意设计的体验曲线：<strong>密集→舒缓→紧张→高潮刺激</strong>。第一段用密集的障碍物把玩家拉进紧张状态；第二段切到水面，空间打开，节奏放缓，让玩家有一个喘息窗口；第三段躲避大鱼后骑乘木鸢拉到高空，营造一种面对危险劫后余生的起伏；第四段俯冲下坠则是更高强度的高潮释放——雪球，火球轰炸，熔炉雪山的强烈视觉冲击。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/%E5%B8%82%E4%BA%95.gif" alt="市井.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/%E6%B0%B4%E9%9D%A2%E6%B2%99%E9%9D%A2.gif" alt="水面沙面.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/%E9%AA%91%E7%9D%80%E9%A3%9E%E9%B8%A2.gif" alt="骑着飞鸢.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/%E7%86%94%E7%82%89%E9%9B%AA%E5%B1%B1.gif" alt="熔炉雪山.gif"></p>
+<p><strong>布局约束：一条直线的设计挑战</strong></p>
+<p>分屏渲染的技术限制导致我们不能随意旋转相机——两个世界必须始终朝同一个方向推进。这意味着关卡 layout 只能是一条大直线，两侧分布建筑和地形。</p>
+<p>乍看之下这是一个很大的限制，但换个角度想：追逐关卡本来就不需要复杂的空间结构。<strong>玩家的注意力应该放在”躲开眼前的东西”和”享受两侧飞速后退的景观”上，而不是”搞清楚下一个路口该往哪拐”。</strong> 直线布局反而让我们可以把所有精力放在节奏编排和视觉密度上。</p>
+<p><strong>视觉营造：对比拼接的冲击力</strong></p>
+<p>场景设定为记忆中的世界，真实度可以很随意——这给了我们极大的美术自由度。</p>
+<p>具体做法是在现有资产库里，寻找<strong>色彩材质上能形成强烈对比、但形状轮廓上又比较相似</strong>的资产，把它们拼接在一起。比如同样轮廓的建筑，一侧是正常的灰墙黛瓦，另一侧是西域风格的黄色土墙。当两个世界以分屏的方式同时呈现在玩家眼前时，这种对比会产生非常强的视觉冲击力。</p>
+
+  </div>
+  <div id="gitalk-container"></div>
+</div>
+
+<script>
+  
+Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
+  dragToClose: true,
+  Toolbar: true,
+  closeButton: "top",
+  Image: {
+    zoom: true,
+  },
+  on: {
+    initCarousel: (fancybox) => {
+      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+    "Carousel.change": (fancybox, carousel, to, from) => {
+      const slide = carousel.slides[to];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+  },
+});
+</script>
+
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 9999;
+        /* width: 600px !important; */
+        min-width: 0%;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            max-width: 88%
+        }
+    }
+</style>
+
+    
+<div class="post-paging">
+    
+
+    
+    <a href="/2025/01/05/%E7%87%95%E4%BA%91%E5%8D%81%E5%85%AD%E5%A3%B0-%E7%86%94%E7%82%89/">
+        <div class="post-paging-next">
+            <span>下一篇</span>
+            <p>天地熔炉</p>
+        </div>
+    </a>
+    
+</div>
+</div>
+		
+<div class="footer">
+	<div class="contact">
+		
+	</div>
+</div>
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            transition: border .5s;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $( '#js-go_top' )
+	.gotoTop( {
+		offset: 500,
+		speed: 300,
+		animationShow: {
+			'transform': 'translate(0,0)',
+			'transition': 'transform .5s ease-in-out'
+		},
+		animationHide: {
+			'transform': 'translate(100px,0)',
+			'transition': 'transform .5s ease-in-out'
+		}
+	} );
+</script>
+
+
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+</html>
+

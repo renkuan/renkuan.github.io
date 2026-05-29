@@ -288,6 +288,7 @@
     
 
     <!-- ![](https://cdn.ipfsscan.io/weibo/large/0075kL53ly1i713halhhlj32801o0tps.jpg) -->
+
 <h1 id="战斗据点"><a href="#战斗据点" class="headerlink" title="战斗据点"></a>战斗据点</h1><h2 id="关卡介绍"><a href="#关卡介绍" class="headerlink" title="关卡介绍"></a>关卡介绍</h2><h5 id="简介："><a href="#简介：" class="headerlink" title="简介："></a><strong>简介：</strong></h5><ul>
 <li><strong>游戏简介</strong>：燕云十六声是一款开放世界ARPG武侠游戏，故事背景设定在宋初。游戏中分布着战斗据点、解谜关卡以及注重叙事的主、支线线性关卡。</li>
 <li><strong>关卡简介</strong>：据点是开放世界战斗关卡，类似《对马岛之鬼》。我设计制作<strong>绣金所、贺刀寨、汴河渡口、旧村遗址、张家旧宅</strong>5个据点。</li>
@@ -299,6 +300,88 @@
 <li>layout设计，白盒设计，玩家路线规划，环境组件配置，敌人巡逻路径和基本行为配置。</li>
 <li>与各个部门合作制作游戏场景、gameplay组件和敌人。</li>
 </ul>
+<h1 id="为开封据点建立一套可复用的设计规范"><a href="#为开封据点建立一套可复用的设计规范" class="headerlink" title="为开封据点建立一套可复用的设计规范"></a>为开封据点建立一套可复用的设计规范</h1><p>燕云十六声有大量「据点」类型的关卡，在接手这类关卡的时候还没有一套统一的设计规范，所以我们决定先沉淀一套据点设计规范——既给后续同学一份开箱即用的参考手册，也让「据点」作为一种关卡类型在玩家心里有相对统一的认知。</p>
+<p>规范的目标不是限制创造，而是把那些做几个据点之后才会踩到的坑提前讲清楚，让做新据点的同学把精力放在创作上。</p>
+<h2 id="据点规格："><a href="#据点规格：" class="headerlink" title="据点规格："></a>据点规格：</h2><p>我们把据点分成三档：</p>
+<ul>
+<li>大型据点：约 100m × 100m（±20m）</li>
+<li>中型据点：约 65m × 65m（±10m）</li>
+<li>小型据点：约 40m × 40m（±5m）</li>
+</ul>
+<p>布局上有两条原则：</p>
+<ul>
+<li>外围相对安全，玩家可以观察、踩点、制定路线；越靠近 BOSS、奖励越好的区域越危险。</li>
+<li>正门防御较厚，硬突困难；侧面通常留 1～2 条较隐蔽的潜入路线，鼓励玩家用脑子而不是硬刚。</li>
+</ul>
+<p>这两条看似朴素，但其实决定了「据点」作为关卡类型最基本的体验骨架：一个值得被侦察的封闭空间，且必然有不止一种打法。</p>
+<h2 id="三种体验维度：潜入暗杀、正面战斗、场景机制"><a href="#三种体验维度：潜入暗杀、正面战斗、场景机制" class="headerlink" title="三种体验维度：潜入暗杀、正面战斗、场景机制"></a>三种体验维度：潜入暗杀、正面战斗、场景机制</h2><p>据点的体验由三种维度交织构成——</p>
+<ul>
+<li>潜入暗杀：制高点、潜行路径、掩体、暗杀技能</li>
+<li>正面战斗：战斗场地、敌人配置、兵种组合</li>
+<li>场景机制：炸药桶、弩箭、九曜灯、重物、野兽笼……</li>
+</ul>
+<p>任何一个具体的据点都不是只用一种维度，而是这三者按不同比例的组合。</p>
+<h2 id="潜入暗杀：空间结构规范"><a href="#潜入暗杀：空间结构规范" class="headerlink" title="潜入暗杀：空间结构规范"></a>潜入暗杀：空间结构规范</h2><ol>
+<li><p>制高点</p>
+<p>每个据点设 2～3 个制高点，需满足：</p>
+<ul>
+<li>从主路线就能看见，最好用视觉上统一的标识强化辨识；</li>
+<li>站上去之后，敌人位置、最终目标、可互动组件能一眼看清，必要时辅以听风辨位；</li>
+<li>制高点本身也是潜行路线的入口，能把玩家从”看见”自然引导到”走过去”。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%201.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%202.png" alt="image.png"></p>
+</li>
+<li><p>潜行路线</p>
+<p>潜入口需要可读：每个据点至少 2 个潜入口，并有明确的视觉标识。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%203.png" alt="image.png"></p>
+<p>进入据点之后是潜行路线网络：</p>
+<ul>
+<li>用掩体搭出地面潜行网络；</li>
+<li>同时设计一套高处潜行路径——既要有”上去”的通路，也要有”从高处进入室内”的通路，并保证高度足够（&gt;4.5m）以避开地面敌人视野。</li>
+</ul>
+<p>地面与高处两套网络叠加，玩家就拥有了真正意义上的选择权。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%204.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%205.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%206.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%207.png" alt="image.png"></p>
+</li>
+<li><p>掩体</p>
+<p>掩体分三种——全掩体、半掩体、软掩体。规范里明确了它们各自的尺寸标准（高度、最小面积、最小宽度），以及不同节奏下的适用场景。掩体的密度与组合，决定了一段潜行是紧张还是从容。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%208.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%209.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%2010.png" alt="image.png"></p>
+</li>
+<li><p>暗杀技能</p>
+<p>不同位姿下的暗杀技能（已实现的下蹲、站立、空中，以及待实现的半透明、攀爬暗杀）也要被纳入设计考虑——技能的丰富度决定了空间里能被设计出多少种”击杀时机”。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%2011.png" alt="image.png"></p>
+</li>
+</ol>
+<h2 id="正面战斗：留出能打的地方"><a href="#正面战斗：留出能打的地方" class="headerlink" title="正面战斗：留出能打的地方"></a>正面战斗：留出能打的地方</h2><p>正面战斗的思路是反过来的——不是「这里要打架，所以圈一块地出来」，而是「如果这里有可能打起来，地块必须达到能打架的标准」。我们规定普通战斗场地最小为 6 × 6m，更细的标准参考 3C 手册。</p>
+<p>兵种组合上有两条经验：</p>
+<ul>
+<li>近战阵营通过刀、盾、枪的混搭来制造策略层次；</li>
+<li>远程（弓弩手）与近战在空间上要分离，让玩家的处理顺序成为一个值得思考的问题，而不是混成一锅粥。</li>
+</ul>
+<h2 id="场景机制：三级难度阶梯"><a href="#场景机制：三级难度阶梯" class="headerlink" title="场景机制：三级难度阶梯"></a>场景机制：三级难度阶梯</h2><p>场景机制是据点最具风味的部分，但它在不同难度的关卡里用法不同。我们把它分为三级：</p>
+<ol>
+<li>基础级：可触发组件位于显眼且易达的位置——适用于小型据点和前期教学关卡，让玩家”无意中发现机制也能爽到”。</li>
+<li>进阶级：需要先潜行到优势位置，或者完成一系列策略动作后才能触发——适用于中高难度关卡。</li>
+<li>高级：将场景机制与敌人 AI 行为耦合，制造特定的击杀时机——奖励玩家的观察与节奏感。</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%2012.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%2013.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%2014.png" alt="image.png"></p>
+<p>汴河渡口</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/banner_pic_judian_bianhedukou.png" alt="banner_pic_judian_bianhedukou.png"></p>
+<p>这里是漕帮青蛟堂位于汴河上的据点，集货运仓库和香堂堂会合一。北侧临码头东侧临内河，西南侧便是繁华的百工坊。交通方便，位置极佳。原先我们准备设计一种潜伏在水里的敌人，为这种邻水据点的战斗增添更多的乐趣（我们可以把水引入据点内部），但是因为角色和水体交互的技术原因放弃掉了。但是我们依然保留了据点东北侧开放并且邻水的地形，便于玩家使轻功从水上进入据点。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%2015.png" alt="image.png"></p>
+<p>漕帮有船运背景，所以据点内多有货仓和一些运送装置，比如吊机，脚轮等。我们利用这些设施设计了场景机制：货物下落，玩家可以在远处用弓箭射击破坏悬挂货物的木质钩锁，致使高处的货物下落，砸伤敌人。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%2016.png" alt="image.png"></p>
+<p>据点中心二层木质建筑：香堂，是帮里集会商议大事的地方。在建筑内我们设计了一些环境叙事点位，比如朱鱼的牌位，师爷的书信等，用来交代青蛟堂的来历以及漕帮分裂事件的一些线索。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%2017.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%2018.png" alt="image.png"></p>
 <h2 id="设计过程（汴河渡口）"><a href="#设计过程（汴河渡口）" class="headerlink" title="设计过程（汴河渡口）"></a>设计过程（汴河渡口）</h2><div class="image-carousel-container" data-interval="2000" data-fit="cover">
   <div class="carousel-wrapper">
     <div class="carousel-track">
@@ -327,8 +410,6 @@
   <button class="carousel-play-pause" aria-label="暂停"></button>
   <div class="carousel-dots"></div>
 </div>
-
-
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
   <div class="image-compare-container" data-position="30" style="flex: 1 1 calc(50% - 10px); min-width: 300px;">
@@ -375,6 +456,7 @@
     <p style="text-align: center; margin-top: 8px; font-weight: bold;">张家旧寨</p>
   </div>
 </div>
+
   </div>
   <div id="gitalk-container"></div>
 </div>
