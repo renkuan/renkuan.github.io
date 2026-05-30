@@ -1,11 +1,13 @@
 .archive-content {
   display: flex;
-  max-width: 1160px;
+  max-width: var(--content-max);
   margin: 0 auto;
   margin-top: 0;
-  background: #ffffff;
-  border-radius: 10px;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
   flex-direction: column;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
 }
 .archive-content-data {
   display: flex;
