@@ -289,68 +289,45 @@
 
     <!-- ![黄钟测试开启_《燕云十六声》5分钟实机PV_@05-03.93_1762393162401](https://cdn.ipfsscan.io/weibo/large/0075kL53ly1i728ywqmgdj32yo1o0e83.jpg) -->
 
-<h1 id="天地熔炉"><a href="#天地熔炉" class="headerlink" title="天地熔炉"></a>天地熔炉</h1><h5 id="关卡简介："><a href="#关卡简介：" class="headerlink" title="关卡简介："></a><strong>关卡简介：</strong></h5><ul>
-<li><strong>游戏简介</strong>：燕云十六声是一款开放世界ARPG武侠游戏，故事背景设定在宋初。游戏中分布着战斗据点、解谜关卡以及注重叙事的主、支线线性关卡。</li>
-<li><strong>关卡简介</strong>：官府严酷收缴唐钱搜查聚宝盆，百姓受苦。温盈为保护众人被史大人抓走，生死不明。玩家需要潜入熔炉营救温盈。</li>
-<li><strong>使用工具</strong>: UE4，Messiah</li>
-<li><strong>开发时间</strong>: 2024年3月-2025年2月</li>
-</ul>
-<h5 id="关卡演示"><a href="#关卡演示" class="headerlink" title="关卡演示"></a><strong>关卡演示</strong></h5><iframe width="100%" height="549" src="//player.bilibili.com/player.html?isOutside=true&aid=113845070726520&bvid=BV1oscfe9Eyk&cid=27927184837&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<h1 id="天地熔炉"><a href="#天地熔炉" class="headerlink" title="天地熔炉"></a>天地熔炉</h1><p><strong>《燕云十六声》</strong>是一款开放世界武侠 ARPG。本页展示我参与设计的开封篇线性叙事关卡「天地熔炉」，重点包括潜行路线规划、盗取钥匙流程、同伴 NPC 塑造、机关谜题、熔炉跑酷节奏与跨部门迭代协作。</p>
+<p>「天地熔炉」围绕官府收缴唐钱、搜查聚宝盆引发的民间苦难展开。温盈为保护众人被史大人抓走，生死不明。玩家需要潜入熔炉区域，寻找地牢、营救同伴，并在后续流程中与小福、小禄、小寿三位道主一同行动，最终突围并面对关卡高潮。</p>
+<p><strong>使用工具</strong>：UE4，Messiah</p>
+<p><strong>开发时间</strong>：2024 年 3 月 - 2025 年 2 月</p>
+<iframe width="100%" height="549" src="//player.bilibili.com/player.html?isOutside=true&aid=113845070726520&bvid=BV1oscfe9Eyk&cid=27927184837&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
-<h5 id="我做了什么："><a href="#我做了什么：" class="headerlink" title="我做了什么："></a><strong>我做了什么：</strong></h5><ul>
-<li>玩家路线规划，环境组件配置，谜题设计以及装配，部分跑酷流程脚本设计。</li>
-<li>NPC叙事序列和互动设置，NPCAI行为树编写，敌人巡逻路径和基本行为配置。</li>
-<li>与各个部门合作制作游戏场景、gameplay组件和BOSS战。</li>
-</ul>
-<p>潜行盗取钥匙</p>
-<p>我负责的这段关卡，起始流程是玩家偷到熔炉区域的布防图，随后来到高处，根据地图寻找关押同伴的地牢。玩家通过观察士兵巡逻的动向确定地牢位置，接着需要潜入地牢营救同伴。</p>
-<p>整个潜入关卡以较规整的官式园林建筑为主要空间。我们希望提供多条符合直觉的潜行路线供玩家选择：一类是规避敌人的空中路线，但不易察觉，需要细心观察；另一类是更明显的地面路线，但需要玩家把握时机通过。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E7%86%94%E7%82%89%E5%A4%96%E5%AE%85%E5%AD%90%E6%BD%9C%E8%A1%8C%E8%B7%AF%E7%BA%BF.png" alt="熔炉外宅子潜行路线.png"></p>
-<p>来到地牢门口后，玩家得知需要前往文书区盗取地牢钥匙。随后，玩家要潜入敌人更密集的文书区域，跟随移动的目标 NPC，盗取其身上的钥匙。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E5%81%B7%E9%92%A5%E5%8C%99.gif" alt="偷钥匙.gif"></p>
-<p>地牢：在有限篇幅内完成道主 3 人的塑造</p>
-<p>“道主 3 人”指的是三个小女孩：小福、小禄、小寿。她们在更早的剧情里各自单独登场过；在熔炉地牢流程中，我们希望三人同时出场，作为同伴 NPC 参与关卡流程。如何在有限篇幅内展现三位同伴 NPC，并让玩家区分与记住，成了最大的课题。</p>
-<p>为最高效率地突出三人的人物设定，我们为每人挑选一个最重要的特质，并在关卡流程中着重表现：小福头脑简单、武功高强；小禄胆小心细、关心玩家；小寿聪明伶俐、虚荣心强。在设计任务流程时，我们抓住每一个细节来展现 NPC 的特质。比如在寻路过程中，小禄总是紧跟在玩家身边；关卡中有两处玩家无法打开的单向门，也都是小禄通过后会打开，方便玩家继续前进。小寿会发现一些不易注意到的探索物与隐秘机关；小福则更横冲直撞，会做出砸毁机关的行为，战斗时也总是冲在最前。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E5%B0%8F%E7%A6%84%E5%BC%80%E9%97%A8.gif" alt="小禄开门.gif"></p>
-<p>叠叠乐：道主这个角色的首次出场是以合体状态作为 BOSS 登场，三个小孩叠在一起扮演一个穷凶极恶的江湖怪客。我们想在这段关卡中呼应“道主三合一”的有趣设定，因此设计了一个机关谜题，让玩家也参与到“叠叠乐”的游戏中。</p>
-<p>书架缝隙处有怪风吹灭蜡烛，蜡烛熄灭后的烟会被吸入书架里，暗示书架外侧还有其他空间。为检查书架上方是否存在暗室入口，玩家需要与三位道主叠在一起，由最上层的小禄进行检查。随后书架摇晃倒塌，架上的书籍跌落，只有一只瓷花瓶纹丝不动，显然它就是开启机关的钥匙。之后三位道主再次叠起来操作花瓶，打开书架暗门，由玩家进入暗室。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E5%8F%A0%E5%8F%A0.gif" alt="叠叠.gif"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E5%8F%A0%E5%8F%A0%E5%BC%80%E9%97%A8.gif" alt="叠叠开门.gif"></p>
-<p>跑酷：熔炉跑酷的节奏设计（建筑倒塌、暗杀官兵、子弹时间跑酷）</p>
-<p>我们采用经典的“引入铺垫—逐渐推高—峰值终结”的节拍设计，大致分为三个节拍：走廊奔逃、飞檐走壁、子弹时间。每个节拍再拆分为更细的子节拍，每个子节拍至少选取两个方面做变化，以确保新鲜感与情绪起伏。</p>
+<p><strong>我的职责：</strong></p>
 <ul>
-<li>玩家移动方式</li>
-<li>运动方向</li>
-<li>空间特质</li>
-<li>环境氛围</li>
-<li>镜头</li>
-<li>敌人行为</li>
+<li><strong>关卡结构与路线规划</strong>：负责熔炉潜入、地牢营救、同伴同行、跑酷突围等段落的流程串联、动线规划与玩家路线设计</li>
+<li><strong>白盒搭建与迭代验证</strong>：完成关键区域 layout、白盒与环境组件配置，根据测试反馈调整空间尺度、路线可读性、敌人密度和通过节奏</li>
+<li><strong>潜行与敌人配置</strong>：设计巡逻路径、潜入路线、盗取钥匙流程与敌人基础行为</li>
+<li><strong>谜题与机关设计</strong>：设计并装配“道主叠叠乐”机关谜题，将角色设定、环境线索和多人协作表现结合到解谜流程中</li>
+<li><strong>同伴 NPC 设计</strong>：配置小福、小禄、小寿的叙事序列、跟随互动、行为树与关卡事件，让三位角色在有限篇幅内形成可区分的性格记忆点</li>
+<li><strong>跑酷与演出协作</strong>：设计熔炉跑酷节拍、部分流程脚本和演出触发，并与场景、动画、音频、程序和 BOSS 战团队协作推进最终效果</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E7%86%94%E7%82%89%E8%B7%91%E9%85%B73.gif" alt="熔炉跑酷3.gif"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E7%86%94%E7%82%89%E8%B7%91%E9%85%B72.gif" alt="熔炉跑酷2.gif"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E7%86%94%E7%82%89%E8%B7%91%E9%85%B71.gif" alt="熔炉跑酷1.gif"></p>
+<h3 id="潜行路线：用高低路径提供直觉选择"><a href="#潜行路线：用高低路径提供直觉选择" class="headerlink" title="潜行路线：用高低路径提供直觉选择"></a><strong>潜行路线：用高低路径提供直觉选择</strong></h3><p>我负责的这段流程从玩家获得熔炉区域布防图开始。玩家随后来到高处，根据地图寻找关押同伴的地牢，并通过观察士兵巡逻动向判断地牢位置。确认目标后，玩家需要潜入地牢区域，推进营救流程。</p>
+<p>整个潜入段以较规整的官式园林建筑为主要空间。我们希望提供多条符合直觉的潜行路线供玩家选择：一类是规避敌人的空中路线，风险较低但不易察觉，需要玩家细心观察；另一类是更明显的地面路线，路径更直接，但需要玩家把握巡逻间隙和通过时机。</p>
+<p>这种设计让不同类型玩家都能找到适合自己的推进方式：喜欢观察探索的玩家可以发现屋顶、墙体和高处通路；更偏直接推进的玩家则可以通过地面路线完成潜入，只是需要承担更高的暴露风险。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E7%86%94%E7%82%89%E5%A4%96%E5%AE%85%E5%AD%90%E6%BD%9C%E8%A1%8C%E8%B7%AF%E7%BA%BF.png" alt="熔炉外宅子潜行路线设计"></p>
+<h3 id="盗取钥匙：从空间侦察转向近身潜行"><a href="#盗取钥匙：从空间侦察转向近身潜行" class="headerlink" title="盗取钥匙：从空间侦察转向近身潜行"></a><strong>盗取钥匙：从空间侦察转向近身潜行</strong></h3><p>来到地牢门口后，玩家得知需要前往文书区盗取地牢钥匙。流程目标由“寻找地牢位置”切换为“潜入敌人更密集的区域并接近目标 NPC”。</p>
+<p>这一段的设计重点是节奏升级：前段让玩家在较大空间中观察巡逻、选择路线；后段则缩小安全空间，把压力集中到目标跟随、距离控制和时机判断上。玩家需要观察目标 NPC 的移动路径，在不惊动周围敌人的情况下靠近并盗取钥匙。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E5%81%B7%E9%92%A5%E5%8C%99.gif" alt="文书区盗取钥匙流程"></p>
+<h3 id="同伴-NPC：在有限篇幅内塑造道主三人"><a href="#同伴-NPC：在有限篇幅内塑造道主三人" class="headerlink" title="同伴 NPC：在有限篇幅内塑造道主三人"></a><strong>同伴 NPC：在有限篇幅内塑造道主三人</strong></h3><p>“道主三人”指的是小福、小禄、小寿三个小女孩。她们在更早的剧情中曾各自单独登场；在熔炉地牢流程中，我们希望让三人同时出场，作为同伴 NPC 参与关卡流程。如何在有限篇幅内展现三位同伴，并让玩家区分与记住她们，成为这一段最大的设计课题。</p>
+<p>为提高角色塑造效率，我们为每个人挑选一个最核心的特质，并在关卡流程中反复通过行为表现出来：小福头脑简单、武功高强；小禄胆小心细、关心玩家；小寿聪明伶俐、虚荣心强。</p>
+<p>在任务细节中，我们尽量让每个角色的功能行为与性格一致。例如，寻路过程中小禄总是紧跟在玩家身边；关卡中有两处玩家无法打开的单向门，也由小禄通过后帮玩家开启，体现她胆小但细心、愿意照顾玩家的一面。小寿会发现不易注意到的探索物与隐秘机关；小福则更横冲直撞，会砸毁机关，战斗时也总是冲在最前。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E5%B0%8F%E7%A6%84%E5%BC%80%E9%97%A8.gif" alt="小禄协助玩家开启单向门"></p>
+<h3 id="机关谜题：用“叠叠乐”呼应道主三合一设定"><a href="#机关谜题：用“叠叠乐”呼应道主三合一设定" class="headerlink" title="机关谜题：用“叠叠乐”呼应道主三合一设定"></a><strong>机关谜题：用“叠叠乐”呼应道主三合一设定</strong></h3><p>道主首次登场时，是以“三人合体”的状态作为 BOSS 出现：三个小孩叠在一起，扮演一个穷凶极恶的江湖怪客。我们希望在熔炉地牢流程中呼应这个有趣设定，因此设计了一个“叠叠乐”机关谜题，让玩家也参与到三人叠高的喜剧桥段中。<br><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E9%81%93%E4%B8%BB%E5%88%9D%E8%A7%81.png" alt="道主初见"></p>
+<p>谜题从环境线索开始：书架缝隙处有怪风吹灭蜡烛，蜡烛熄灭后的烟会被吸入书架内侧，暗示书架后方存在隐藏空间。为了检查书架上方是否有暗室入口，玩家需要与三位道主叠在一起，由最上层的小禄进行观察。</p>
+<p>随后书架摇晃倒塌，架上的书籍纷纷跌落，只有一只瓷花瓶纹丝不动，暗示它就是机关钥匙。之后三位道主再次叠起操作花瓶，打开书架暗门，玩家进入隐藏暗室。整个谜题将环境观察、角色设定和轻喜剧演出结合在一起，让解谜不只是打开机关，也成为一次角色记忆点的强化。</p>
 <div class="image-carousel-container" data-interval="2000" data-fit="cover">
   <div class="carousel-wrapper">
     <div class="carousel-track">
       <div class="carousel-slide">
-        <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d8q8f1mmj31hc0u0x4a.jpg" alt="盗取钥匙">
+        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E5%8F%A0%E5%8F%A0.gif" alt="道主叠叠乐机关观察">
       </div>
       <div class="carousel-slide">
-        <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d8q6tdm7j31hc0u0nnv.jpg" alt="同行NPC">
+        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E5%8F%A0%E5%8F%A0%E5%BC%80%E9%97%A8.gif" alt="道主叠叠乐开启暗门">
       </div>
-      <div class="carousel-slide">
-        <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d8q4y09tj31hc0u0b29.jpg" alt="四人合作解谜">
-      </div>
-      <div class="carousel-slide">
-        <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d8pzqvr5j31hc0u0h5g.jpg" alt="码头轻功跑酷">
-      </div>
-        <div class="carousel-slide">
-        <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d8v9at88j31hc0u0ki1.jpg" alt="熔炉内跑酷">
-      </div>
-      	<div class="carousel-slide">
-        <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d8x5hsucj31hc0u0nn0.jpg" alt="BOSS战">
-      </div>
-      </div>
+    </div>
   </div>
   <button class="carousel-nav carousel-prev" aria-label="上一张"></button>
   <button class="carousel-nav carousel-next" aria-label="下一张"></button>
@@ -358,25 +335,93 @@
   <div class="carousel-dots"></div>
 </div>
 
+<h3 id="跑酷设计：用节拍变化推高熔炉突围体验"><a href="#跑酷设计：用节拍变化推高熔炉突围体验" class="headerlink" title="跑酷设计：用节拍变化推高熔炉突围体验"></a><strong>跑酷设计：用节拍变化推高熔炉突围体验</strong></h3><p>熔炉跑酷段承担关卡后半程的情绪推高功能。我们采用经典的“引入铺垫 → 逐渐推高 → 峰值终结”的节拍设计，大致分为三个主节拍：走廊奔逃、飞檐走壁、子弹时间。</p>
+<p>每个主节拍下再拆分为更细的子节拍，并至少从两个维度制造变化，避免玩家长时间重复同一种运动方式导致疲劳：</p>
+<ul>
+<li><strong>玩家移动方式</strong>：奔跑、跳跃、飞檐走壁、轻功移动、特殊演出动作</li>
+<li><strong>运动方向</strong>：水平推进、垂直攀爬、下坠、转向、穿越狭窄空间</li>
+<li><strong>空间特质</strong>：走廊、屋顶、码头、熔炉内部、高低差结构</li>
+<li><strong>环境氛围</strong>：建筑倒塌、火光、烟尘、官兵追击、熔炉压迫感</li>
+<li><strong>镜头表现</strong>：视野收束、速度强化、关键动作突出</li>
+<li><strong>敌人行为</strong>：追击、阻拦、暗杀窗口、远程压迫</li>
+</ul>
+<p>这条跑酷线的目标不是单纯增加操作难度，而是通过运动方式、空间环境和演出强度的持续变化，把玩家从潜入后的紧张状态推向最终逃离的高潮。</p>
+<div class="image-carousel-container" data-interval="2000" data-fit="cover">
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      <div class="carousel-slide">
+        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E7%86%94%E7%82%89%E8%B7%91%E9%85%B71.gif" alt="熔炉跑酷走廊奔逃节拍">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E7%86%94%E7%82%89%E8%B7%91%E9%85%B72.gif" alt="熔炉跑酷飞檐走壁节拍">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E7%86%94%E7%82%89%E8%B7%91%E9%85%B73.gif" alt="熔炉跑酷子弹时间节拍">
+      </div>
+    </div>
+  </div>
+  <button class="carousel-nav carousel-prev" aria-label="上一张"></button>
+  <button class="carousel-nav carousel-next" aria-label="下一张"></button>
+  <button class="carousel-play-pause" aria-label="暂停"></button>
+  <div class="carousel-dots"></div>
+</div>
+
+<h3 id="关卡流程展示：从潜入、同行到跑酷与-BOSS-战"><a href="#关卡流程展示：从潜入、同行到跑酷与-BOSS-战" class="headerlink" title="关卡流程展示：从潜入、同行到跑酷与 BOSS 战"></a><strong>关卡流程展示：从潜入、同行到跑酷与 BOSS 战</strong></h3><p>以下展示关卡中若干关键段落：盗取钥匙、同伴 NPC 同行、四人合作解谜、码头轻功跑酷、熔炉内部跑酷与最终 BOSS 战。这些内容共同构成了「天地熔炉」从潜入营救到高潮突围的完整体验曲线。</p>
+<div class="image-carousel-container" data-interval="2000" data-fit="cover">
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      <div class="carousel-slide">
+        <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d8q8f1mmj31hc0u0x4a.jpg" alt="熔炉文书区盗取钥匙">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d8q6tdm7j31hc0u0nnv.jpg" alt="道主三人同伴 NPC 同行">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d8q4y09tj31hc0u0b29.jpg" alt="四人合作机关解谜">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d8pzqvr5j31hc0u0h5g.jpg" alt="码头轻功跑酷段落">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d8v9at88j31hc0u0ki1.jpg" alt="熔炉内部跑酷段落">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d8x5hsucj31hc0u0nn0.jpg" alt="天地熔炉最终 BOSS 战">
+      </div>
+    </div>
+  </div>
+  <button class="carousel-nav carousel-prev" aria-label="上一张"></button>
+  <button class="carousel-nav carousel-next" aria-label="下一张"></button>
+  <button class="carousel-play-pause" aria-label="暂停"></button>
+  <div class="carousel-dots"></div>
+</div>
+
+<h3 id="关卡迭代：强化空间可读性与场景表现"><a href="#关卡迭代：强化空间可读性与场景表现" class="headerlink" title="关卡迭代：强化空间可读性与场景表现"></a><strong>关卡迭代：强化空间可读性与场景表现</strong></h3><p>在推进过程中，我与场景、动画、音频、程序和战斗团队持续对齐，根据测试反馈不断调整路线、机关位置、敌人配置和演出节奏。以下为部分区域上线前后的迭代对比，主要围绕空间可读性、氛围表现和流程节奏进行优化：</p>
+<ul>
+<li><strong>动线识别</strong>：让玩家更清楚地理解潜入方向、目标位置和下一步行动</li>
+<li><strong>空间层次</strong>：通过遮挡、高低差和区域开口区分潜行、同行与跑酷段落</li>
+<li><strong>氛围强化</strong>：让场景、灯光、烟尘、火光和音频共同服务熔炉压迫感</li>
+<li><strong>流程衔接</strong>：减少目标切换带来的断点，使潜入、营救、谜题和跑酷自然过渡</li>
+</ul>
 <div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
   <div class="image-compare-container" data-position="65" style="flex: 1 1 calc(50% - 10px); min-width: 300px;">
     <div class="image-before">
-      <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d88xr769j31hc0u07fj.jpg" alt="修改前">
+      <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d88xr769j31hc0u07fj.jpg" alt="熔炉区域场景迭代修改前">
       <span class="image-label label-before"></span>
     </div>
     <div class="image-after">
-      <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d88x8zg2j31hc0u0kba.jpg" alt="修改后">
+      <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d88x8zg2j31hc0u0kba.jpg" alt="熔炉区域场景迭代修改后">
       <span class="image-label label-after"></span>
     </div>
     <div class="jx-handle"></div>
   </div>
   <div class="image-compare-container" data-position="65" style="flex: 1 1 calc(50% - 10px); min-width: 300px;">
     <div class="image-before">
-      <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d7tzsqt1j31hc0u07ek.jpg" alt="修改前">
+      <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d7tzsqt1j31hc0u07ek.jpg" alt="熔炉区域场景迭代修改前">
       <span class="image-label label-before"></span>
     </div>
     <div class="image-after">
-      <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d7tza2fzj31hc0u0qrd.jpg" alt="修改后">
+      <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i7d7tza2fzj31hc0u0qrd.jpg" alt="熔炉区域场景迭代修改后">
       <span class="image-label label-after"></span>
     </div>
     <div class="jx-handle"></div>
