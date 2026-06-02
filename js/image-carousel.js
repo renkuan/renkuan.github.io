@@ -38,9 +38,24 @@
       }
 
       let currentIndex = 0;
-      let autoPlayInterval = null;
+      let autoPlayTimer = null;
       let isPaused = false;
       const intervalTime = parseInt(container.dataset.interval) || 2000; // 默认2秒
+      const gifIntervalTime = parseInt(container.dataset.gifInterval) || 5000; // gif 默认5秒
+
+      // 判断指定 slide 是否包含 gif
+      function slideHasGif(index) {
+        const slide = slides[index];
+        if (!slide) return false;
+        const img = slide.querySelector('img');
+        if (!img) return false;
+        return /\.gif(\?|$)/i.test(img.getAttribute('src') || '');
+      }
+
+      // 获取当前 slide 的停留时长
+      function getCurrentDuration() {
+        return slideHasGif(currentIndex) ? gifIntervalTime : intervalTime;
+      }
       
       // 获取 wrapper 的宽度（用于计算 translateX）
       function getWrapperWidth() {
@@ -119,25 +134,24 @@
         goToSlide(currentIndex - 1);
       }
 
-      // 开始自动播放
+      // 开始自动播放（按当前 slide 时长，gif 自动延长）
       function startAutoPlay() {
-        if (autoPlayInterval) {
-          clearInterval(autoPlayInterval);
-        }
+        stopAutoPlay();
         if (slides.length <= 1) return; // 只有一张图片时不需要自动播放
-        
-        autoPlayInterval = setInterval(function() {
+
+        autoPlayTimer = setTimeout(function tick() {
           if (!isPaused) {
             nextSlide();
           }
-        }, intervalTime);
+          autoPlayTimer = setTimeout(tick, getCurrentDuration());
+        }, getCurrentDuration());
       }
 
       // 停止自动播放
       function stopAutoPlay() {
-        if (autoPlayInterval) {
-          clearInterval(autoPlayInterval);
-          autoPlayInterval = null;
+        if (autoPlayTimer) {
+          clearTimeout(autoPlayTimer);
+          autoPlayTimer = null;
         }
       }
 

@@ -293,6 +293,11 @@
 <p>据点是开放世界中的战斗关卡类型，玩家可以通过正面战斗、潜行暗杀、场景机制击杀等方式完成目标。我参与设计并制作了<strong>绣金所、贺刀寨、汴河渡口、旧村遗址、张家旧宅</strong>等 5 个开封据点，同时沉淀了一套可复用的据点设计规范，用于统一后续据点的体验骨架与制作标准。</p>
 <p><strong>使用工具</strong>：UE4，Messiah</p>
 <p><strong>开发时间</strong>：2023 年 5 月 - 2024 年 12 月</p>
+<!--
+### **汴河渡口实机展示** -->
+
+<iframe width="100%" height="549" src="//player.bilibili.com/player.html?isOutside=true&aid=113791635362277&bvid=BV1ELrhYbEXs&cid=27761050871&p=1&t=26" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
 <p><strong>我的职责：</strong></p>
 <ul>
 <li><strong>据点设计规范制定</strong>：制定开封地图据点设计规范，明确据点规模、空间结构、潜入路径、战斗场地、敌人配置和场景机制的基础标准</li>
@@ -460,28 +465,6 @@
 
 <h3 id="案例拆解：汴河渡口的主题"><a href="#案例拆解：汴河渡口的主题" class="headerlink" title="案例拆解：汴河渡口的主题"></a><strong>案例拆解：汴河渡口的主题</strong></h3><p>汴河渡口是漕帮青蛟堂位于汴河上的据点，集货运仓库和香堂堂会于一体。北侧临码头，东侧临内河，西南侧连接繁华的百工坊，交通方便、位置关键，也天然适合做成邻水型战斗据点。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/banner_pic_judian_bianhedukou.png" alt="汴河渡口据点展示图"></p>
-<p>最初我们曾考虑设计一种潜伏在水中的敌人，并将水体引入据点内部，让邻水据点在战斗中更有差异化。但由于角色与水体交互相关的技术限制，这一方案最终被放弃。我们保留了据点东北侧开放且邻水的地形，让玩家仍然可以利用轻功从水面进入据点，维持“邻水潜入”的空间特色。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%2015.png" alt="汴河渡口邻水潜入路线"></p>
-<p>漕帮有船运背景，因此据点内布置了大量货仓、吊机、脚轮等运输设施。我们利用这些设施设计了场景机制：玩家可以在远处用弓箭射击悬挂货物的木质钩锁，使高处货物下落并砸伤敌人。这个机制既符合漕帮货运主题，也提供了观察后触发的花式击杀机会。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%2016.png" alt="汴河渡口货物下落场景机制"></p>
-<p>据点中心的二层木质建筑是青蛟堂香堂，也是帮内集会商议大事的地方。我们在建筑内布置了朱鱼牌位、师爷书信等环境叙事点位，用来交代青蛟堂来历和漕帮分裂事件的线索，让据点不只是战斗空间，也承担一定世界观信息表达。</p>
-<div class="image-carousel-container" data-interval="2000" data-fit="cover">
-  <div class="carousel-wrapper">
-    <div class="carousel-track">
-      <div class="carousel-slide">
-        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%2017.png" alt="汴河渡口香堂环境叙事一">
-      </div>
-      <div class="carousel-slide">
-        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%2018.png" alt="汴河渡口香堂环境叙事二">
-      </div>
-    </div>
-  </div>
-  <button class="carousel-nav carousel-prev" aria-label="上一张"></button>
-  <button class="carousel-nav carousel-next" aria-label="下一张"></button>
-  <button class="carousel-play-pause" aria-label="暂停"></button>
-  <div class="carousel-dots"></div>
-</div>
-
 <h3 id="设计过程：从信息整理到白盒验证"><a href="#设计过程：从信息整理到白盒验证" class="headerlink" title="设计过程：从信息整理到白盒验证"></a><strong>设计过程：从信息整理到白盒验证</strong></h3><p>以下为汴河渡口的部分设计过程资料，包括据点基本信息、场景情绪板、layout、关卡白盒、敌人分布和玩家路线。这个过程用于持续验证三件事：据点主题是否清晰、玩家路线是否可读、潜入与战斗选择是否足够丰富。</p>
 <div class="image-carousel-container" data-interval="2000" data-fit="cover">
   <div class="carousel-wrapper">
@@ -503,6 +486,28 @@
       </div>
       <div class="carousel-slide">
         <img src="https://cdn.ipfsscan.io/weibo/large/0075kL53gy1i764y7bxhfj365s3aqhee.jpg" alt="汴河渡口玩家路线规划">
+      </div>
+    </div>
+  </div>
+  <button class="carousel-nav carousel-prev" aria-label="上一张"></button>
+  <button class="carousel-nav carousel-next" aria-label="下一张"></button>
+  <button class="carousel-play-pause" aria-label="暂停"></button>
+  <div class="carousel-dots"></div>
+</div>
+
+<p>最初我们曾考虑设计一种潜伏在水中的敌人，并将水体引入据点内部，让邻水据点在战斗中更有差异化。但由于角色与水体交互相关的技术限制，这一方案最终被放弃。我们保留了据点东北侧开放且邻水的地形，让玩家仍然可以利用轻功从水面进入据点，维持“邻水潜入”的空间特色。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%2015.png" alt="汴河渡口邻水潜入路线"></p>
+<p>漕帮有船运背景，因此据点内布置了大量货仓、吊机、脚轮等运输设施。我们利用这些设施设计了场景机制：玩家可以在远处用弓箭射击悬挂货物的木质钩锁，使高处货物下落并砸伤敌人。这个机制既符合漕帮货运主题，也提供了观察后触发的花式击杀机会。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%2016.png" alt="汴河渡口货物下落场景机制"></p>
+<p>据点中心的二层木质建筑是青蛟堂香堂，也是帮内集会商议大事的地方。我们在建筑内布置了朱鱼牌位、师爷书信等环境叙事点位，用来交代青蛟堂来历和漕帮分裂事件的线索，让据点不只是战斗空间，也承担一定世界观信息表达。</p>
+<div class="image-carousel-container" data-interval="2000" data-fit="cover">
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      <div class="carousel-slide">
+        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%2017.png" alt="汴河渡口香堂环境叙事一">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/judian/image%2018.png" alt="汴河渡口香堂环境叙事二">
       </div>
     </div>
   </div>
@@ -544,9 +549,9 @@
   </div>
 </div>
 
-<h3 id="汴河渡口实机展示"><a href="#汴河渡口实机展示" class="headerlink" title="汴河渡口实机展示"></a><strong>汴河渡口实机展示</strong></h3><iframe width="100%" height="549" src="//player.bilibili.com/player.html?isOutside=true&aid=113791635362277&bvid=BV1ELrhYbEXs&cid=27761050871&p=1&t=26" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<!-- ### **玩家游玩展示**
 
-<h3 id="玩家游玩展示"><a href="#玩家游玩展示" class="headerlink" title="玩家游玩展示"></a><strong>玩家游玩展示</strong></h3><div style="display: flex; flex-wrap: wrap; gap: 10px;">
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
   <div style="width: calc(50% - 5px);">
     <iframe width="100%" height="300" src="//player.bilibili.com/player.html?isOutside=true&aid=113791635362277&bvid=BV1ELrhYbEXs&cid=27761050871&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
     <p style="text-align: center; margin-top: 8px; font-weight: bold;">绣金所</p>
@@ -563,7 +568,7 @@
     <iframe width="100%" height="300" src="//player.bilibili.com/player.html?isOutside=true&aid=114130719675149&bvid=BV1QiRbYVEhg&cid=28773518437&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
     <p style="text-align: center; margin-top: 8px; font-weight: bold;">张家旧寨</p>
   </div>
-</div>
+</div> -->
 
   </div>
   <div id="gitalk-container"></div>
@@ -634,10 +639,10 @@ Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
     
 
     
-    <a href="/2024/04/26/%E7%87%95%E4%BA%91%E5%8D%81%E5%85%AD%E5%A3%B0-%E6%B4%9E%E7%AA%9F/">
+    <a href="/2025/01/05/%E7%87%95%E4%BA%91%E5%8D%81%E5%85%AD%E5%A3%B0-%E7%86%94%E7%82%89/">
         <div class="post-paging-next">
             <span>下一篇</span>
-            <p>天工地窟</p>
+            <p>天地熔炉</p>
         </div>
     </a>
     
