@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+<title>重建生命幻象——浅谈同伴NPC-RKs</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.png">
+
+<link rel="stylesheet" href="/css/index.css">
+
+
+<meta name="keywords" content="关卡策划,游戏策划">
+<meta name="description" content="描述">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/index.js"></script>
+
+
+<script src="/js/fancybox.umd.js"></script>
+
+
+<script src="/js/fancybox-images.js"></script>
+
+
+<script src="/js/image-compare.js"></script>
+
+
+<script src="/js/image-carousel.js"></script>
+
+
+<script src="/js/gitalk.min.js"></script>
+
+
+<script src="/js/hljs.min.js"></script>
+ 
+<script>hljs.highlightAll();</script>
+
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		
+	<div class="header">
+		<div class="header-top" id="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/favicon.png" alt="Quiet">
+					<span>任宽·关卡设计</span>
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										关卡
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										文章
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										简历
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										关于我
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>任宽</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">关卡</a>
+        </li>
+        
+        <li>
+            <a href="/archives">文章</a>
+        </li>
+        
+        <li>
+            <a href="/links">简历</a>
+        </li>
+        
+        <li>
+            <a href="/about">关于我</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+    </div>
+</div>
+<div class='shelter'>
+</div>
+<style>
+    .shelter{
+        background-color: #333;
+        opacity:0.5;
+        cursor: pointer;
+        display: none; 
+        position: fixed;
+        left: 0;
+        top: 0; 
+        right: 0;
+        bottom: 0;
+        z-index: 1998;
+    }
+    .sidebar {
+        width: 66%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        background: #fff;
+        z-index: 1999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $( function () {
+	$( '.h-right-close>svg' )
+		.click( function () {
+			$( '.sidebar' )
+				.animate( {
+					right: "0"
+				}, 500 );
+			$( '.shelter' )
+				.fadeIn( "slow" )
+		} );
+	$( '.shelter' )
+		.click( function ( e ) {
+			$( '.sidebar' )
+				.animate( {
+					right: "-100%"
+				}, 500 );
+			$( '.shelter' )
+				.fadeOut( "slow" )
+		} )
+} )
+
+</script>
+
+<div class="post">
+    <div class="post-header-background post-header-color"
+    style="background: url('')" 
+>
+    <div class="post-header-background-content">
+        <ul class="post-header-tag">
+            
+        </ul>
+        
+        <h1>重建生命幻象——浅谈同伴NPC</h1>
+        <div class="post-header-info">
+            <div class="post-header-info-author">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                        <g>
+                            <path fill="#12183A"
+                                d="M6.187 15.265A6.47 6.47 0 0 0 10 16.5a6.47 6.47 0 0 0 3.813-1.235A4.99 4.99 0 0 0 10 13.5a4.99 4.99 0 0 0-3.813 1.765zM5.082 14.25A6.485 6.485 0 0 1 10 12c1.965 0 3.726.872 4.918 2.25a6.5 6.5 0 1 0-9.836 0zM10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+                            </path>
+                        </g>
+                    </svg>
+                
+                <span class="post-header-info-author-text"> <a href="../../about">任宽</a></span>
+                <div class="post-header-info-author-categories">
+                    
+                </div>
+                <p>2026-06-03 19:55:00</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="post-content" id="content">
+  
+  <div id="article" class="post-content-info">
+    
+
+    <hr>
+<!-- 玩家们会浪漫想象这种问题：当我离开游戏后，游戏里的NPC在干什么？这说明游戏的NPC行为做的非常厉害，比如B社的游戏。但其实答案很简单——他们被销毁了，不仅是离开游戏，可能在你走出房间后他们就被销毁了， -->
+
+<h2 id="我在谈论什么"><a href="#我在谈论什么" class="headerlink" title="我在谈论什么"></a>我在谈论什么</h2><p>早在 3D 游戏的蛮荒年代，就出现了同伴 NPC 的身影。1997 年《007 黄金眼》中的娜塔莉至今仍被玩家诟病为最糟糕的 NPC 角色——她会卡在门口、被 AK 一梭子打死、强制玩家重读关卡。但在那个年代，一个”具有自主性的同行角色”已经成为电子游戏一直在追逐的目标。2001 年的《古堡迷踪》（ICO）里，<strong>上田文人</strong>几乎赋予了 Yorda 生命，直接启发了《生化奇兵：无限》的伊丽莎白、《最后生还者》的艾莉等一众名留青史的游戏角色。翻开近年来 TGA 年度游戏提名名单，一个智能化程度高、深度参与游戏的同伴 NPC，几乎成为了顶级 3A 游戏的标配。</p>
+<div class="image-carousel-container" data-interval="3000" data-fit="cover">
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      <div class="carousel-slide">
+        <img src="https://www.escapistmagazine.com/wp-content/uploads/2023/02/how-to-not-shoot-natalya-in-goldeneye-007.jpg" alt="《007 黄金眼》娜塔莉——最早期同伴 NPC 的反面教材">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://thegaminghipster.wordpress.com/wp-content/uploads/2011/10/gallery_760_328_12186.jpg" alt="《古堡迷踪》Yorda——同伴 NPC 设计的奠基之作">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://oyster.ignimgs.com/mediawiki/apis.ign.com/bioshock-infinite/0/0c/BioShockInfinite_elizabeth_book.jpg?width=546&dpr=2&format=jpg&auto=webp&quality=80" alt="《生化奇兵：无限》伊丽莎白——叙事乐高的代表作">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://www.theloadout.com/wp-content/sites/theloadout/2022/09/the-last-of-us-remake-part-1-skins-costumes-550x309.jpg" alt="《最后生还者》艾莉——长流程陪伴的标杆">
+      </div>
+    </div>
+  </div>
+  <button class="carousel-nav carousel-prev" aria-label="上一张"></button>
+  <button class="carousel-nav carousel-next" aria-label="下一张"></button>
+  <button class="carousel-play-pause" aria-label="暂停"></button>
+  <div class="carousel-dots"></div>
+</div>
+
+<p>但同伴 NPC 的定义仍较为模糊。它通常被称为 <strong>Companions</strong>，有时也叫 <strong>Persistent Non-Player Characters</strong>。为了聚焦本文要讨论的内容，我们限定”同伴 NPC”特指具备以下特征的角色：</p>
+<ol>
+<li><strong>同行的友好角色</strong>：通常扮演导师、朋友或需要照顾的对象。</li>
+<li><strong>自主性</strong>：在大多数情况下 NPC 可以自主行动，不需要玩家直接操作（这一条把 CRPG 的小队成员排除在外——他们的主控权太多在玩家手里）。</li>
+<li><strong>情景敏感</strong>：能一定程度感知周围情景的变化，并做出适配情景的可信行为。例如《战神 4》中的阿特柔斯会在战斗、探索或日常反应等不同行为模式间灵活切换。MMO 中只会跟随玩家、帮助战斗的宠物伙伴不在讨论范围内。</li>
+<li><strong>重要意义</strong>：同伴 NPC 不是单一功能的工具人，他们在叙事和 gameplay 两个层面都具备重要意义，会很大程度地影响故事走向并深度参与游戏玩法。</li>
+</ol>
+<h2 id="关卡设计师眼中的同伴NPC：三位一体的设计利器"><a href="#关卡设计师眼中的同伴NPC：三位一体的设计利器" class="headerlink" title="关卡设计师眼中的同伴NPC：三位一体的设计利器"></a>关卡设计师眼中的同伴NPC：三位一体的设计利器</h2><p>随着更多受人喜爱的角色诞生，同伴 NPC 几乎变成了一个常规的设计手段。作为关卡设计师，我愿意称它为**”三位一体的设计利器”**。</p>
+<h3 id="1-叙事发动机"><a href="#1-叙事发动机" class="headerlink" title="1. 叙事发动机"></a>1. 叙事发动机</h3><p>大多数游戏中，玩家会把自己的主观意志投射在所扮演的角色上——某种程度上，玩家的选择即是角色的选择，这使得主控角色的形象在很多作品中是面目模糊、因人而异的。而从剧作角度讲，一个<strong>编剧可以更加灵活地操纵其命运的 NPC 角色</strong>，在故事推进中更具价值。</p>
+<p>以《生化奇兵：无限》中的伊丽莎白为例。作为故事的核心推动者：从游戏开始时她渴望逃离高塔的决心，到游戏后期通过她对身世和往事的逐步回忆与领悟，最终揭示了整个故事中关于平行宇宙、时空穿越的真相。她的每一步情感变化和心理转变都推动着故事的发展和深化——这是通过主角布克这样一个玩家操控的角色所<strong>无法完成的叙事任务</strong>。</p>
+<p>在主控角色拥有明确性格的强叙事动作冒险游戏中，一个与主角动机和性格显著不同的同伴 NPC，往往在构建戏剧性冲突和推进剧情方面发挥关键作用。回想一下《战神》里有多少次剧情推进是因为阿特柔斯的冒失闯入险境——这种”麻烦制造者”的功能，本身就是关卡设计师可以拿来当作驱动力的工具。</p>
+<h3 id="2-机制载体"><a href="#2-机制载体" class="headerlink" title="2. 机制载体"></a>2. 机制载体</h3><p>起初，《时之笛》里的同伴娜薇被创造出来仅仅是为了帮助玩家攻击时锁定视角——当时的手柄没有右摇杆，无法实时调整镜头。当林克靠近敌人或可互动物体时，娜薇会自动飞过去，并在其身上产生一个锁定光圈。玩家按下 Z 键，镜头就会自动对齐敌人。她不仅锁定敌人，还会飞向墙上的裂缝、隐藏的机关或可吹奏时之笛的区域。她<strong>用自己的身体代替了生硬的系统 UI</strong>，引导玩家观察和探索世界。这也是她为什么叫娜薇（Navi）——来源就是 <strong>“Navigation”（导航&#x2F;指引）</strong>。</p>
+<p><img src="https://parryeverything.com/wp-content/uploads/2021/12/oottarget4.gif" alt="娜薇飞向锁定目标——用同伴的身体代替系统 UI"></p>
+<p>主角通常承载众多游戏机制，有时是能力技能，有时被寄放在武器道具上。但不管如何，过多的能力会使主角过于强大而不真实；有时机制本身的性质和主角的人物设定并不相融。同伴 NPC 作为与主角形影不离的实体，自然可以作为这些机制的载体。所以新《战神》中我们可以看到，与奎托斯极具力量的设定不太相融的远程射击、魔法知识、唤灵类机制都安插在阿特柔斯和芙蕾雅身上。</p>
+<p>更进一步，<strong>两个角色本身就拓宽了冒险游戏的机制设计思路</strong>：</p>
+<ul>
+<li>一个分离个体即使没有任何功能，也能作为一种有物理属性的实体道具（《传送门》里的 Cube）；</li>
+<li>体型差异就能拓宽玩家基础性能（小动物和小孩子钻进狭小空间打开门的景象历历在目）；</li>
+<li>能力差异让”主角无法完成的事”变成谜题入口（伊丽莎白开时空裂缝、Elika 接住玩家的双段跳）。</li>
+</ul>
+<p>而这里有一个关键升级：<strong>当一个系统层面的高智能角色介入时，简单的游戏机制会被转化为令人惊喜的游戏体验</strong>。补充生命值和弹药本身很简单，但当伊丽莎白能够察觉到玩家的困境，在你弹尽粮绝、生命垂危的紧要关头，从时空裂缝中及时送上医疗包和弹药时，这种机制就被赋予了戏剧性和情感价值。Ken Levine 把这种设计哲学称为 <strong>“narrative legos”（叙事乐高）</strong>——同样的功能，玩家解读为”系统给我的”还是”她给我的”，是同伴 NPC 真正区别于”工具人”的本质。</p>
+<p><img src="https://i.sstatic.net/jsb8s.jpg" alt="伊丽莎白从时空裂缝中扔出补给——叙事乐高的经典场景"></p>
+<h3 id="3-沉浸感放大器"><a href="#3-沉浸感放大器" class="headerlink" title="3. 沉浸感放大器"></a>3. 沉浸感放大器</h3><p>一个出色的同伴 NPC 能够大幅提升玩家在游戏世界中的沉浸体验。通过自然的对话反应、情境感知和动态行为，同伴 NPC 能让游戏世界显得更加真实可信。这种持续的互动和反馈让玩家感受到游戏世界是”活”的。</p>
+<h3 id="互为因果"><a href="#互为因果" class="headerlink" title="互为因果"></a>互为因果</h3><p>叙事层面的人物塑造为 gameplay 机制提供了合理性，让玩家更容易接受和理解这些机制；gameplay 机制的设计赋予同伴交互维度上的功能性，是用游戏语言刻画人物形象；而这两者的结合最终提升了游戏世界的真实感和可信度。沉浸感又反过来提升同伴 NPC 的叙事重要性——当玩家完全被角色征服后，一个简单的动作或对话就足以雷霆万钧般地打动玩家的情感。</p>
+<p>但要注意——<strong>三位一体并不是每个同伴角色都全占</strong>。</p>
+<ul>
+<li>《时之笛》的娜薇只是机制载体，叙事承载几乎为零；</li>
+<li>《辐射》的狗肉是沉浸感和部分机制，叙事极弱；</li>
+<li>大多数 MMORPG 的宠物只占机制和（很弱的）沉浸感；</li>
+<li>早期《古堡迷踪》的 Yorda 主要是叙事+沉浸，机制极简（只有牵手）。</li>
+</ul>
+<p><strong>三个维度全部填满的同伴 NPC 极其稀少</strong>——这正是阿特柔斯、艾莉、伊丽莎白被反复提及的原因。他们是少数三角形都被填满的角色。也正因为如此，做出一个”三位一体”的同伴，是高规格 3A 项目愿意投入巨大资源的目标。</p>
+<h2 id="好的同伴NPC"><a href="#好的同伴NPC" class="headerlink" title="好的同伴NPC"></a>好的同伴NPC</h2><p>我习惯用一个二维象限来评估同伴 NPC 设计：<strong>情感价值</strong>（叙事&#x2F;角色维度）和<strong>行为可信度</strong>（工程&#x2F;AI 维度）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/zhaopuzhai/%E4%BA%8C%E7%BB%B4%E8%B1%A1%E9%99%90.png" alt="同伴 NPC 评估二维象限：情感价值 × 行为可信度"></p>
+<ul>
+<li><strong>高情感 + 高可信 &#x3D; 大师级</strong>（艾莉、伊丽莎白、阿特柔斯、Trico）</li>
+<li><strong>高情感 + 低可信 &#x3D; 叙事撑住一切</strong>（生化 4 艾什莉——大家爱她但 AI 烂）</li>
+<li><strong>低情感 + 高可信 &#x3D; 工具人完美</strong>（娜薇）</li>
+<li><strong>低情感 + 低可信 &#x3D; 失败</strong>（007 黄金眼娜塔莉）</li>
+</ul>
+<p>如果用一句话总结：<strong>最好的同伴 NPC，是让玩家”在乎”他的存在</strong>。这种”在乎”既包含玩家对角色的情感投入，也包含角色在游戏体验中的实际价值。当玩家开始关心同伴 NPC 的安危、照顾他的感受、期待与其互动，甚至为了他做出违反常理的重大决定时，这个同伴就成功了。</p>
+<p>虽然情感价值是我们的追求，但在具体技术细节上，和很多电子游戏设计技术一样，<strong>设计同伴 NPC 是一项有目的精心设计的欺骗和糊弄的技术（褒义）</strong>。阿特柔斯在奎托斯背后会瞬移、伊丽莎白会摆好姿势定住不动，等玩家看到——只有在玩家看到的时候让他们更像人。</p>
+<p>就像我们看到一个人来回踱步，时不时看表就可以感受到他的焦虑。我们并不需要知道他的心跳血压激素分泌情况，我们只用关注可见的可被观察的表象：我们不必尝试重建生命本身，只需重建它的幻象即可。</p>
+<h2 id="重建幻象"><a href="#重建幻象" class="headerlink" title="重建幻象"></a>重建幻象</h2><p>接下来我想结合自己做过的两个关卡案例——《燕云十六声》开封篇的「雕栏剑影」（赵普宅）和「天地熔炉」——来聊聊我们在实施层面是怎么思考、怎么妥协、怎么把那点幻象搭起来的。</p>
+<h3 id="角色定位：从约束出发"><a href="#角色定位：从约束出发" class="headerlink" title="角色定位：从约束出发"></a>角色定位：从约束出发</h3><p>在「雕栏剑影」里，我们设计的同伴是<strong>赵承宗</strong>——一个心思单纯、话痨又中二的四五岁富家少爷。这个角色定位是从几条约束反推回来的：</p>
+<ul>
+<li><strong>关卡基调</strong>：开封篇其他关卡偏沉重，「雕栏剑影」需要一个明亮轻松的支线调剂。话痨小屁孩自带喜剧性。</li>
+<li><strong>空间叙事</strong>：关卡明线是潜入戒备森严的赵宅，按常理玩家应该面对一个障碍型角色，但我们想要一个”反向角色”——他不仅不是阻碍，反而能利用自己的少爷身份成为玩家的通行证。<strong>身份和形象上的错位</strong>让”潜入”这个动作从紧张变成了荒诞，是我们期望的风格。</li>
+<li><strong>共情门槛</strong>：玩家对孩子和宠物建立感情的速度，远快于对成年人。我们要在一段支线流程里完成角色塑造，孩子是最划算的选择。</li>
+<li><strong>技术现实</strong>：当时项目的表演技术<strong>没办法做精细的面部表情，于是给赵承宗戴了一个面罩。</strong> 但它后来给我们带来了三个意料之外的好处：</li>
+</ul>
+<ol>
+<li>面罩遮住脸，反而让”中二少爷”这个反差出场更加强烈——玩家本来以为是某个江湖高手；</li>
+<li>面罩本身成为他”想当大侠”这个人设的物化道具——他想成为大侠，所以他给自己戴上面罩；</li>
+<li>后续如果剧情需要”摘下面罩”的瞬间，这个动作自带演出价值。</li>
+</ol>
+<div class="image-carousel-container" data-interval="3000" data-fit="cover">
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      <div class="carousel-slide">
+        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/zhaopuzhai/%E8%BF%9B%E5%85%A5%E5%89%8D1.gif" alt="雷雨与紧张氛围铺垫">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/zhaopuzhai/%E8%BF%9B%E5%85%A5%E5%89%8D2.gif" alt="远处传来的高手对决误导">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/zhaopuzhai/%E8%BF%9B%E5%85%A5%E5%89%8D3.gif" alt="赵承宗戴面罩自我表演的反转出场">
+      </div>
+    </div>
+  </div>
+  <button class="carousel-nav carousel-prev" aria-label="上一张"></button>
+  <button class="carousel-nav carousel-next" aria-label="下一张"></button>
+  <button class="carousel-play-pause" aria-label="暂停"></button>
+  <div class="carousel-dots"></div>
+</div>
+
+<p>熔炉关卡的同伴问题完全相反：单角色变成多角色。「天地熔炉」中我们要让”道主三人”——小福、小禄、小寿——同时作为同伴 NPC 出场。她们各自在更早的剧情中单独出现过，但在这条主线流程里，三个人会持续陪伴玩家走完一段较长的关卡。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E9%81%93%E4%B8%BB%E5%88%9D%E8%A7%81.png" alt="道主三人合体首次登场——三个小孩叠在一起扮演江湖怪客"></p>
+<p><strong>多同伴的核心难题不是塑造谁，而是让玩家分得清谁。</strong></p>
+<p>我们最后采用的方法可以叫<strong>单标签反复曝光法</strong>：每个角色只挑一个最核心的特质，然后在关卡的所有可能位点上，反复用这个特质制造行为。</p>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>核心特质</th>
+<th>反复出现的行为</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>小福</td>
+<td>头脑简单 &#x2F; 武功高强</td>
+<td>横冲直撞、砸毁机关、战斗冲在最前</td>
+</tr>
+<tr>
+<td>小禄</td>
+<td>胆小心细 &#x2F; 关心玩家</td>
+<td>紧跟玩家、主动开单向门</td>
+</tr>
+<tr>
+<td>小寿</td>
+<td>聪明伶俐 &#x2F; 有点虚荣</td>
+<td>发现隐秘机关、捡到不易注意的物品</td>
+</tr>
+</tbody></table>
+<p>这种方法的好处是认知负担低——玩家不需要一次性消化每个人的复杂背景，只需要在两三次行为之后，自动给每个人贴上一个简单标签。后续不管哪段流程，三个人都按各自的标签做事，玩家就能持续累积对她们的记忆。</p>
+<p><strong>这一点跟单角色塑造的逻辑正好相反</strong>：单角色（赵承宗）需要展现多面性，所以他既会喂鱼也会沮丧也会中二；多角色（道主三人）反而需要每个人尽可能扁平，因为篇幅就那么多，扁平才能记得住。</p>
+<h3 id="出场即角色塑造"><a href="#出场即角色塑造" class="headerlink" title="出场即角色塑造"></a>出场即角色塑造</h3><p>赵承宗的出场是「雕栏剑影」关卡里令人印象深刻的一处设计。</p>
+<p>任务前段，我们用了多重前置铺垫：玩家进入区域时是雷雨天气，背景是紧张的弦乐，沿途遇到的几个江湖人士在严肃地谈论”沧浪剑谱”和某位神秘高手；进入宅邸后，玩家会听到远处传来一段对白——听起来像是两位高手正在比武对决。空间动线被刻意设计得相对闭塞，视野被建筑遮挡，玩家无法直接看到声源。</p>
+<p>所有这些铺垫都在做同一件事：<strong>让玩家的预期被植入”接下来要遇到一场江湖仇杀”的方向</strong>。</p>
+<p>直到玩家穿过最后一段视野遮挡，才发现所谓的”高手对决”——是赵承宗一个人对着话本自我表演。</p>
+<p>这个反转除了戏剧效果突出之外，它还<strong>用最低的成本完成了角色性格的介绍</strong>：——这是个孩子、他中二、他单纯、他无害、他和这段紧张的氛围毫无违和地共存。</p>
+<h3 id="行为系统"><a href="#行为系统" class="headerlink" title="行为系统"></a>行为系统</h3><p>沃尔特·迪士尼说过，让观众相信动画角色是活的，关键不是视觉真实，而是<strong>可信的行为</strong>。游戏 NPC 同理。行为是达成可信的关键，一个同伴 NPC 的行为系统大致可以分成五层，每一层的工程成本和情感回报都不同：</p>
+<h4 id="基础行为：不破坏体验"><a href="#基础行为：不破坏体验" class="headerlink" title="基础行为：不破坏体验"></a>基础行为：不破坏体验</h4><p>寻路、跟随、待机、避障等这些基础行为是要确保不出错的底线，当然基础的反应也在这里，比如会注视玩家，会侧身对着玩家。所有同伴都必须有。一旦做不好，玩家会立刻骂街——《007 黄金眼》里挡住玩家去路的娜塔莉至今仍是反面教材。</p>
+<p>赵承宗、道主三人的基础层都是项目通用的同伴框架，本身没什么可说的。**值得说的是它的目标不是”完美工作”，而是”不破坏体验”**。Naughty Dog 的工程师 Max Dyckhoff 在 GDC 讲艾莉 AI 的时候说过一句话：</p>
+<blockquote>
+<p>“如果艾莉从掩体里跳出来暴露玩家位置，我们就破坏了她和玩家的关系，而这是我们最不想发生的事。”</p>
+</blockquote>
+<p>他们最后选择了一个反”真实”的设计——<strong>让敌人 AI 直接看不见艾莉</strong>。这是个工程妥协，但它保住了情感连接。同样的取舍我们项目里也做过：当赵承宗的跟随路径会穿模或卡住时，我们直接让他”瞬移”到玩家附近的合理位置，配一个掩饰动画。<strong>当”可信”和”不破坏体验”冲突时，永远站后者。</strong></p>
+<h4 id="表演行为：高效建立人设"><a href="#表演行为：高效建立人设" class="headerlink" title="表演行为：高效建立人设"></a>表演行为：高效建立人设</h4><p>这是让 NPC “活”的真正起点，也是性价比最高的一层。</p>
+<p>在本关赵承宗在跟随玩家途中，我们设计了很多个表演点位，这些点位都靠近玩家停留或者探索周围环境的位置，目的是让玩家有机会注意到他的表演。比如，在后花园他会自己跑去鱼塘喂鱼、撸路边的小猫、在草地里蹲下捉蛐蛐；当玩家在偷钥匙时，他会在院子里打瞌睡，假模假式的练功；进入密室后，他会钻进小洞寻宝、试着搬动一把比他还大的武器。</p>
+<div class="image-carousel-container" data-interval="3000" data-fit="cover">
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      <div class="carousel-slide">
+        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/zhaopuzhai/%E8%B5%B5%E6%89%BF%E5%AE%971.gif" alt="赵承宗跟随时的场景互动行为">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/zhaopuzhai/%E8%B5%B5%E6%89%BF%E5%AE%972.gif" alt="赵承宗钻洞、搬武器等不服务玩法的表演">
+      </div>
+    </div>
+  </div>
+  <button class="carousel-nav carousel-prev" aria-label="上一张"></button>
+  <button class="carousel-nav carousel-next" aria-label="下一张"></button>
+  <button class="carousel-play-pause" aria-label="暂停"></button>
+  <div class="carousel-dots"></div>
+</div>
+
+<p><strong>这些行为完全不服务玩法目标。</strong> 玩家可以无视它们继续推进任务，关卡流程不会有任何变化。但只要看到一次，玩家就会记住——“这小子真的是个孩子。”</p>
+<p>这跟伊丽莎白会蹲下捡花、Trico 会甩头抖掉羽毛、阿特柔斯戴上硕大的帽子，是同一类设计。它们的成本只是若干定制动画 + 行为树触发，但它们是玩家”在乎”的起点。</p>
+<blockquote>
+<p><strong>不服务玩法的行为，才是塑造性格的行为。</strong></p>
+</blockquote>
+<p>这条经验我后来反复验证过——所有让玩家产生”这个 NPC 是有灵魂的”瞬间，几乎都来自这种”她不为我做也会做”的行为。</p>
+<h4 id="情绪行为：传递当下状态"><a href="#情绪行为：传递当下状态" class="headerlink" title="情绪行为：传递当下状态"></a>情绪行为：传递当下状态</h4><p>赵承宗在被母亲和先生训斥之后，他的走路和待机会切换为沮丧状态——肩膀微塌、步伐变慢、待机不再四处张望而是坐在地上生闷气。这是一次规模化的状态切换，是 NPC 自身状态切换被外化出来的表征。这个切换没有任何对白支持，但玩家会立刻感知到他的情绪。</p>
+<p>这套框架我们在密室也复用了一次——为了表现赵承宗”小孩怕黑”的特质，进入地下密室后他整套行为偏移到「胆小模式」：主动靠玩家特别近，待机和寻路时会胆怯地四处张望。我们当时还尝试过更激进的方案——让他一直拉着玩家的衣角，同时限制玩家行为（不能快速奔跑）——但这个方案因为玩家移动手感和工程实现的双重原因最终放弃了。</p>
+<p>情绪模块在工程上的实现并不复杂，通常是以”动作 override”的方式外挂在基础层之上：在剧情节点、场景氛围或玩家行为触发后，给同伴的基础动画集替换一套带情绪倾向的版本。</p>
+<p>这一层最常见的失败模式是”演太满”——情绪切换过于频繁、幅度过大，反而显得做作。赵承宗的沮丧只持续到下一个剧情节点，过渡也没有任何强调，因为我们不希望玩家觉得”他在表演难过”，而希望玩家自己看出”他难过了”。</p>
+<h3 id="双人玩法：从机制到叙事的垂直整合"><a href="#双人玩法：从机制到叙事的垂直整合" class="headerlink" title="双人玩法：从机制到叙事的垂直整合"></a>双人玩法：从机制到叙事的垂直整合</h3><p>聊完单角色行为，再谈谈关卡空间里的双人&#x2F;多人玩法设计。这是关卡设计师视角下最有发挥空间的一层。</p>
+<p>一个我反复验证的判断是：<strong>双人玩法的关键不在玩法本身，而在它能否承载叙事</strong>。</p>
+<p>纯粹从玩法层面看，双人协作其实并不比单人有更多优势——你能用同伴做的事，玩家自己也能做（用工具、用机关、用别的什么）。但同伴的存在，让一个简单的协作动作有了<strong>戏剧性</strong>。这才是同伴双人玩法真正的竞争力。</p>
+<h4 id="表演：动作即关系"><a href="#表演：动作即关系" class="headerlink" title="表演：动作即关系"></a>表演：动作即关系</h4><p>赵普宅的密室钥匙系统是一组锁钥探索解谜——玩家需要把”发钗”调整为飞镖形态，再嵌入对应机关。</p>
+<p>机关本身是单人玩法，但我们让赵承宗在每次嵌合的时候做一个小反应：他会凑过去看、惊呼、模仿主角的动作、说一句中二的台词。<strong>这些反应不影响机关流程，但它们让”解开一个谜题”这个孤立动作变成了”我们一起解开了一个谜题”。</strong></p>
+<p>这跟双人开门、双人攀爬、双人攀岩是同一类设计——玩法上完全可以一个人做，但加入同伴的存在感后，**节奏从”操作”变成了”经历”**。</p>
+<h4 id="求助：同伴是主角无法持有的能力"><a href="#求助：同伴是主角无法持有的能力" class="headerlink" title="求助：同伴是主角无法持有的能力"></a>求助：同伴是主角无法持有的能力</h4><p>熔炉里的小禄开单向门，是另一类典型——<strong>玩家无法做到的事，由同伴完成</strong>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E5%B0%8F%E7%A6%84%E5%BC%80%E9%97%A8.gif" alt="小禄通过单向门后帮玩家开启——把&quot;功能限制&quot;转化为&quot;对同伴的依赖&quot;"></p>
+<p>这一类设计的本质是把”主角的功能限制”转化为”对同伴的依赖关系”。它的设计空间非常大：</p>
+<ul>
+<li><strong>能力差</strong>：伊丽莎白能开时空裂缝，主角不能；</li>
+<li><strong>体型差</strong>：小动物能钻洞，成年人不能；阿特柔斯小时候能爬细缝；</li>
+<li><strong>身份差</strong>：赵承宗作为少爷可以正大光明走某些不该走的地方；</li>
+</ul>
+<p>这一类设计还有一个隐性的好处——<strong>它让玩家”需要”同伴，而不只是”接受”同伴</strong>。需要是产生在乎的最短路径。</p>
+<h4 id="协作：机制即叙事的典范"><a href="#协作：机制即叙事的典范" class="headerlink" title="协作：机制即叙事的典范"></a>协作：机制即叙事的典范</h4><p>熔炉关卡的”叠叠乐”是我个人最骄傲的一处设计。</p>
+<p>道主三人首次登场时，是以”三人合体”状态作为 BOSS 出现的——三个小孩叠在一起，扮演一个穷凶极恶的江湖怪客。这是个非常出人意料的设定，但我们当时的问题是：<strong>这个有趣的设定除了 BOSS 战之外，怎么在后续关卡里继续被用到？</strong></p>
+<p>最后我们设计的解决方案是：在熔炉关卡里加入一个<strong>叠叠乐协作机关</strong>。</p>
+<p>谜题流程是这样的：</p>
+<ol>
+<li><strong>环境暗示</strong>——书架缝隙处有怪风吹灭蜡烛，烟会被吸入书架内侧，暗示后方存在隐藏空间</li>
+<li><strong>协作触发</strong>——玩家无法独自看到书架顶部，必须与三位道主叠在一起</li>
+<li><strong>角色分工</strong>——最上层的小禄进行观察（呼应”细心”特质）</li>
+<li><strong>机关解谜</strong>——书架摇晃后只有一只瓷花瓶纹丝不动，三人再次叠起操作花瓶，开启暗门</li>
+</ol>
+<p>这个谜题最终把<strong>叙事设定（三合一）→ 玩法机制（叠叠乐）→ 双人&#x2F;多人协作（角色分工）→ 喜剧演出（小孩叠罗汉）→ 性格强化（小禄上去观察）</strong>全部捏在了一起。一个机关同时服务了五件事。</p>
+<div class="image-carousel-container" data-interval="3000" data-fit="cover">
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      <div class="carousel-slide">
+        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E5%8F%A0%E5%8F%A0.gif" alt="道主叠叠乐机关——小禄上层观察">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E5%8F%A0%E5%8F%A0%E5%BC%80%E9%97%A8.gif" alt="道主叠叠乐——三人合体操作花瓶开启暗门">
+      </div>
+    </div>
+  </div>
+  <button class="carousel-nav carousel-prev" aria-label="上一张"></button>
+  <button class="carousel-nav carousel-next" aria-label="下一张"></button>
+  <button class="carousel-play-pause" aria-label="暂停"></button>
+  <div class="carousel-dots"></div>
+</div>
+
+<blockquote>
+<p><strong>玩法即叙事</strong>——同样的解谜，玩家解读成”开了个机关”还是”我和三个朋友一起开了个机关”，体验强度完全不同。</p>
+</blockquote>
+<h3 id="关卡空间tips"><a href="#关卡空间tips" class="headerlink" title="关卡空间tips"></a>关卡空间tips</h3><p>加入同伴 NPC 之后，关卡设计的尺度标准也会变化：</p>
+<ul>
+<li><strong>场景导航适配</strong>——因为同伴NPC不支持复杂地形的导航，比如爬梯子，跳跃攀爬，所以关卡中基本规避了这类设计。</li>
+<li><strong>视觉引导让位</strong>——有了一个会主动跑去关键点的同伴，关卡的视觉引导不需要做得那么硬，反而可以借助同伴的行为暗示方向。</li>
+<li><strong>战斗空间</strong>——同伴 NPC 如何深度参与玩家战斗是另一个完整的话题，但我自己做过的关卡没碰过这一档，水平有限，留给做过战斗系同伴的同行展开。</li>
+</ul>
+<hr>
+<p>赵承宗这是我首次在关卡中实施同伴 NPC，还有很多档没碰到比如——</p>
+<ul>
+<li><strong>战斗系同伴</strong>：同伴在战斗内的能力分担与节奏配合，是另一个完整话题；</li>
+<li><strong>长流程陪伴</strong>：像艾莉、伊丽莎白那种”陪玩家整个游戏流程”的厚度，是支线流程里做不到的——支线给同伴的预算只够立人设，立不成关系。</li>
+</ul>
+<p>——这些都是更高规格、也更花钱的形态，留给以后。但是从结果来看，玩家是买账的——赵承宗是游戏中人气非常高的角色，「雕栏剑影」也是评价最好的支线关卡之一。</p>
+<p>看到玩家在反馈里说”现实里最不喜欢熊孩子，赵承宗除外”、”真想和他一起闯荡江湖”——那一刻我才真正明白：你在工程的镣铐里反复打磨那些细碎到玩家几乎察觉不到的”幻象”——一个抬头看玩家的小动作、一个被训斥后微塌的肩膀、一句没说完的台词——最终都会为变成一个令人难以忘怀的有生命的角色。</p>
+<hr>
+
+  </div>
+  <div id="gitalk-container"></div>
+</div>
+
+<script>
+  
+Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
+  dragToClose: true,
+  Toolbar: true,
+  closeButton: "top",
+  Image: {
+    zoom: true,
+  },
+  on: {
+    initCarousel: (fancybox) => {
+      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+    "Carousel.change": (fancybox, carousel, to, from) => {
+      const slide = carousel.slides[to];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+  },
+});
+</script>
+
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 9999;
+        /* width: 600px !important; */
+        min-width: 0%;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            max-width: 88%
+        }
+    }
+</style>
+
+    
+<div class="post-paging">
+    
+
+    
+    <a href="/2022/11/20/%E6%88%98%E7%A5%9E5%E5%85%B3%E5%8D%A1%E8%AE%BE%E8%AE%A1%E5%88%86%E6%9E%90/">
+        <div class="post-paging-next">
+            <span>下一篇</span>
+            <p>《战神5》是如何构建线性关卡和开放区域的？</p>
+        </div>
+    </a>
+    
+</div>
+</div>
+		
+<div class="footer">
+	<div class="contact">
+		
+	</div>
+</div>
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            transition: border .5s;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $( '#js-go_top' )
+	.gotoTop( {
+		offset: 500,
+		speed: 300,
+		animationShow: {
+			'transform': 'translate(0,0)',
+			'transition': 'transform .5s ease-in-out'
+		},
+		animationHide: {
+			'transform': 'translate(100px,0)',
+			'transition': 'transform .5s ease-in-out'
+		}
+	} );
+</script>
+
+
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+</html>
+
