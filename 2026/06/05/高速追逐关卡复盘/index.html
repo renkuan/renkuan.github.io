@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+<title>维持危险幻象——浅谈高速追逐关卡-RKs</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.png">
+
+<link rel="stylesheet" href="/css/index.css">
+
+
+<meta name="keywords" content="关卡策划,游戏策划">
+<meta name="description" content="描述">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/index.js"></script>
+
+
+<script src="/js/fancybox.umd.js"></script>
+
+
+<script src="/js/fancybox-images.js"></script>
+
+
+<script src="/js/image-compare.js"></script>
+
+
+<script src="/js/image-carousel.js"></script>
+
+
+<script src="/js/gitalk.min.js"></script>
+
+
+<script src="/js/hljs.min.js"></script>
+ 
+<script>hljs.highlightAll();</script>
+
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		
+	<div class="header">
+		<div class="header-top" id="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/favicon.png" alt="Quiet">
+					<span>任宽·关卡设计</span>
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										关卡
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										文章
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										简历
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										关于我
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>任宽</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">关卡</a>
+        </li>
+        
+        <li>
+            <a href="/archives">文章</a>
+        </li>
+        
+        <li>
+            <a href="/links">简历</a>
+        </li>
+        
+        <li>
+            <a href="/about">关于我</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+    </div>
+</div>
+<div class='shelter'>
+</div>
+<style>
+    .shelter{
+        background-color: #333;
+        opacity:0.5;
+        cursor: pointer;
+        display: none; 
+        position: fixed;
+        left: 0;
+        top: 0; 
+        right: 0;
+        bottom: 0;
+        z-index: 1998;
+    }
+    .sidebar {
+        width: 66%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        background: #fff;
+        z-index: 1999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $( function () {
+	$( '.h-right-close>svg' )
+		.click( function () {
+			$( '.sidebar' )
+				.animate( {
+					right: "0"
+				}, 500 );
+			$( '.shelter' )
+				.fadeIn( "slow" )
+		} );
+	$( '.shelter' )
+		.click( function ( e ) {
+			$( '.sidebar' )
+				.animate( {
+					right: "-100%"
+				}, 500 );
+			$( '.shelter' )
+				.fadeOut( "slow" )
+		} )
+} )
+
+</script>
+
+<div class="post">
+    <div class="post-header-background post-header-color"
+    style="background: url('')" 
+>
+    <div class="post-header-background-content">
+        <ul class="post-header-tag">
+            
+        </ul>
+        
+        <h1>维持危险幻象——浅谈高速追逐关卡</h1>
+        <div class="post-header-info">
+            <div class="post-header-info-author">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                        <g>
+                            <path fill="#12183A"
+                                d="M6.187 15.265A6.47 6.47 0 0 0 10 16.5a6.47 6.47 0 0 0 3.813-1.235A4.99 4.99 0 0 0 10 13.5a4.99 4.99 0 0 0-3.813 1.765zM5.082 14.25A6.485 6.485 0 0 1 10 12c1.965 0 3.726.872 4.918 2.25a6.5 6.5 0 1 0-9.836 0zM10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+                            </path>
+                        </g>
+                    </svg>
+                
+                <span class="post-header-info-author-text"> <a href="../../about">任宽</a></span>
+                <div class="post-header-info-author-categories">
+                    
+                </div>
+                <p>2026-06-05 15:17:00</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="post-content" id="content">
+  
+  <div id="article" class="post-content-info">
+    
+
+    <h2 id="一、追逐关卡"><a href="#一、追逐关卡" class="headerlink" title="一、追逐关卡"></a>一、追逐关卡</h2><p>如果说 3A 单机游戏是游戏工业的皇冠，那么高速追逐关卡便是皇冠上的明珠。它的体验价值简单直接：<strong>提升节奏、制造体验峰值、拔高整个游戏的天花板</strong>。但投入成本和制作难度也让人望而却步：</p>
+<ul>
+<li><strong>奇观的边际成本陡峭</strong>：维持数分钟的高强度体验，需要源源不断的”一次性奇观”来支撑。玩家撞碎的建筑、躲过的爆炸几乎无法复用，每一秒都在燃烧美术预算。</li>
+<li><strong>工程层面的暗礁密布</strong>：高速移动会放大所有平时易于隐藏的技术瑕疵——内存管理、流式加载、碰撞穿模、相机锁定……任何薄弱环节都会在高速下酿成灾难。</li>
+</ul>
+<p>正因如此，这往往是顶级 3A 工作室（如顽皮狗、R 星）以近乎奢侈的资源换取玩家高光记忆的专属领域。</p>
+<p>本文的核心观察是：设计追逐关卡的关键在于——用海量奇观制造玩家险象环生的幻觉。为何是幻觉，因为玩家并非真的在自由操控，而是被精心编排的节奏、暗戳戳的镜头控制引导以及破坏性奇观推动着不断向前。设计师所有的技术手段，最终服务于一个目标：让这股推力如此自然，以至于玩家浑然不觉自己正在被牵引。接下来的四个维度拆解，都围绕这一核心展开。</p>
+<hr>
+<h2 id="二、两个有限预算下的实验样本"><a href="#二、两个有限预算下的实验样本" class="headerlink" title="二、两个有限预算下的实验样本"></a>二、两个有限预算下的实验样本</h2><p>在《燕云十六声》关卡设计期间，我参与制作过两段追逐关卡。受限于预算和工期，我们舍弃了大量边际效应低的设计方案，规格和质量都远不及顶级追逐关卡——但作为”在不可能的约束下尽量靠近”的实验，它们积累了相当多可以分享的经验。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>关卡 A：天地熔炉跑酷段</strong></th>
+<th><strong>关卡 B：捕风寻影追逐段</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类型定位</td>
+<td>主线高潮段落</td>
+<td>双人分屏关卡高潮段落</td>
+</tr>
+<tr>
+<td>时长</td>
+<td>约 1.5 分钟</td>
+<td>约 2 分钟</td>
+</tr>
+<tr>
+<td>玩家移动能力</td>
+<td>基础 3C + 轻功 + 飞檐走壁</td>
+<td>轻功 + 坐骑 + 特殊下坠 3C</td>
+</tr>
+<tr>
+<td>追逐原因</td>
+<td>潜入失败遭守卫追赶，向上突围</td>
+<td>玩家被巨鹅追赶，向前奔逃</td>
+</tr>
+<tr>
+<td>关键技术</td>
+<td>脚本化固定路线跑酷</td>
+<td>分屏渲染双人跑酷</td>
+</tr>
+</tbody></table>
+<p>接下来我会按 <strong>节奏、引导、奇观、心流</strong> 四个维度，把这两段的设计推理、迭代翻车，以及我事后才看清的取舍逻辑，逐项拆开来讲。</p>
+<hr>
+<h2 id="三、四个维度的设计推理"><a href="#三、四个维度的设计推理" class="headerlink" title="三、四个维度的设计推理"></a>三、四个维度的设计推理</h2><h3 id="1-节奏"><a href="#1-节奏" class="headerlink" title="1. 节奏"></a>1. 节奏</h3><h4 id="1-1-追逐位于整段流程的哪个节拍？"><a href="#1-1-追逐位于整段流程的哪个节拍？" class="headerlink" title="1.1 追逐位于整段流程的哪个节拍？"></a>1.1 追逐位于整段流程的哪个节拍？</h4><p>开始制作之前，第一个要回答的问题是：追逐位于整个关卡（乃至整段游戏）流程中的哪个节拍？</p>
+<p>大多数情况下，追逐节拍处于整段体验的最高峰，往往也是关卡的尾声。<strong>最好的追逐关卡一定要在叙事上有所铺陈，尽可能赋予追逐行为以重要意义</strong>，避免纯粹为刺激而刺激。只有玩法体验和叙事节奏同时达到顶点，才不会让人爽完就忘，才会让人回味悠长。比如：</p>
+<ul>
+<li><strong>神海 4 · 马达加斯加追逐</strong>明确定义为故事的”中点高潮”——四位主角终于”团聚”，所有情感线在此爆发再被打断（”假胜利”）。同时，这场追逐也作为 Nate 内心动荡的具象化——他越混乱，前方的车流和爆炸就越猛烈。<strong>事件强度就等于情感强度。</strong></li>
+<li><strong>A 关卡（熔炉追逐）</strong>位于开封主线的收尾处。玩家为救温盈潜入熔炉后被发现，救人心切的主角迸发出前所未有的能力，大闹熔炉后全力逃脱，最终直面整个阴谋事件的核心：幕后操盘手赵光义和最终反派黑财神。</li>
+<li><strong>B 关卡（捕风寻影追逐）</strong>同样处在双人关卡的终章。玩家合力对抗大鹅不敌，被恐惧击碎屏障，二人的记忆幻境变得混乱交叠、极端不稳定，玩家要在大鹅追踪下逃离，探究记忆最深处的宝藏。</li>
+</ul>
+<p>反例：我们曾有一个 Boss 战追逐关卡耗费了大量资源，但因为叙事铺陈不够、人物行为逻辑混乱，导致玩家不理解，最终评价也不好。</p>
+<h4 id="1-2-追逐内部的节拍设置"><a href="#1-2-追逐内部的节拍设置" class="headerlink" title="1.2 追逐内部的节拍设置"></a>1.2 追逐内部的节拍设置</h4><table>
+<thead>
+<tr>
+<th>节拍位置</th>
+<th>作用</th>
+<th>神海 4 案例</th>
+<th>A 关卡</th>
+<th>B 关卡</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>暴风雨前</strong></td>
+<td>给玩家几秒沉默，对比放大后续强度</td>
+<td>镇上短暂走查、对话铺垫</td>
+<td>成功潜入熔炉</td>
+<td>在交叠的记忆幻境中</td>
+</tr>
+<tr>
+<td><strong>触发</strong></td>
+<td>一个大事件（爆炸、敌人出现）切入</td>
+<td>装甲车撞穿建筑出现</td>
+<td>被熔炉内部守卫发现，所有守卫开始攻击玩家</td>
+<td>大鹅再次降临，开始追杀玩家</td>
+</tr>
+<tr>
+<td><strong>N 段追逐升级</strong></td>
+<td>每升一级换一种玩法或场景</td>
+<td>街道开车 → 公路追枪战 → 摩托车窄道追</td>
+<td>走廊逃跑 → 向上冲刺 → 时停废墟跳跃</td>
+<td>闭塞空间躲避 → 开阔水域轻功 → 空中骑乘 → 俯冲</td>
+</tr>
+<tr>
+<td><strong>假胜利</strong></td>
+<td>玩家以为脱险，立即被打回去</td>
+<td>摆脱前车以为安全，Boss 卡车从前方反向冲出</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>终点</strong></td>
+<td>一个”必杀决断”动作收尾</td>
+<td>摩托车滑过卡车底盘，爆炸，无缝转 cinematic</td>
+<td>跳上运输车逃脱，进入熔炉顶部的核心区</td>
+<td>坠入记忆深渊后，意外逃脱来到记忆最深处</td>
+</tr>
+</tbody></table>
+<p>值得单独说明的是表格中的**”假胜利”**一行——A 和 B 关卡都没有使用这一经典技巧。原因并非不理解它的价值，而是资源约束下的主动取舍：假胜利需要额外的反转场景构建、镜头编排和动作资源来支撑”以为安全→突然被打回”的情绪反转弧线。在我们的预算下，把等量资源投入”N 段追逐升级”内部的打磨，收益更确定、风险更低。此外，B 关卡的三层降级保护已让”失败”变得不可能——在一个玩家不可能失败的追逐中制造”假胜利”，逻辑上也站不住脚。</p>
+<p>大多数追逐关卡都按简洁的三幕剧结构设置节拍，经典不会出错。这里重点讲占整个过程 80% 比重的 <strong>N 段追逐升级</strong>节拍。这段可以拆出更细的子节拍，<strong>最少需要 3 个子节拍来确保变化和丰富度</strong>。根据我们的观察和实验：</p>
+<blockquote>
+<p>每 8–10 秒至少切换一个体验变量，否则玩家就会进入疲劳与脱离。</p>
+</blockquote>
+<p>这一数字并非拍脑袋的经验估计。在我们的内部 playtest（约 20 名测试人员、3 轮迭代）中，当同一体验变量持续超过 12 秒不变化时，超过 70% 的测试者出现明显的注意力涣散（表现为操作延迟增大、视线开始偏移屏幕中心）。而在 8 秒左右切换时，注意力保持率最高。这一观察也与认知心理学中”工作记忆刷新”的相关研究吻合——人类对单一模式刺激的主动注意窗口约在 8–12 秒之间（Cowan, 2001; Barrouillet et al., 2004）。</p>
+<p>因此，决定体验密度的核心变量是<strong>切换频率</strong>。A 的三个子节拍平均 30 秒一次大切换，但每个子节拍内部还有 3–4 个”孙节拍”切换，平摊下来约 8 秒一次。B 的四段同理。</p>
+<p>其次是 <strong>节拍切换的”维度”比”数量”更重要。</strong> 很多设计师做节奏调试时会陷入误区：以为切的节拍越多越好。但实际上，切 5 个节拍但每次只变 1 个变量，体验密度往往不如切 3 个节拍但每个节拍同时切换 2–3 个变量。</p>
+<p>A 的节拍切换我们刻意从七个维度同时操作：</p>
+<ul>
+<li><strong>玩家移动方式</strong>：奔跑、跳跃、飞檐走壁、轻功、定制动作演出</li>
+<li><strong>运动方向</strong>：水平、垂直、下坠、转向</li>
+<li><strong>空间特质</strong>：走廊、岩浆桶、断桥、建筑残骸</li>
+<li><strong>环境氛围</strong>：建筑倒塌、火光、烟尘</li>
+<li><strong>镜头表现</strong>：视野收束、速度强化、关键动作特写</li>
+<li><strong>敌人行为</strong>：追击、阻拦、暗杀窗口、远程压迫</li>
+<li><strong>时间流逝方式</strong>：正常、子弹时间</li>
+</ul>
+<p>每一次节拍切换，至少同时改变其中 2–3 个。这就是为什么三个节拍能撑起一段密度极高的体验。</p>
+<p><strong>A 关卡的三节拍结构，最早不是这样的。</strong></p>
+<p>最初的”向上冲刺”之后，还有一个”玩家踩着运动中的岩浆桶向上跳跃”的节拍。这个设计在纸面上很诱人：玩家有强参与感（要把握桶的运动节奏）、充分利用了熔炉里现成的工业组件（巨型岩浆桶本就是熔炉的视觉符号）、机制上有”我在熔炉里逃命”的环境融合感。</p>
+<p>但玩法测试中我们意识到了问题：</p>
+<ul>
+<li><strong>表现力弱</strong>：岩浆桶匀速移动，节奏可预测，玩家进入它之后反而放慢了脚步——这与”高速追逐”的核心体验直接矛盾。</li>
+<li><strong>实现成本极高</strong>：需要为这个独有玩法定制一整套动作资源（在桶上落地、稳定、起跳、空中调整），项目当时没有现成的动作可以复用。</li>
+<li><strong>镜头难做</strong>：玩家速度变慢之后，镜头要么跟着慢，要么割裂；两者都让追逐感断掉。</li>
+</ul>
+<p>所以我们砍掉整个节拍，只保留”竖直向上飞檐走壁跑酷”。这个替代方案在设计上几乎平庸——没有创新机制、没有强场景融合——但它有一个决定性的优点：<strong>简单、好实现、留出了大量时间用来打磨镜头和动作。</strong></p>
+<p>最终上线后，这一段的体验反而更好。原因不在玩法本身，而在于我们把省下来的时间全部投入到了”飞檐走壁过程中的镜头编排、爆炸时序、敌人远程压迫”上。</p>
+<p><strong>B 关卡也无独有偶。</strong> 追逐升级最初有五段，第四段之后还有一个”在不同记忆幻境之间快速穿越”的最终高潮节拍——玩家在十秒内俯冲穿过数十个风格各异的记忆世界切片。在纸面上，这是整段追逐最值得被截图传播的瞬间。但也因实现困难被舍弃。</p>
+<p>决策逻辑现在回头看挺直白：第五段的定位本来就是”在第四段高潮之上再拔高一截”。但如果它本身做不好，反而会把前面已经到位的高潮拉下来。<strong>与其得到一个 60 分的第五段把全段拖到 70 分，不如让前四段每一段都做到 80 分。</strong></p>
+<p>这是追逐关卡最反直觉、也最难做到的一件事，——不是拼尽一切做更好的设计，而是<strong>时刻衡量正在做的东西的规模，防止贪多嚼不烂。</strong></p>
+<hr>
+<h3 id="2-关卡布局与引导"><a href="#2-关卡布局与引导" class="headerlink" title="2. 关卡布局与引导"></a>2. 关卡布局与引导</h3><h4 id="2-1-布局：保持简洁"><a href="#2-1-布局：保持简洁" class="headerlink" title="2.1 布局：保持简洁"></a>2.1 布局：保持简洁</h4><p>和其他箱庭探索或解谜关卡相比，追逐关卡的 layout 反而比较简单——我们要把所有精力放在高速的动作体验上，那种慢慢舔图、仔细观察才能获得的”破解空间”的爽感就被放弃掉了。</p>
+<p>唯一需要考虑的是：如果你要制作类似神海 4 追车关的宽线性流程，那就要在路径分支和流程收束上下功夫。</p>
+<h4 id="2-2-高速运动下的玩家引导"><a href="#2-2-高速运动下的玩家引导" class="headerlink" title="2.2 高速运动下的玩家引导"></a>2.2 高速运动下的玩家引导</h4><p>高速状态下，大多数常用的引导手段都会失效：</p>
+<ul>
+<li>远景处的大型 POI</li>
+<li>暗示前进方向的引导线</li>
+<li>构图上的形状框架</li>
+<li>标记交互物的黄漆</li>
+</ul>
+<p>所以大多时候需要其他辅助手段。在我参与的关卡里，主要有两种做法：</p>
+<ul>
+<li><strong>完全 on-rails</strong>：玩家按固定轨道运动，不给自由度，自然不会迷路。这里唯一要注意的是合理化固定路线——用阻挡、爆炸、坍塌之类的动态效果切断分支路线。</li>
+<li><strong>接管玩家镜头</strong>：同样要熟练运用爆炸、坍塌之类的动态效果。原理是巨大的冲击力导致玩家镜头短暂不受控是可以被接受的；也可以在接管镜头之前给玩家一个操作，因为一般在交互输入后，玩家对游戏世界的变化就有了一定预期，这样系统再接管镜头或播放动作就不会突兀。</li>
+</ul>
+<p>核心思路是：<strong>不要试图在原有的引导方案上优化，而是适当放弃自由度，帮助玩家找对方向。</strong></p>
+<h4 id="2-3-双人关卡的引导难题"><a href="#2-3-双人关卡的引导难题" class="headerlink" title="2.3 双人关卡的引导难题"></a>2.3 双人关卡的引导难题</h4><p>B 关卡的另一个引导难题，是两个玩家进度不同步。</p>
+<p>最坏的情况下，一个玩家飞速向前、另一个停在原地——后面所有需要双人同步的流程都会被卡死。这种”被同伴拖住”的体验对双人游戏来说是致命的，它会让两个玩家都开始抱怨对方。</p>
+<p>我们的解法非常粗暴：<strong>直接放弃双人自由度，强制同步。</strong></p>
+<p>具体做了三层降级保护：</p>
+<ul>
+<li><strong>第一层 · 自动推进</strong>：如果玩家完全不操作，角色会自动向前移动，永远不会落后到拖累流程的程度。</li>
+<li><strong>第二层 · 单人 QTE 通过</strong>：遇到需要双人同时进行的流程，规则改为”只要一个人 QTE 成功，另一个人也会进入后续流程”。</li>
+<li><strong>第三层 · 单人模式降级</strong>：如果同行角色掉线或丢失，整段关卡直接降级为单人模式，一个人也能跑完完整流程。</li>
+</ul>
+<p>这看起来”很不双人游戏”——它牺牲了”两个玩家紧密配合”的协作体验，换来的是 100% 的通关流畅性：无论队友水平如何、网络如何、是否在线，玩家都能完整体验这段追逐。</p>
+<p>对于《燕云十六声》这样的开放世界 ARPG 而言，这个决策几乎不言而喻——大多数玩家并没有稳定的双人合作经验，另有一部分偏单人游玩的玩家会对强社交、强配合内容产生抗拒。<strong>牺牲少数硬核协作玩家的体验深度，换取所有玩家的体验完整性</strong>，这笔账在我们这里还是算得比较清楚的。</p>
+<hr>
+<h3 id="3-一次性奇观"><a href="#3-一次性奇观" class="headerlink" title="3. 一次性奇观"></a>3. 一次性奇观</h3><p>奇观是追逐关卡玩家最明显感知到、也是最贵的东西。一般我们会从下面几个方面入手：</p>
+<ul>
+<li><strong>构图</strong>：通过系统赋予的大量摄像机控制权，我们可以为关键帧精心构图，必须好好利用。</li>
+<li><strong>色彩</strong>：高速移动中大部分画面细节会被略去，因此大面积的色彩对比与变化更容易被感知。</li>
+<li><strong>灯光特效</strong>：务必重视，出色的灯光特效往往是化腐朽为神奇的关键一步。</li>
+<li><strong>环境破坏</strong>：艺术就是爆炸。</li>
+<li><strong>动作编排</strong>：追逐中角色的每一个动作都在传递情绪——前倾的跑姿暗示紧迫、勉强抓住边缘的攀爬传递危险、落地翻滚的流畅衔接强化速度感。关键在于动作之间的”过渡帧”：跳跃→攀爬→翻滚→冲刺，每个衔接点若出现哪怕 0.2 秒的卡顿，速度感就会断裂。我们在 A 关卡中为关键路径定制了 6 组过渡动画，确保全程动作无缝串联——这是整段体验流畅度的底层保障，也是最容易被低估的隐性成本。</li>
+<li><strong>电影镜头语言</strong>：许多动作场景在特定镜头的加持下，表现力会有质的飞跃。</li>
+<li><strong>摄像机角度、景别与运动方式</strong>：灵活运用推拉摇移、特写与全景的切换，能更好地引导视线，强化速度感与紧张氛围。</li>
+<li><strong>音效</strong>：恰到好处的环境音、动作音效与背景音乐，能大幅增强沉浸感，烘托紧张与冲刺的情绪。</li>
+<li><strong>叙事重要进展</strong>（加分项）：将剧情关键进展融入追逐关卡，效果会更佳。例如《神秘海域4》最著名的追逐关卡：起因是内特想要救山姆，但在最后的虚假胜利节拍中，山姆在内特命悬一线时反过来拯救了他，随后两人展开一段合作摩托车追逐。这种对照与反转，让整个关卡在节奏和奇观层面都更加丰满、富有层次。</li>
+</ul>
+<p>在所有奇观手段中，<strong>镜头是追逐关卡独有的优势</strong>。与探索或战斗关卡不同，追逐的线性流程赋予了设计师接管镜头的合法性（引导辅助手段里聊过），这为镜头编排打开了创作空间。</p>
+<p>我们在两段关卡中反复使用的核心镜头技法：</p>
+<ul>
+<li><strong>速度线收束</strong>：在加速瞬间将视野从 60° 拉到 75°，配合径向模糊，制造”突然提速”的主观感受。实际移动速度可能没变，但玩家会觉得快了一倍。</li>
+<li><strong>关键帧特写（子弹时间）</strong>：在跳跃、飞檐走壁的动作顶点插入 0.3 秒的慢动作特写，把快节奏中最精彩的瞬间”钉住”给玩家看。A 关卡的飞檐走壁段使用了 4 次，每次都配合背景爆炸，形成”慢中见快”的反差效果。</li>
+<li><strong>强制视角引导</strong>：在路线转弯处，镜头提前 0.5 秒转向新方向，让玩家视觉上”被牵引”到正确路线。这既是引导手段（避免迷路），也是奇观手段（让爆炸&#x2F;坍塌正好出现在画面中心）。</li>
+<li><strong>景别骤切</strong>：从远景全身跟拍突然切到近景过肩，制造”威胁逼近”的压迫感。<br>一个经验总结：<strong>镜头的投入产出比远高于新机制或新资产。</strong> 同一段跑酷，换一套镜头编排，体验可以从”平淡”变为”精彩”——而这只需要策划和技术美术的时间投入，不需要额外的美术资产预算。这也是中小预算追逐关卡最值得深挖的方向。</li>
+</ul>
+<p>然后就是：<strong>多层叠加必定好于单层顶级。</strong></p>
+<p>在 B 关卡中，制造奇观的策略略有不同——它的核心奇观是一个<strong>机制创新</strong>：左右半屏渲染两个不同的世界。</p>
+<p>这一形式最初来自一个纯技术实验：我们想验证引擎能不能实现左右半屏渲染不同场景的功能（此类技术已在《双影奇境》中实现过）。功能验证通过后，我们才进一步思考它能不能服务于关卡主题。</p>
+<p>最终，这一形式与”寻找失去的童年记忆”产生了较强契合：两个世界并行推进，像两段记忆同时奔跑、交融、叠化。玩家一边向前追逐，一边看到左右世界的差异和呼应——双世界视觉由此从”技术噱头”升级为”叙事载体”。</p>
+<p>但实现这个奇观远比想象中复杂</p>
+<p><strong>难点 1：左右半屏看似只是相机分割问题，但实际上需要解决：</strong></p>
+<ul>
+<li>两套场景资产的同时加载与卸载</li>
+<li>两个相机视锥的精确同步</li>
+<li>物理空间的双重计算（避免一边有碰撞另一边没碰撞）</li>
+<li>后处理效果的左右分隔</li>
+<li>性能预算的重新分配（一帧渲染两套场景）</li>
+</ul>
+<p>这些技术挑战在原型阶段都没有完全暴露，是在中后期才逐个浮现的。这也是为什么第五段穿越被砍掉——分屏本身已经吃掉了大量技术预算。</p>
+<p><strong>难点 2：拼接资产的选择准则</strong></p>
+<p>双世界要好看，关键在于两侧资产要形成”轮廓相似、色彩反差”的视觉关系。如果轮廓完全不同，玩家会觉得左右两边是无关的两张图；如果色彩太接近，又失去了”两个世界”的对比张力。</p>
+<p>最后建立的选择准则是：</p>
+<blockquote>
+<p>在现有资产库中寻找色彩、材质上形成强烈对比，但形状轮廓上又相对接近的素材，将它们拼接在同一运动路径的两侧。</p>
+<p>例如：同样轮廓的建筑，一侧是正常的灰墙黛瓦，另一侧是西域风格的黄色土墙；同样轮廓的山体，一侧是青绿春景，另一侧是熔炉岩浆地貌。</p>
+</blockquote>
+<p>这个准则把”奇观”的判定标准从美术品质，转移到了视觉对比的设计上。由此引出一个道理：</p>
+<blockquote>
+<p><strong>奇观的判定标准是”记忆点”，而不是”美术品质”。</strong></p>
+</blockquote>
+<p>双世界画面，从美术品质上来说远远不如顶级 3A 的单世界画面。但它胜在”大胆的画面构成形式”——这个比美术堆料更接近奇观本身。</p>
+<hr>
+<h3 id="4-心流体验"><a href="#4-心流体验" class="headerlink" title="4. 心流体验"></a>4. 心流体验</h3><p>写到这里，我必须诚实地承认：前面三个维度——节奏、引导、奇观——我们都做到了”中小预算条件下尽量靠近顶级”。但在心流体验上，我们做得不太好。</p>
+<p>按”经典心流理论”——挑战与能力的平衡——我们的两段追逐都是失败的。</p>
+<ul>
+<li><strong>A 熔炉跑酷段</strong>：基本没有任何挑战，玩家只要跟着提示按键即可，任何操作失误都会被无形的安全机制接住——重生点距离失败点非常近，玩家几乎感受不到”我刚才差点没过去”的真实压力。我们在迭代过程中甚至认真考虑过”完全自动推进，去掉所有玩家操作”，最后没有这么做，但事实是：玩家就算半睡半醒地按住前进键，也能跑完整段。</li>
+<li><strong>B 捕风寻影追逐段</strong>：心流体验比 A 更弱。三层降级保护（自动推进、单人 QTE、单人模式降级）的存在，本身就意味着我们主动选择了”让玩家不可能失败”——这彻底排除了”挑战与能力平衡”的可能性。</li>
+</ul>
+<p>当然，德雷克在火车顶上每一次跳跃，也都有看不见的”魔术手”在帮他：镜头会在恰当时机切换、QTE 会在恰当时机弹出、敌人的子弹会刻意打偏、跌落的边缘会有隐形吸附。玩家以为自己在精彩地通过一段挑战，实际上他只是在参与一场被精心编排的演出。但是”电子游戏是欺骗和糊弄技术构建的幻象”，唯一重要的就是这个”玩家以为”。能真的做到玩家以为是需要额外付出巨大代价的，从80分提到90分可能比从20分提到80分还难这反映出——<strong>我们和顶级 3A 的真实差距，差在打磨精度，不在设计哲学。</strong></p>
+<p>那么，如果资源充足，”心流”（或者假心流）具体如何实现？以下是我们想做但未能完全落地的”魔术手”清单：</p>
+<ul>
+<li><strong>构建更完备的3C</strong>：很多时候没法放开让玩家去操作是因为我们的基础3c本来就不够完备，比如跳跃手感差，飞檐走壁时细微碰撞偏差，坐骑操作精度低等，这个是能把自由度归还玩家的底气。</li>
+<li><strong>增加3C辅助功能</strong>：比如跳跃吸附，玩家跳跃落点偏差在 15% 以内时，系统自动吸附到正确位置。</li>
+<li><strong>死亡边界条件</strong>：跌落时不直接判定死亡，而是镜头一黑（伪装为场景转场），0.5 秒后玩家出现在上一个安全点并保持速度不断。大概率玩家不会意识到自己”死过了”。</li>
+<li><strong>弹性时间窗口</strong>：QTE 的判定时间表面是 0.8 秒，但如果玩家慢了 0.3 秒，系统会”假装”按钮还在等待，动画节奏微微延长来配合。</li>
+<li><strong>命中率衰减</strong>：追逐中敌人的射击命中率随玩家血量动态调整——血越少，敌人”手越抖”。玩家永远觉得自己在枪林弹雨中奇迹生还。</li>
+<li><strong>渐进式难度微调</strong>：如果玩家连续 3 次完美通过，下一段障碍物间距缩短 5%；连续失败则放大 10%。幅度足够小，不会被察觉。</li>
+</ul>
+<p>这些手段的共同逻辑是：<strong>让玩家感觉自己在挑战中表现出色，但实际上永远不会真正失败。</strong> 也是复制心流的核心情感体验：紧张、投入、”好险！”的满足感。</p>
+<p>我们的两段关卡做到了”不会失败”，但没有做到”让玩家以为自己差点失败”。<strong>缺的保底措施上那层危险幻觉。</strong> 这是下一次制作追逐关卡时最需要攻克的课题。</p>
+<p>但也必须承认：在有限的时间资源下，<strong>流畅推进永远比自由度更优先</strong>。</p>
+<p>如果玩家在追逐关里真的能死、真的被卡，整段体验的节奏就毁了。追逐关卡的体验密度建立在”流畅推进”之上——一次死亡、一次重读、一次卡关，都会让玩家从”被推着走的沉浸”瞬间退出到”我在玩一个游戏”的认知。</p>
+<hr>
+<h2 id="四、总结：追逐关卡的核心取舍"><a href="#四、总结：追逐关卡的核心取舍" class="headerlink" title="四、总结：追逐关卡的核心取舍"></a>四、总结：追逐关卡的核心取舍</h2><p>复盘到此结束。我觉得最值得重申的是：</p>
+<blockquote>
+<p>追逐关卡之所以是游戏工业的顶点，是因为它需要所有岗位高强度、高水平的持续付出，差了哪一环都不行。</p>
+</blockquote>
+<p>从策划的职业角度来说，我的建议是：<strong>在开始设计之初就要学会判断规模，舍弃一些东西，才能把该做的做好。</strong></p>
+<p>但同时也希望大家保留对极致作品的追求——卓越的标杆已经立下，我们也应该勇敢追逐。</p>
+
+  </div>
+  <div id="gitalk-container"></div>
+</div>
+
+<script>
+  
+Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
+  dragToClose: true,
+  Toolbar: true,
+  closeButton: "top",
+  Image: {
+    zoom: true,
+  },
+  on: {
+    initCarousel: (fancybox) => {
+      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+    "Carousel.change": (fancybox, carousel, to, from) => {
+      const slide = carousel.slides[to];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+  },
+});
+</script>
+
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 9999;
+        /* width: 600px !important; */
+        min-width: 0%;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            max-width: 88%
+        }
+    }
+</style>
+
+    
+<div class="post-paging">
+    
+
+    
+    <a href="/2024/11/30/%E7%87%95%E4%BA%91%E5%8D%81%E5%85%AD%E5%A3%B0-%E8%B5%B5%E6%99%AE%E5%AE%85/">
+        <div class="post-paging-next">
+            <span>下一篇</span>
+            <p>雕栏剑影</p>
+        </div>
+    </a>
+    
+</div>
+</div>
+		
+<div class="footer">
+	<div class="contact">
+		
+	</div>
+</div>
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            transition: border .5s;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $( '#js-go_top' )
+	.gotoTop( {
+		offset: 500,
+		speed: 300,
+		animationShow: {
+			'transform': 'translate(0,0)',
+			'transition': 'transform .5s ease-in-out'
+		},
+		animationHide: {
+			'transform': 'translate(100px,0)',
+			'transition': 'transform .5s ease-in-out'
+		}
+	} );
+</script>
+
+
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+</html>
+

@@ -25,6 +25,29 @@
         return;
       }
 
+      // 处理图片加载失败：隐藏 broken img，显示占位
+      function handleImageError(imgWrap, label) {
+        const img = imgWrap.querySelector('img');
+        if (!img) return;
+        const onError = function() {
+          img.style.visibility = 'hidden';
+          container.classList.add('image-load-failed');
+          if (!container.querySelector('.image-error-placeholder')) {
+            const placeholder = document.createElement('div');
+            placeholder.className = 'image-error-placeholder';
+            placeholder.textContent = '图片加载失败';
+            container.appendChild(placeholder);
+          }
+        };
+        img.addEventListener('error', onError);
+        // 已加载完成但 naturalWidth 为 0（典型 broken image）
+        if (img.complete && img.naturalWidth === 0) {
+          onError();
+        }
+      }
+      handleImageError(imageBefore, 'before');
+      handleImageError(imageAfter, 'after');
+
       // 同步滑块手柄位置和高度与图片对齐
       function syncHandlePosition() {
         const afterImg = imageAfter.querySelector('img');

@@ -331,7 +331,7 @@ body {
   padding: 0;
   overflow: hidden;
   border-radius: 4px;
-  background: transparent;
+  background: #f0f0f0;
   box-shadow: none;
   user-select: none;
   cursor: grab;
@@ -345,6 +345,23 @@ body {
   height: auto;
   pointer-events: none;
   object-fit: contain;
+}
+.image-compare-container.image-load-failed {
+  aspect-ratio: 16 / 9;
+  min-height: 200px;
+}
+.image-compare-container .image-error-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 14px;
+  line-height: 1.5;
+  background: #f0f0f0;
+  z-index: 3;
+  pointer-events: none;
 }
 .image-compare-container .image-before {
   position: absolute;
