@@ -287,7 +287,8 @@
   <div id="article" class="post-content-info">
     
 
-    <h2 id="一、追逐关卡"><a href="#一、追逐关卡" class="headerlink" title="一、追逐关卡"></a>一、追逐关卡</h2><p>如果说 3A 单机游戏是游戏工业的皇冠，那么高速追逐关卡便是皇冠上的明珠。它的体验价值简单直接：<strong>提升节奏、制造体验峰值、拔高整个游戏的天花板</strong>。但投入成本和制作难度也让人望而却步：</p>
+    <h2 id="一、追逐关卡"><a href="#一、追逐关卡" class="headerlink" title="一、追逐关卡"></a>一、追逐关卡</h2><p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/zhuizhuguanqia/Uncharted%204%20Chase%20Scene%20No%20HUD%2010-7%20screenshot.png" alt="神海4马达加斯加追车名场面"></p>
+<p>如果说 3A 单机游戏是游戏工业的皇冠，那么高速追逐关卡便是皇冠上的明珠。它的体验价值简单直接：<strong>提升节奏、制造体验峰值、拔高整个游戏的天花板</strong>。但投入成本和制作难度也让人望而却步：</p>
 <ul>
 <li><strong>奇观的边际成本陡峭</strong>：维持数分钟的高强度体验，需要源源不断的”一次性奇观”来支撑。玩家撞碎的建筑、躲过的爆炸几乎无法复用，每一秒都在燃烧美术预算。</li>
 <li><strong>工程层面的暗礁密布</strong>：高速移动会放大所有平时易于隐藏的技术瑕疵——内存管理、流式加载、碰撞穿模、相机锁定……任何薄弱环节都会在高速下酿成灾难。</li>
@@ -331,13 +332,20 @@
 </tr>
 </tbody></table>
 <p>接下来我会按 <strong>节奏、引导、奇观、心流</strong> 四个维度，把这两段的设计推理、迭代翻车，以及我事后才看清的取舍逻辑，逐项拆开来讲。</p>
+<blockquote>
+<p>📖 关于天地熔炉，详见拓展阅读：<a target="_blank" rel="noopener" href="https://renkuan.github.io/2025/01/05/%E7%87%95%E4%BA%91%E5%8D%81%E5%85%AD%E5%A3%B0-%E7%86%94%E7%82%89/"><strong>天地熔炉</strong></a></p>
+<p>📖 关于追逐关卡设计的更多思考，详见拓展阅读：<a target="_blank" rel="noopener" href="https://renkuan.github.io/2026/03/30/%E7%87%95%E4%BA%91%E5%8D%81%E5%85%AD%E5%A3%B0-%E6%8D%95%E9%A3%8E%E5%AF%BB%E5%BD%B1/"><strong>捕风寻影</strong></a></p>
+</blockquote>
 <hr>
 <h2 id="三、四个维度的设计推理"><a href="#三、四个维度的设计推理" class="headerlink" title="三、四个维度的设计推理"></a>三、四个维度的设计推理</h2><h3 id="1-节奏"><a href="#1-节奏" class="headerlink" title="1. 节奏"></a>1. 节奏</h3><h4 id="1-1-追逐位于整段流程的哪个节拍？"><a href="#1-1-追逐位于整段流程的哪个节拍？" class="headerlink" title="1.1 追逐位于整段流程的哪个节拍？"></a>1.1 追逐位于整段流程的哪个节拍？</h4><p>开始制作之前，第一个要回答的问题是：追逐位于整个关卡（乃至整段游戏）流程中的哪个节拍？</p>
 <p>大多数情况下，追逐节拍处于整段体验的最高峰，往往也是关卡的尾声。<strong>最好的追逐关卡一定要在叙事上有所铺陈，尽可能赋予追逐行为以重要意义</strong>，避免纯粹为刺激而刺激。只有玩法体验和叙事节奏同时达到顶点，才不会让人爽完就忘，才会让人回味悠长。比如：</p>
 <ul>
-<li><strong>神海 4 · 马达加斯加追逐</strong>明确定义为故事的”中点高潮”——四位主角终于”团聚”，所有情感线在此爆发再被打断（”假胜利”）。同时，这场追逐也作为 Nate 内心动荡的具象化——他越混乱，前方的车流和爆炸就越猛烈。<strong>事件强度就等于情感强度。</strong></li>
-<li><strong>A 关卡（熔炉追逐）</strong>位于开封主线的收尾处。玩家为救温盈潜入熔炉后被发现，救人心切的主角迸发出前所未有的能力，大闹熔炉后全力逃脱，最终直面整个阴谋事件的核心：幕后操盘手赵光义和最终反派黑财神。</li>
-<li><strong>B 关卡（捕风寻影追逐）</strong>同样处在双人关卡的终章。玩家合力对抗大鹅不敌，被恐惧击碎屏障，二人的记忆幻境变得混乱交叠、极端不稳定，玩家要在大鹅追踪下逃离，探究记忆最深处的宝藏。</li>
+<li><p><strong>神海 4 · 马达加斯加追逐</strong>明确定义为故事的”中点高潮”——四位主角终于”团聚”，所有情感线在此爆发再被打断（”假胜利”）。同时，这场追逐也作为 Nate 内心动荡的具象化——他越混乱，前方的车流和爆炸就越猛烈。<strong>事件强度就等于情感强度。</strong></p>
+</li>
+<li><p><strong>A 关卡（熔炉追逐）</strong>位于开封主线的收尾处。玩家为救温盈潜入熔炉后被发现，救人心切的主角迸发出前所未有的能力，大闹熔炉后全力逃脱，最终直面整个阴谋事件的核心：幕后操盘手赵光义和最终反派黑财神。</p>
+</li>
+<li><p><strong>B 关卡（捕风寻影追逐）</strong>同样处在双人关卡的终章。玩家合力对抗大鹅不敌，被恐惧击碎屏障，二人的记忆幻境变得混乱交叠、极端不稳定，玩家要在大鹅追踪下逃离，探究记忆最深处的宝藏。</p>
+</li>
 </ul>
 <p>反例：我们曾有一个 Boss 战追逐关卡耗费了大量资源，但因为叙事铺陈不够、人物行为逻辑混乱，导致玩家不理解，最终评价也不好。</p>
 <h4 id="1-2-追逐内部的节拍设置"><a href="#1-2-追逐内部的节拍设置" class="headerlink" title="1.2 追逐内部的节拍设置"></a>1.2 追逐内部的节拍设置</h4><table>
@@ -391,7 +399,8 @@
 <blockquote>
 <p>每 8–10 秒至少切换一个体验变量，否则玩家就会进入疲劳与脱离。</p>
 </blockquote>
-<p>这一数字并非拍脑袋的经验估计。在我们的内部 playtest（约 20 名测试人员、3 轮迭代）中，当同一体验变量持续超过 12 秒不变化时，超过 70% 的测试者出现明显的注意力涣散（表现为操作延迟增大、视线开始偏移屏幕中心）。而在 8 秒左右切换时，注意力保持率最高。这一观察也与认知心理学中”工作记忆刷新”的相关研究吻合——人类对单一模式刺激的主动注意窗口约在 8–12 秒之间（Cowan, 2001; Barrouillet et al., 2004）。</p>
+<p>这一数字并非拍脑袋的经验估计。在我们的内部 playtest（约 20 名测试人员、3 轮迭代）中，当同一体验变量持续超过 12 秒不变化时，超过 70% 的测试者出现明显的注意力涣散（表现为操作延迟增大、视线开始偏移屏幕中心）。而在 8 秒左右切换时，注意力保持率最高。这一观察也与认知心理学中”工作记忆刷新”的相关研究吻合——人类对单一模式刺激的主动注意窗口约在 8–12 秒之间。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/zhuizhuguanqia/%E8%8A%82%E6%8B%8D%E6%97%B6%E9%97%B4%E7%BA%BF%E5%9B%BE.png" alt="A关卡节拍时间线：8秒切换法则"></p>
 <p>因此，决定体验密度的核心变量是<strong>切换频率</strong>。A 的三个子节拍平均 30 秒一次大切换，但每个子节拍内部还有 3–4 个”孙节拍”切换，平摊下来约 8 秒一次。B 的四段同理。</p>
 <p>其次是 <strong>节拍切换的”维度”比”数量”更重要。</strong> 很多设计师做节奏调试时会陷入误区：以为切的节拍越多越好。但实际上，切 5 个节拍但每次只变 1 个变量，体验密度往往不如切 3 个节拍但每个节拍同时切换 2–3 个变量。</p>
 <p>A 的节拍切换我们刻意从七个维度同时操作：</p>
@@ -406,7 +415,27 @@
 </ul>
 <p>每一次节拍切换，至少同时改变其中 2–3 个。这就是为什么三个节拍能撑起一段密度极高的体验。</p>
 <p><strong>A 关卡的三节拍结构，最早不是这样的。</strong></p>
-<p>最初的”向上冲刺”之后，还有一个”玩家踩着运动中的岩浆桶向上跳跃”的节拍。这个设计在纸面上很诱人：玩家有强参与感（要把握桶的运动节奏）、充分利用了熔炉里现成的工业组件（巨型岩浆桶本就是熔炉的视觉符号）、机制上有”我在熔炉里逃命”的环境融合感。</p>
+<div class="image-carousel-container" data-interval="2000" data-fit="cover">
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      <div class="carousel-slide">
+        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E7%86%94%E7%82%89%E8%B7%91%E9%85%B71.gif" alt="熔炉跑酷走廊奔逃节拍">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E7%86%94%E7%82%89%E8%B7%91%E9%85%B72.gif" alt="熔炉跑酷飞檐走壁节拍">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/ronglu/%E7%86%94%E7%82%89%E8%B7%91%E9%85%B73.gif" alt="熔炉跑酷子弹时间节拍">
+      </div>
+    </div>
+  </div>
+  <button class="carousel-nav carousel-prev" aria-label="上一张"></button>
+  <button class="carousel-nav carousel-next" aria-label="下一张"></button>
+  <button class="carousel-play-pause" aria-label="暂停"></button>
+  <div class="carousel-dots"></div>
+</div>
+最初的"向上冲刺"之后，还有一个"玩家踩着运动中的岩浆桶向上跳跃"的节拍。这个设计在纸面上很诱人：玩家有强参与感（要把握桶的运动节奏）、充分利用了熔炉里现成的工业组件（巨型岩浆桶本就是熔炉的视觉符号）、机制上有"我在熔炉里逃命"的环境融合感。
+
 <p>但玩法测试中我们意识到了问题：</p>
 <ul>
 <li><strong>表现力弱</strong>：岩浆桶匀速移动，节奏可预测，玩家进入它之后反而放慢了脚步——这与”高速追逐”的核心体验直接矛盾。</li>
@@ -418,26 +447,49 @@
 <p><strong>B 关卡也无独有偶。</strong> 追逐升级最初有五段，第四段之后还有一个”在不同记忆幻境之间快速穿越”的最终高潮节拍——玩家在十秒内俯冲穿过数十个风格各异的记忆世界切片。在纸面上，这是整段追逐最值得被截图传播的瞬间。但也因实现困难被舍弃。</p>
 <p>决策逻辑现在回头看挺直白：第五段的定位本来就是”在第四段高潮之上再拔高一截”。但如果它本身做不好，反而会把前面已经到位的高潮拉下来。<strong>与其得到一个 60 分的第五段把全段拖到 70 分，不如让前四段每一段都做到 80 分。</strong></p>
 <p>这是追逐关卡最反直觉、也最难做到的一件事，——不是拼尽一切做更好的设计，而是<strong>时刻衡量正在做的东西的规模，防止贪多嚼不烂。</strong></p>
-<hr>
+<div class="image-carousel-container" data-interval="2000" data-fit="cover">
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      <div class="carousel-slide">
+        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/%E5%B8%82%E4%BA%95.gif" alt="追逐第一段茶楼市井节拍">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/%E6%B0%B4%E9%9D%A2%E6%B2%99%E9%9D%A2.gif" alt="追逐第二段水面沙面节拍">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/%E9%AA%91%E7%9D%80%E9%A3%9E%E9%B8%A2.gif" alt="追逐第三段飞鸢高空节拍">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/%E7%86%94%E7%82%89%E9%9B%AA%E5%B1%B1.gif" alt="追逐第四段熔炉雪山高潮">
+      </div>
+    </div>
+  </div>
+  <button class="carousel-nav carousel-prev" aria-label="上一张"></button>
+  <button class="carousel-nav carousel-next" aria-label="下一张"></button>
+  <button class="carousel-play-pause" aria-label="暂停"></button>
+  <div class="carousel-dots"></div>
+</div>
+---
+
 <h3 id="2-关卡布局与引导"><a href="#2-关卡布局与引导" class="headerlink" title="2. 关卡布局与引导"></a>2. 关卡布局与引导</h3><h4 id="2-1-布局：保持简洁"><a href="#2-1-布局：保持简洁" class="headerlink" title="2.1 布局：保持简洁"></a>2.1 布局：保持简洁</h4><p>和其他箱庭探索或解谜关卡相比，追逐关卡的 layout 反而比较简单——我们要把所有精力放在高速的动作体验上，那种慢慢舔图、仔细观察才能获得的”破解空间”的爽感就被放弃掉了。</p>
 <p>唯一需要考虑的是：如果你要制作类似神海 4 追车关的宽线性流程，那就要在路径分支和流程收束上下功夫。</p>
 <h4 id="2-2-高速运动下的玩家引导"><a href="#2-2-高速运动下的玩家引导" class="headerlink" title="2.2 高速运动下的玩家引导"></a>2.2 高速运动下的玩家引导</h4><p>高速状态下，大多数常用的引导手段都会失效：</p>
 <ul>
 <li>远景处的大型 POI</li>
 <li>暗示前进方向的引导线</li>
-<li>构图上的形状框架</li>
-<li>标记交互物的黄漆</li>
+<li>构图上的形状框架（部分小景别情况下失效）</li>
 </ul>
 <p>所以大多时候需要其他辅助手段。在我参与的关卡里，主要有两种做法：</p>
 <ul>
 <li><strong>完全 on-rails</strong>：玩家按固定轨道运动，不给自由度，自然不会迷路。这里唯一要注意的是合理化固定路线——用阻挡、爆炸、坍塌之类的动态效果切断分支路线。</li>
 <li><strong>接管玩家镜头</strong>：同样要熟练运用爆炸、坍塌之类的动态效果。原理是巨大的冲击力导致玩家镜头短暂不受控是可以被接受的；也可以在接管镜头之前给玩家一个操作，因为一般在交互输入后，玩家对游戏世界的变化就有了一定预期，这样系统再接管镜头或播放动作就不会突兀。</li>
 </ul>
-<p>核心思路是：<strong>不要试图在原有的引导方案上优化，而是适当放弃自由度，帮助玩家找对方向。</strong></p>
+<p>核心思路是：<strong>适当放弃自由度，直接帮助玩家找对方向。</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/zhuizhuguanqia/%E5%BC%95%E5%AF%BC%E6%89%8B%E6%AE%B5%E5%AF%B9%E6%AF%94%E5%9B%BE.png" alt="引导手段对比：常规失效 vs 追逐替代方案"></p>
 <h4 id="2-3-双人关卡的引导难题"><a href="#2-3-双人关卡的引导难题" class="headerlink" title="2.3 双人关卡的引导难题"></a>2.3 双人关卡的引导难题</h4><p>B 关卡的另一个引导难题，是两个玩家进度不同步。</p>
 <p>最坏的情况下，一个玩家飞速向前、另一个停在原地——后面所有需要双人同步的流程都会被卡死。这种”被同伴拖住”的体验对双人游戏来说是致命的，它会让两个玩家都开始抱怨对方。</p>
 <p>我们的解法非常粗暴：<strong>直接放弃双人自由度，强制同步。</strong></p>
-<p>具体做了三层降级保护：</p>
+<p>具体做了三层降级保护：<br><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/%E5%A4%A7%E9%B9%85%E8%BF%BD%E9%80%90.gif" alt="大鹅追逐压力设计"></p>
 <ul>
 <li><strong>第一层 · 自动推进</strong>：如果玩家完全不操作，角色会自动向前移动，永远不会落后到拖累流程的程度。</li>
 <li><strong>第二层 · 单人 QTE 通过</strong>：遇到需要双人同时进行的流程，规则改为”只要一个人 QTE 成功，另一个人也会进入后续流程”。</li>
@@ -466,9 +518,10 @@
 <li><strong>强制视角引导</strong>：在路线转弯处，镜头提前 0.5 秒转向新方向，让玩家视觉上”被牵引”到正确路线。这既是引导手段（避免迷路），也是奇观手段（让爆炸&#x2F;坍塌正好出现在画面中心）。</li>
 <li><strong>景别骤切</strong>：从远景全身跟拍突然切到近景过肩，制造”威胁逼近”的压迫感。<br>一个经验总结：<strong>镜头的投入产出比远高于新机制或新资产。</strong> 同一段跑酷，换一套镜头编排，体验可以从”平淡”变为”精彩”——而这只需要策划和技术美术的时间投入，不需要额外的美术资产预算。这也是中小预算追逐关卡最值得深挖的方向。</li>
 </ul>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/zhuizhuguanqia/%E9%95%9C%E5%A4%B4%E6%8A%80%E6%B3%95%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="追逐关卡核心镜头技法"></p>
 <p>然后就是：<strong>多层叠加必定好于单层顶级。</strong></p>
-<p>在 B 关卡中，制造奇观的策略略有不同——它的核心奇观是一个<strong>机制创新</strong>：左右半屏渲染两个不同的世界。</p>
-<p>这一形式最初来自一个纯技术实验：我们想验证引擎能不能实现左右半屏渲染不同场景的功能（此类技术已在《双影奇境》中实现过）。功能验证通过后，我们才进一步思考它能不能服务于关卡主题。</p>
+<p>在 B 关卡中，制造奇观的策略略有不同——它的核心奇观是一个<strong>机制创新</strong>：左右半屏渲染两个不同的世界。<br><img src="https://github.com/renkuan/blog-assets/blob/main/yanyun/shuangren/%E5%8F%8C%E4%B8%96%E7%95%8C%E5%88%9D%E8%A7%81.gif" alt="双世界"><br>这一形式最初来自一个纯技术实验：我们想验证引擎能不能实现左右半屏渲染不同场景的功能（此类技术已在《双影奇境》中实现过）。功能验证通过后，我们才进一步思考它能不能服务于关卡主题。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/zhuizhuguanqia/%E5%8F%8C%E5%BD%B1.png" alt="双影奇境分屏参考"></p>
 <p>最终，这一形式与”寻找失去的童年记忆”产生了较强契合：两个世界并行推进，像两段记忆同时奔跑、交融、叠化。玩家一边向前追逐，一边看到左右世界的差异和呼应——双世界视觉由此从”技术噱头”升级为”叙事载体”。</p>
 <p>但实现这个奇观远比想象中复杂</p>
 <p><strong>难点 1：左右半屏看似只是相机分割问题，但实际上需要解决：</strong></p>
@@ -482,6 +535,7 @@
 <p>这些技术挑战在原型阶段都没有完全暴露，是在中后期才逐个浮现的。这也是为什么第五段穿越被砍掉——分屏本身已经吃掉了大量技术预算。</p>
 <p><strong>难点 2：拼接资产的选择准则</strong></p>
 <p>双世界要好看，关键在于两侧资产要形成”轮廓相似、色彩反差”的视觉关系。如果轮廓完全不同，玩家会觉得左右两边是无关的两张图；如果色彩太接近，又失去了”两个世界”的对比张力。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/shuangren/%E6%B0%B4%E9%9D%A2%E6%B2%99%E9%9D%A2.gif"></p>
 <p>最后建立的选择准则是：</p>
 <blockquote>
 <p>在现有资产库中寻找色彩、材质上形成强烈对比，但形状轮廓上又相对接近的素材，将它们拼接在同一运动路径的两侧。</p>
@@ -500,6 +554,7 @@
 <li><strong>B 捕风寻影追逐段</strong>：心流体验比 A 更弱。三层降级保护（自动推进、单人 QTE、单人模式降级）的存在，本身就意味着我们主动选择了”让玩家不可能失败”——这彻底排除了”挑战与能力平衡”的可能性。</li>
 </ul>
 <p>当然，德雷克在火车顶上每一次跳跃，也都有看不见的”魔术手”在帮他：镜头会在恰当时机切换、QTE 会在恰当时机弹出、敌人的子弹会刻意打偏、跌落的边缘会有隐形吸附。玩家以为自己在精彩地通过一段挑战，实际上他只是在参与一场被精心编排的演出。但是”电子游戏是欺骗和糊弄技术构建的幻象”，唯一重要的就是这个”玩家以为”。能真的做到玩家以为是需要额外付出巨大代价的，从80分提到90分可能比从20分提到80分还难这反映出——<strong>我们和顶级 3A 的真实差距，差在打磨精度，不在设计哲学。</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/renkuan/blog-assets@main/yanyun/zhuizhuguanqia/%E5%81%87%E5%BF%83%E6%B5%81%E6%9B%B2%E7%BA%BF%E5%9B%BE.png" alt="假心流：玩家感知难度 vs 实际难度"></p>
 <p>那么，如果资源充足，”心流”（或者假心流）具体如何实现？以下是我们想做但未能完全落地的”魔术手”清单：</p>
 <ul>
 <li><strong>构建更完备的3C</strong>：很多时候没法放开让玩家去操作是因为我们的基础3c本来就不够完备，比如跳跃手感差，飞檐走壁时细微碰撞偏差，坐骑操作精度低等，这个是能把自由度归还玩家的底气。</li>
