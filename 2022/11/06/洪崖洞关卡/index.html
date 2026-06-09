@@ -289,61 +289,95 @@
 
     <p><img src="https://img.renkuan.xyz/bmp/2023/01/30/981db09517b95dac.jpg"></p>
 <h2 id="关卡介绍"><a href="#关卡介绍" class="headerlink" title="关卡介绍"></a>关卡介绍</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
-<li><strong>关卡简介</strong>：最后生还者的世界观和基本玩法，但故事发生地在中国重庆；关卡以洪崖洞建筑群作为场景参考，关卡设计理念参考魂系箱庭关卡</li>
-<li><strong>使用工具</strong>: UE4，UE4 Blueprints，Blender，UE4-IWALS</li>
-<li><strong>开发时间</strong>: 3周</li>
+<li><strong>关卡定位</strong>：基于《最后生还者》的世界观氛围与基础玩法框架，将故事舞台转移至中国重庆，并以洪崖洞建筑群作为核心场景参考，尝试融合“末日生存”与“魂系箱庭”两种关卡设计思路。</li>
+<li><strong>使用工具</strong>：UE4、UE4 Blueprints、Blender、UE4-IWALS</li>
+<li><strong>开发周期</strong>：3 周</li>
+<li><strong>负责内容</strong>：关卡概念设计、逻辑结构设计、白盒搭建、玩法脚本、AI 配置、敌人布置、事件触发、拾取物系统与过场动画制作</li>
 </ul>
-<h3 id="关卡演示以及解说"><a href="#关卡演示以及解说" class="headerlink" title="关卡演示以及解说"></a>关卡演示以及解说</h3><!--  -->
-<iframe width="100%" height="549" src="//player.bilibili.com/player.html?aid=432432229&bvid=BV1JG411w7pK&cid=885271465&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<h3 id="关卡演示与解说"><a href="#关卡演示与解说" class="headerlink" title="关卡演示与解说"></a>关卡演示与解说</h3><iframe width="100%" height="549" src="//player.bilibili.com/player.html?aid=432432229&bvid=BV1JG411w7pK&cid=885271465&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
 <iframe width="100%" height="549" src="//player.bilibili.com/player.html?aid=987380838&bvid=BV1Ut4y1K7tA&cid=887136419&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-<!-- <video src="https://activity.hdslb.com/blackboard/activity68698/public/static/2xv.mp4" style="width: 976px; height: 549px; left: 2px; top: 0px;" controls="controls" width="500" height="300">您的浏览器不支持播放该视频！</video> -->
-
 <h3 id="我做了什么"><a href="#我做了什么" class="headerlink" title="我做了什么"></a>我做了什么</h3><ul>
-<li>完成从概念设计到可玩demo的完整关卡流程设计</li>
-<li>撰写玩法设定文档，绘制逻辑流程图与关卡地图</li>
-<li>使用Blender和UE4进行关卡白盒搭建与布局设计</li>
-<li>整合游戏元素：配置AI战斗逻辑、事件触发机制及拾取物系统</li>
-<li>使用UE4蓝图编写游戏脚本，实现各类交互功能</li>
-<li>使用UE4-Sequence制作过场动画</li>
+<li>完成从概念设计到可玩 Demo 的完整关卡流程设计</li>
+<li>撰写玩法设定文档，绘制关卡逻辑图、流程图与地图草图</li>
+<li>使用 Blender 与 UE4 进行关卡白盒搭建、空间布局与尺度验证</li>
+<li>整合核心游戏元素，包括 敌人布置、AI 战斗巡逻逻辑调试、事件触发机制、拾取物系统、存档点等。</li>
+<li>使用 UE4 蓝图编写关卡脚本，实现门、电梯、捷径、触发器等交互功能</li>
+<li>使用 UE4 Sequencer 制作关卡过场动画与关键演出节点</li>
 </ul>
-<h3 id="设计目标"><a href="#设计目标" class="headerlink" title="设计目标"></a>设计目标</h3><ul>
-<li>制作一个最后生还者非线性箱庭关卡，试图用自己的理解回答：“最后生还者+魂类地图设计是什么样的？”这个问题</li>
-<li>关卡规模，体量相当于魂类游戏中的大中型箱庭关卡，50%火山官邸那么大，完整游玩流程大概需要50-60分钟。</li>
-<li>以重庆为游戏发生的地点，展现中国式末日废墟城市的景象</li>
-<li>参考“类魂拓扑学”理论，实现局部开放式探索，整体回溯式探索的关卡体验，验证魂系关卡设计思路是否可以在其他题材或者游戏类型中使用。</li>
+<h3 id="设计目标"><a href="#设计目标" class="headerlink" title="设计目标"></a>设计目标</h3><p>本项目的核心目标，是尝试回答一个具体的设计问题：</p>
+<blockquote>
+<p>如果将《最后生还者》的末日生存玩法，与魂系箱庭地图结构结合，会产生怎样的关卡体验？</p>
+</blockquote>
+<p>围绕这一目标，我设定了以下设计方向：</p>
+<ul>
+<li>制作一个具有<strong>非线性探索结构</strong>的《最后生还者》式箱庭关卡</li>
+<li>关卡体量参考魂类游戏中的中型箱庭区域，完整游玩流程约为 <strong>50–60 分钟</strong></li>
+<li>将重庆作为故事发生地，塑造具有中国地域特征的末日废墟城市景观</li>
+<li>借助“类魂拓扑学”的分析方法，实现<strong>局部开放探索</strong>与<strong>整体回溯探索</strong>结合的关卡体验</li>
+<li>验证魂系关卡设计方法是否可以迁移到其他题材与玩法类型中</li>
 </ul>
-<h2 id="设计过程"><a href="#设计过程" class="headerlink" title="设计过程"></a>设计过程</h2><h3 id="重庆地形为何是魂系设计的「天选场地」"><a href="#重庆地形为何是魂系设计的「天选场地」" class="headerlink" title="重庆地形为何是魂系设计的「天选场地」"></a>重庆地形为何是魂系设计的「天选场地」</h3><p>选择洪崖洞作为关卡场景，是因为<strong>重庆山城地貌天然契合魂系空间设计的几个关键要求</strong>：</p>
+<hr>
+<h2 id="设计过程"><a href="#设计过程" class="headerlink" title="设计过程"></a>设计过程</h2><h3 id="重庆地形为何适合魂系箱庭设计"><a href="#重庆地形为何适合魂系箱庭设计" class="headerlink" title="重庆地形为何适合魂系箱庭设计"></a>重庆地形为何适合魂系箱庭设计</h3><p>我选择洪崖洞作为关卡原型，是因为重庆山城地貌天然具备魂系箱庭关卡所需要的几个关键空间特征。</p>
 <table>
 <thead>
 <tr>
-<th>魂系箱庭的需求</th>
-<th>重庆 &#x2F; 洪崖洞的天然提供</th>
+<th>魂系箱庭需求</th>
+<th>重庆 &#x2F; 洪崖洞提供的空间条件</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>强烈的垂直高差</td>
-<td>吊脚楼建筑群 6–11 层、临崖而建，垂直落差超过 50 米</td>
+<td>吊脚楼建筑群依山而建，存在 6–11 层的空间落差，垂直高度超过 50 米</td>
 </tr>
 <tr>
 <td>多层路径交叠</td>
-<td>栈道、防空洞、轻轨、桥梁本就是不同标高的交通系统</td>
+<td>栈道、防空洞、轻轨、桥梁等交通系统分布在不同标高上</td>
 </tr>
 <tr>
-<td>视觉地标支撑导航</td>
-<td>千厮门大桥、迎宾楼牌坊等远景地标，帮助玩家在复杂空间中建立心理映射</td>
+<td>清晰的视觉地标</td>
+<td>千厮门大桥、迎宾楼牌坊等远景地标，有助于玩家建立空间记忆</td>
 </tr>
 <tr>
-<td>末日氛围的合理性</td>
-<td>防空洞、轻轨站、临江沉船等基础设施，为「灾后世界」提供天然的废墟载体</td>
+<td>末日氛围合理性</td>
+<td>防空洞、轻轨站、临江沉船等基础设施，为灾后废墟提供了可信载体</td>
 </tr>
 </tbody></table>
-<p><strong>重庆地形为关卡贡献了「开箱即用的箱庭骨架」</strong>——比起创造空间，找到合适的已有现实空间往往是更好的选择。</p>
-<h3 id="类魂拓扑学如何落地洪崖洞"><a href="#类魂拓扑学如何落地洪崖洞" class="headerlink" title="类魂拓扑学如何落地洪崖洞"></a>类魂拓扑学如何落地洪崖洞</h3><h4 id="1-画出最简逻辑图"><a href="#1-画出最简逻辑图" class="headerlink" title="1. 画出最简逻辑图"></a>1. 画出最简逻辑图</h4><p>「类魂拓扑学」是某位设计师对魂系箱庭关卡空间组织方式的一种归纳——<strong>用图论和拓扑学来研究地图设计</strong>。</p>
+<p>重庆地形本身提供了一套“开箱即用”的箱庭骨架。相比从零开始创造复杂空间，借助现实中已经存在的高差、道路与建筑关系，能够更自然地生成多层路径、捷径回环和视觉地标。</p>
+<p>因此，我将关卡的主要方向确定为：</p>
 <blockquote>
-<p>详见：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/415025159">如何设计一张有“魂味”的地图？——论“类魂”游戏关卡的拓扑结构</a></p>
+<p>以洪崖洞吊脚楼群为主体，在悬崖、栈道、防空洞与跨江大桥之间，搭建一个垂直交错、路径回环明显的立体箱庭关卡。</p>
 </blockquote>
-<p>我觉得论文最大的帮助就是如何从无到有制作出一张逻辑上有魂味的结构图，产出成果就是最终的自然逻辑图。作者在文章中详细论述了如何把真实地图还原成最简逻辑图然后再把最简逻辑图拆分成常用子图结构，以便计算连通度（文章3.3章节）；我们反向操作：借用已经存在的常用子图结构（文章4.4章节）来构成逻辑图。大致思路就是：</p>
+<div class="image-carousel-container" data-interval="2000" data-fit="contain">
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      <div class="carousel-slide">
+        <img src="https://img.renkuan.xyz/bmp/2023/01/30/4f79d0323806cabd.png" alt="">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://img.renkuan.xyz/bmp/2023/01/30/5486492d6d9704b4.png" alt="">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://img.renkuan.xyz/bmp/2023/01/30/573873f8afed2a27.png" alt="">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://img.renkuan.xyz/bmp/2023/01/30/2a689c20774bd219.png" alt="">
+      </div>
+    </div>
+  </div>
+  <button class="carousel-nav carousel-prev" aria-label="上一张"></button>
+  <button class="carousel-nav carousel-next" aria-label="下一张"></button>
+  <button class="carousel-play-pause" aria-label="暂停"></button>
+  <div class="carousel-dots"></div>
+</div>
+
+<hr>
+<h3 id="将“类魂拓扑学”落地到洪崖洞"><a href="#将“类魂拓扑学”落地到洪崖洞" class="headerlink" title="将“类魂拓扑学”落地到洪崖洞"></a>将“类魂拓扑学”落地到洪崖洞</h3><p>“类魂拓扑学”是一种用图论和拓扑关系分析魂系地图结构的方法。它将关卡拆解为开放区域、路径与兴趣点，并通过节点之间的连接关系评估地图的探索性、回环性与稳定性。</p>
+<blockquote>
+<p>参考文章：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/415025159">如何设计一张有“魂味”的地图？——论“类魂”游戏关卡的拓扑结构</a></p>
+</blockquote>
+<p>在这个项目中，我主要借用了其中关于<strong>最简逻辑图、常用子图结构和连通度验证</strong>的思路，用它来指导关卡早期结构设计。</p>
 <div class="image-carousel-container" data-interval="2000" data-fit="contain">
   <div class="carousel-wrapper">
     <div class="carousel-track">
@@ -367,46 +401,221 @@
   <div class="carousel-dots"></div>
 </div>
 
+<hr>
+<h3 id="1-绘制最简逻辑图"><a href="#1-绘制最简逻辑图" class="headerlink" title="1. 绘制最简逻辑图"></a>1. 绘制最简逻辑图</h3><p>在关卡初期，我先根据场景主题与玩法需求，将洪崖洞拆分为几个核心区域：</p>
 <ul>
-<li>根据自己对关卡场景的简单构想划分出基本的区域：沉船区、滴翠亭、吊脚楼、栈道、防空洞、迎宾楼、千厮门大桥</li>
-<li>根据预估的关卡规模和连通度要求选择一个或多个适合的常用子图结构</li>
-<li>然后用“键”连接子图构成逻辑图</li>
-<li>根据估算连通度的数学公式计算连通度，反复调整</li>
+<li>滨江路沉船区</li>
+<li>洪崖滴翠亭</li>
+<li>吊脚楼</li>
+<li>栈道</li>
+<li>防空洞</li>
+<li>迎宾楼废墟</li>
+<li>千厮门大桥</li>
 </ul>
-<p>当然更简单的做法是，在茫茫多已经有了的魂系关系里挑一个你喜欢的，拆分出它的最简逻辑图，然后进行少量规模调整。最终得到类似如下的一个最简逻辑图。<br><img src="https://img.renkuan.xyz/yanyun/judian/%E6%B4%AA%E5%B4%96%E6%B4%9E%E6%9C%80%E7%AE%80%E9%80%BB%E8%BE%91%E5%9B%BE.png" alt="最简逻辑图.png"></p>
-<h4 id="2-得到自然逻辑图"><a href="#2-得到自然逻辑图" class="headerlink" title="2.得到自然逻辑图"></a>2.得到自然逻辑图</h4><p>然后我找到了诸多关于洪崖洞建筑结构的参考资料，先用大的体块作为占位符搭出关卡架子，然后用简单的路径规划来推敲最简逻辑图，看看哪些区域可以在不破坏连通度的情况下拓展，以便能够在游戏节奏、视觉引导、流程设计上能够符合我的构想。这里要说明的是，虽然我在这里标记了清楚的流程次序，但是设计逻辑图和3D结构往往是同时进行，互相验证的过程。可能会反复修改数次，最终获得了如下的自然结构图。<br><img src="https://img.renkuan.xyz/bmp/2023/01/30/d9878cddd9054269.png" alt="洪崖洞逻辑图.png"></p>
-<blockquote>
-<p>这张图把整张关卡按 POI（兴趣点）拆解成节点，并标记节点之间的连接关系——主路径、分支路径、捷径回环和单向门。它不关心几何尺寸，只关心<strong>逻辑可达性</strong>：哪些节点之间有路、单向还是双向。这种抽象用于在白盒之前验证整体结构是否成立——是否存在死路、是否每个分支都有归并、捷径是否落在合理的位置。从图上可以读到主线路径形成的大 U 形回环，以及若干指向收藏品 POI 的次要分支。</p>
-</blockquote>
-<h3 id="设计关卡目标"><a href="#设计关卡目标" class="headerlink" title="设计关卡目标"></a>设计关卡目标</h3><h4 id="1-主要目标：寻找舌火帮的踪迹，击败其首领，获得情报"><a href="#1-主要目标：寻找舌火帮的踪迹，击败其首领，获得情报" class="headerlink" title="1.主要目标：寻找舌火帮的踪迹，击败其首领，获得情报"></a>1.主要目标：寻找舌火帮的踪迹，击败其首领，获得情报</h4><p>1.穿过滨江路沉船区域，沿着楼梯来到洪崖滴翠亭</p>
-<p>2.穿越下层防空洞击杀感染者，去往吊脚楼</p>
-<p>3.消灭吊脚楼屋顶以及建筑物里的舌火帮，并且去到栈道入口</p>
-<p>4.沿着栈道进入防空洞，穿越防空洞来到迎宾楼废墟处</p>
-<p>5.击杀露台BOSS，来到迎宾楼屋顶，并且进入迎宾楼废墟里</p>
-<p>6.从废墟2层做电梯去往千厮门大桥，并击败最终boss</p>
-<h4 id="2-其他目标：探索洪崖洞各个区域"><a href="#2-其他目标：探索洪崖洞各个区域" class="headerlink" title="2.其他目标：探索洪崖洞各个区域"></a>2.其他目标：探索洪崖洞各个区域</h4><p>1.探索沉船，迎宾楼阳台，防空洞下层，千厮门轻轨站等区域</p>
-<p>2.搜集散落在地图各处的食物配方（收藏品）</p>
-<p>3.关卡节奏图<br><img src="https://img.renkuan.xyz/bmp/2023/01/30/f889c8733ce68df7.png" alt="节奏图.png"></p>
-<blockquote>
-<p>节奏图把整段流程按时间轴铺开，并对每一小段标注玩家此时的体验强度。设计意图是控制<strong>情绪曲线</strong>：高强度战斗之后必有低密度的探索或环境叙事来缓冲、体验强度逐渐抬升、直至最终BOSS站来到高潮，然后在高潮处终止。</p>
-</blockquote>
-<h3 id="视觉参考"><a href="#视觉参考" class="headerlink" title="视觉参考"></a>视觉参考</h3><div class="image-carousel-container" data-interval="2000" data-fit="contain">
+<p>随后，我根据预估的关卡体量与连通度需求，从常见的类魂子图结构中选择合适的结构进行组合，并通过“键”连接不同子图，形成整体逻辑图。</p>
+<p>大致流程如下：</p>
+<ul>
+<li>根据场景概念划分核心区域与 POI</li>
+<li>选择适合关卡规模的常用子图结构</li>
+<li>使用“键”连接多个子图，形成初步逻辑结构</li>
+<li>根据连通度公式进行估算与验证</li>
+<li>反复调整节点关系，避免结构过线性或过度复杂</li>
+</ul>
+<p>最终得到如下最简逻辑图：</p>
+<p><img src="https://img.renkuan.xyz/yanyun/judian/%E6%B4%AA%E5%B4%96%E6%B4%9E%E6%9C%80%E7%AE%80%E9%80%BB%E8%BE%91%E5%9B%BE.png" alt="最简逻辑图.png"></p>
+<p>这张图的作用不是描述具体空间，而是验证关卡的基础结构是否成立：<br>玩家是否能形成回环认知、分支是否最终归并、捷径是否能带来空间理解上的奖励。</p>
+<hr>
+<h3 id="2-从最简逻辑图推导自然逻辑图"><a href="#2-从最简逻辑图推导自然逻辑图" class="headerlink" title="2. 从最简逻辑图推导自然逻辑图"></a>2. 从最简逻辑图推导自然逻辑图</h3><p>在确定最简逻辑图后，我开始使用大体块在 3D 空间中搭建关卡骨架，并根据实际空间尺度、地形高差和玩家视线，推敲节点之间的连接方式。</p>
+<p>需要说明的是，逻辑图设计与 3D 白盒搭建并不是前后完全分离的流程。实际开发中，两者往往是同步推进、互相验证的：</p>
+<ul>
+<li>逻辑图用于控制关卡结构与连通度</li>
+<li>3D 白盒用于验证空间尺度、视线引导和玩家动线</li>
+<li>当白盒中的路径不成立时，需要回到逻辑图重新调整</li>
+<li>当逻辑图过于抽象时，也需要通过 3D 空间补充具体节奏</li>
+</ul>
+<p>经过多轮调整后，我得到了如下自然逻辑图：</p>
+<p><img src="https://img.renkuan.xyz/bmp/2023/01/30/d9878cddd9054269.png" alt="洪崖洞逻辑图.png"></p>
+<p>这张图将整张关卡拆解为多个 POI 节点，并标记它们之间的连接关系，包括主路径、分支路径、捷径回环和单向门。</p>
+<p>它不关注具体几何尺寸，而是关注<strong>逻辑可达性</strong>：</p>
+<ul>
+<li>哪些节点之间可以互相抵达</li>
+<li>哪些路径是单向推进</li>
+<li>哪些路线承担捷径功能</li>
+<li>分支探索是否会自然回到主线</li>
+<li>玩家是否能通过地标和回环建立空间记忆</li>
+</ul>
+<p>从图上可以看到，主线路径形成了一个较大的 U 形回环，同时包含若干通向收藏品 POI 的次级分支。</p>
+<hr>
+<h3 id="3-设计关卡目标"><a href="#3-设计关卡目标" class="headerlink" title="3. 设计关卡目标"></a>3. 设计关卡目标</h3><p>在世界观设定中，“舌火帮”是我结合川渝地区民俗与饮食文化虚构出的末日帮派势力。玩家来到洪崖洞后，需要追踪舌火帮的活动痕迹，最终击败其首领并获得关键情报。</p>
+<h4 id="主要目标：追踪舌火帮，击败首领并获取情报"><a href="#主要目标：追踪舌火帮，击败首领并获取情报" class="headerlink" title="主要目标：追踪舌火帮，击败首领并获取情报"></a>主要目标：追踪舌火帮，击败首领并获取情报</h4><p>主线流程如下：</p>
+<ol>
+<li>玩家乘船抵达滨江路沉船区域，在被洪水淹没的城市废墟中开始探索</li>
+<li>沿着废墟楼梯向上，抵达洪崖滴翠亭</li>
+<li>穿越下层防空洞，击杀感染者，并前往吊脚楼区域</li>
+<li>清理吊脚楼屋顶与建筑内部的舌火帮成员，抵达栈道入口</li>
+<li>沿栈道进入防空洞深处，穿越洞穴后抵达迎宾楼废墟</li>
+<li>在迎宾楼露台击败阶段性 BOSS，进入建筑内部探索</li>
+<li>通过二层电梯前往千厮门大桥</li>
+<li>在桥面与轻轨残骸区域击败最终 BOSS</li>
+</ol>
+<h4 id="次要目标：探索洪崖洞各个区域"><a href="#次要目标：探索洪崖洞各个区域" class="headerlink" title="次要目标：探索洪崖洞各个区域"></a>次要目标：探索洪崖洞各个区域</h4><p>除了主线推进外，关卡中还设置了多个探索目标：</p>
+<ul>
+<li>探索沉船、迎宾楼阳台、防空洞下层、千厮门轻轨站等区域</li>
+<li>搜集散落在地图各处的食物配方</li>
+<li>通过报纸、便条和场景痕迹补完世界观信息</li>
+<li>发现捷径，建立对洪崖洞立体空间的整体认知</li>
+</ul>
+<hr>
+<h3 id="4-关卡节奏设计"><a href="#4-关卡节奏设计" class="headerlink" title="4. 关卡节奏设计"></a>4. 关卡节奏设计</h3><p><img src="https://img.renkuan.xyz/bmp/2023/01/30/f889c8733ce68df7.png" alt="节奏图.png"></p>
+<p>节奏图用于控制整段流程中的体验强度变化。<br>我将关卡体验大致拆分为探索、潜行、战斗、缓冲与 BOSS 战几个段落，并根据玩家压力曲线安排不同玩法内容。</p>
+<p>设计原则包括：</p>
+<ul>
+<li>高强度战斗后安排低密度探索，避免持续疲劳</li>
+<li>在新敌人或新机制出现前，预留观察和学习空间</li>
+<li>通过防空洞等低光照区域制造压迫感和资源焦虑</li>
+<li>逐步提高战斗密度，最终在千厮门大桥迎来高潮</li>
+<li>在最终 BOSS 战后结束关卡，避免高潮后的体验塌陷</li>
+</ul>
+<p>整体节奏从低强度探索开始，经过多次战斗与探索交替，最终在大桥区域集中爆发。</p>
+<hr>
+<h2 id="布局设计"><a href="#布局设计" class="headerlink" title="布局设计"></a>布局设计</h2><h3 id="空间布局图"><a href="#空间布局图" class="headerlink" title="空间布局图"></a>空间布局图</h3><p><img src="https://img.renkuan.xyz/bmp/2023/01/30/8496740fafe4448a.png" alt="平面图不带路线.png"></p>
+<p>这是一张去掉路线信息后的纯空间布局图，用于展示各区域之间的几何关系、相对体量和地标位置。</p>
+<p>在布局设计中，我重点考虑了以下几点：</p>
+<ul>
+<li>洪崖洞建筑群的垂直层级关系</li>
+<li>滨江路、吊脚楼、防空洞与大桥之间的空间联系</li>
+<li>玩家在不同高度上看到的地标变化</li>
+<li>主路径与支线路径在空间上的交叠关系</li>
+<li>捷径开启后，玩家对起点与终点关系的重新理解</li>
+</ul>
+<hr>
+<h2 id="关卡白盒"><a href="#关卡白盒" class="headerlink" title="关卡白盒"></a>关卡白盒</h2><h3 id="1-关卡总览"><a href="#1-关卡总览" class="headerlink" title="1. 关卡总览"></a>1. 关卡总览</h3><p><img src="https://img.renkuan.xyz/bmp/2023/01/30/2399b03f44aede3e.jpg" alt="关卡总览1.jpg"></p>
+<p><img src="https://img.renkuan.xyz/bmp/2023/01/30/6d5f204c42649933.jpg" alt="关卡总览2.jpg"></p>
+<p><img src="https://img.renkuan.xyz/bmp/2023/01/30/72d4f1df812d145b.jpg" alt="千厮门大桥俯瞰.jpg"></p>
+<hr>
+<h3 id="2-主要区域设计"><a href="#2-主要区域设计" class="headerlink" title="2. 主要区域设计"></a>2. 主要区域设计</h3><h4 id="滨江路沉船"><a href="#滨江路沉船" class="headerlink" title="滨江路沉船"></a>滨江路沉船</h4><ul>
+<li><strong>场景特征</strong>：被洪水淹没的滨江公路与汽车坟场</li>
+<li><strong>玩法定位</strong>：开局教学区</li>
+<li><strong>节奏定位</strong>：低强度探索 + 1–2 场基础遭遇战</li>
+</ul>
+<p>这个区域的灵感来自洪灾后城市低洼地带被江水吞没的景象。<br>我将其设计为关卡的开场区域：玩家乘船来到洪崖洞，在被水淹没的建筑废墟与车辆残骸之间开始探索。</p>
+<p>该区域主要承担教学功能：</p>
+<ul>
+<li>引导玩家熟悉基础移动与观察</li>
+<li>介绍射击、潜行和资源拾取</li>
+<li>通过较低强度的敌人配置，让玩家理解关卡的末日氛围</li>
+<li>利用远处的洪崖洞建筑群和千厮门大桥建立早期目标感</li>
+</ul>
+<div class="image-carousel-container" data-interval="2000" data-fit="contain">
+   <div class="carousel-wrapper">
+     <div class="carousel-track">
+       <div class="carousel-slide">
+         <img src="https://img.renkuan.xyz/bmp/2023/01/30/5edaac5154be4645.png" alt="">
+       </div>
+       <div class="carousel-slide">
+         <img src="https://img.renkuan.xyz/ax1x/2023/01/30/pSd53rt.jpg" alt="">
+       </div>
+     </div>
+   </div>
+   <button class="carousel-nav carousel-prev" aria-label="上一张"></button>
+   <button class="carousel-nav carousel-next" aria-label="下一张"></button>
+   <button class="carousel-play-pause" aria-label="暂停"></button>
+   <div class="carousel-dots"></div>
+ </div>
+
+<hr>
+<h4 id="洪崖滴翠亭"><a href="#洪崖滴翠亭" class="headerlink" title="洪崖滴翠亭"></a>洪崖滴翠亭</h4><ul>
+<li><strong>场景特征</strong>：破败的仿古建筑、山体瀑布与多层平台</li>
+<li><strong>玩法定位</strong>：前半段核心枢纽点</li>
+<li><strong>节奏定位</strong>：中等强度遭遇战 + 垂直空间利用教学</li>
+</ul>
+<p>洪崖滴翠亭是前半段流程的重要枢纽，连接多个 POI，并包含由两个环路组成的局部箱庭结构。</p>
+<p>该区域的设计重点是让玩家第一次明确感受到关卡的垂直特征：</p>
+<ul>
+<li>玩家可以从多个方向观察后续区域</li>
+<li>区域内部存在小型回环，帮助玩家理解“探索—战斗—开启捷径”的基本节奏</li>
+<li>远处地标持续出现在视野中，辅助玩家建立空间方位感</li>
+</ul>
+<p><img src="https://img.renkuan.xyz/ax1x/2023/01/30/pSd5M2d.jpg" alt="洪崖滴翠亭.jpg"></p>
+<hr>
+<h4 id="吊脚楼"><a href="#吊脚楼" class="headerlink" title="吊脚楼"></a>吊脚楼</h4><ul>
+<li><strong>场景特征</strong>：川渝地区特色吊脚楼建筑群</li>
+<li><strong>玩法定位</strong>：复合型战斗场地</li>
+<li><strong>节奏定位</strong>：高密度战斗 + 潜入分支</li>
+</ul>
+<p>吊脚楼区域是玩家首次正面遭遇“舌火帮”人形敌人的位置。<br>这里同时包含屋顶、室内房间、走廊和外部连廊，形成多层交错的战斗空间。</p>
+<p>由于吊脚楼本身具有现代建筑特征，空间形态相对规整，因此我将重点放在<strong>潜入路线与交火路线的双解设计</strong>上：</p>
+<ul>
+<li>玩家可以选择从屋顶高处观察并逐步清理敌人</li>
+<li>也可以从建筑内部潜入，利用房间和走廊分割敌人视线</li>
+<li>建筑外部连廊提供侧翼包抄路线</li>
+<li>室内空间提供资源补给和环境叙事内容</li>
+</ul>
+<p>这个区域用于验证玩家是否可以在同一片空间内，以潜入或正面战斗两种方式完成目标。</p>
+<div class="image-carousel-container" data-interval="2000" data-fit="contain">
+   <div class="carousel-wrapper">
+     <div class="carousel-track">
+       <div class="carousel-slide">
+         <img src="https://img.renkuan.xyz/ax1x/2023/01/30/pSd51KI.jpg" alt="">
+       </div>
+       <div class="carousel-slide">
+         <img src="https://img.renkuan.xyz/ax1x/2023/01/30/pSd58qP.jpg" alt="">
+       </div>
+       <div class="carousel-slide">
+         <img src="https://img.renkuan.xyz/ax1x/2023/01/30/pSd58qP.jpg" alt="">
+       </div>
+     </div>
+   </div>
+   <button class="carousel-nav carousel-prev" aria-label="上一张"></button>
+   <button class="carousel-nav carousel-next" aria-label="下一张"></button>
+   <button class="carousel-play-pause" aria-label="暂停"></button>
+   <div class="carousel-dots"></div>
+ </div>
+
+<hr>
+<h4 id="防空洞"><a href="#防空洞" class="headerlink" title="防空洞"></a>防空洞</h4><ul>
+<li><strong>场景特征</strong>：阴暗、狭窄、压迫感强的地下洞穴</li>
+<li><strong>玩法定位</strong>：连接型潜行 &#x2F; 恐怖区域</li>
+<li><strong>节奏定位</strong>：低光照、低视野、高资源压力</li>
+</ul>
+<p>防空洞曾是战时避难设施。病毒爆发后，部分幸存者躲入其中，但最终被感染者占据。<br>因此，这一区域既是空间连接点，也是氛围转换点。</p>
+<p>防空洞区域的设计重点包括：</p>
+<ul>
+<li>使用低光照和狭窄通道削弱玩家安全感</li>
+<li>通过声音和视线遮挡制造感染者威胁</li>
+<li>让玩家在近战、弹药和治疗资源之间做取舍</li>
+<li>将资源管理压力推向前半段流程的峰值</li>
+</ul>
+<p>与外部开阔区域相比，防空洞提供了截然不同的体验节奏。它让玩家从城市废墟中的探索，转入更接近恐怖生存的压迫段落。</p>
+<p><img src="https://img.renkuan.xyz/ax1x/2023/01/30/pSd5K8H.jpg" alt="防空洞.jpg"></p>
+<hr>
+<h4 id="迎宾楼废墟"><a href="#迎宾楼废墟" class="headerlink" title="迎宾楼废墟"></a>迎宾楼废墟</h4><ul>
+<li><strong>场景特征</strong>：商业建筑废墟、露台、店铺与室内空间</li>
+<li><strong>玩法定位</strong>：阶段性 BOSS 战场地 + 室内探索区</li>
+<li><strong>节奏定位</strong>：露台 BOSS → 室内缓冲探索 → 电梯转场</li>
+</ul>
+<p>迎宾楼废墟是关卡后半段的重要节点。<br>玩家在露台遭遇阶段性 BOSS，战斗结束后进入建筑内部进行探索，并最终通过二层电梯前往千厮门大桥。</p>
+<p>该区域承担三个功能：</p>
+<ol>
+<li><strong>战斗高潮</strong>：露台空间提供较大的机动范围，适合阶段性 BOSS 战</li>
+<li><strong>新增探索体验</strong>：室内探索阶段提供了一种在高处走独木桥的刺激恐怖感。</li>
+<li><strong>叙事补完</strong>：通过食物配方、报纸、便条和生活痕迹，补充舌火帮与灾后城市的信息</li>
+</ol>
+<p>作为洪崖洞的商业区域，迎宾楼废墟中保留了大量人类活动痕迹。<br>这些内容可以增强末日世界的可信度，也让玩家在高强度战斗后获得叙事层面的回报。</p>
+<div class="image-carousel-container" data-interval="2000" data-fit="contain">
   <div class="carousel-wrapper">
     <div class="carousel-track">
       <div class="carousel-slide">
-        <img src="https://img.renkuan.xyz/bmp/2023/01/30/5edaac5154be4645.png" alt="">
+        <img src="https://img.renkuan.xyz/ax1x/2023/01/30/pSd5UPg.jpg" alt="">
       </div>
       <div class="carousel-slide">
-        <img src="https://img.renkuan.xyz/bmp/2023/01/30/4f79d0323806cabd.png" alt="">
+        <img src="https://img.renkuan.xyz/ax1x/2023/01/30/pSd5tIS.jpg" alt="">
       </div>
       <div class="carousel-slide">
-        <img src="https://img.renkuan.xyz/bmp/2023/01/30/5486492d6d9704b4.png" alt="">
+        <img src="https://img.renkuan.xyz/ax1x/2023/01/30/pSd5JVf.jpg" alt="">
       </div>
-      <div class="carousel-slide">
-        <img src="https://img.renkuan.xyz/bmp/2023/01/30/573873f8afed2a27.png" alt="">
-      </div>
-      <div class="carousel-slide">
-        <img src="https://img.renkuan.xyz/bmp/2023/01/30/2a689c20774bd219.png" alt="">
+       <div class="carousel-slide">
+        <img src="https://img.renkuan.xyz/ax1x/2023/01/30/pSd5Ya8.jpg" alt="">
       </div>
     </div>
   </div>
@@ -416,36 +625,28 @@
   <div class="carousel-dots"></div>
 </div>
 
-<h3 id="布局图"><a href="#布局图" class="headerlink" title="布局图"></a>布局图</h3><p><img src="https://img.renkuan.xyz/bmp/2023/01/30/8496740fafe4448a.png" alt="平面图不带路线.png"></p>
-<blockquote>
-<p>这是一张刻意去掉路线信息的纯空间布局图，用来呈现各区域的几何关系、相对体量和地标位置。</p>
-</blockquote>
-<!-- ## 任务流程 -->
-
-<h3 id="路线图"><a href="#路线图" class="headerlink" title="路线图"></a>路线图</h3><p><img src="https://img.renkuan.xyz/bmp/2023/01/30/f5cde01f28a79027.png" alt="平面图带路线.png"></p>
-<blockquote>
-<p>路线图在布局图基础上叠加了主线推进路径与捷径回环。彩色实线标记主路径（沉船 → 滴翠亭 → 吊脚楼 → 栈道 → 防空洞 → 迎宾楼 → 千厮门），有的局部空间很复杂，所以用虚线引出重新画了3d轴测图。</p>
-</blockquote>
-<h3 id="关卡白盒"><a href="#关卡白盒" class="headerlink" title="关卡白盒"></a>关卡白盒</h3><p>1.关卡总览</p>
-<p><img src="https://img.renkuan.xyz/bmp/2023/01/30/2399b03f44aede3e.jpg" alt="关卡总览1.jpg"><br><img src="https://img.renkuan.xyz/bmp/2023/01/30/6d5f204c42649933.jpg" alt="关卡总览2.jpg"><br><img src="https://img.renkuan.xyz/bmp/2023/01/30/72d4f1df812d145b.jpg" alt="千厮门大桥俯瞰.jpg"></p>
-<p>2.关卡区域</p>
-<ul>
-<li><p><strong>滨江路沉船</strong> — 玩法定位：开局教学区；节奏：低强度探索 + 1–2 场遭遇战；关键事件：拾取首件武器、引导玩家熟悉射击与潜行基础<br><img src="https://img.renkuan.xyz/ax1x/2023/01/30/pSd53rt.jpg" alt="滨江路沉船.jpg"></p>
-</li>
-<li><p><strong>洪崖滴翠亭</strong> — 玩法定位：第一段中型战斗场地；节奏：中等密度遭遇 + 垂直空间利用教学；关键事件：首次跨层级战斗，引出「高处俯射」玩法<br><img src="https://img.renkuan.xyz/ax1x/2023/01/30/pSd5M2d.jpg" alt="洪崖滴翠亭.jpg"></p>
-</li>
-<li><p><strong>吊脚楼</strong> — 玩法定位：复合型据点（屋顶 + 建筑内）；节奏：高密度战斗 + 潜入分支；关键事件：玩家首次面对舌火帮人形敌人，硬突与潜入双解的设计验证点<br><img src="https://img.renkuan.xyz/ax1x/2023/01/30/pSd51KI.jpg" alt="吊脚楼.jpg"></p>
-</li>
-<li><p><strong>防空洞</strong> — 玩法定位：连接型潜行 &#x2F; 恐怖区；节奏：低光照、低视野、强调环境压迫；关键事件：感染者群战，将近战与资源管理压力推到峰值<br><img src="https://img.renkuan.xyz/ax1x/2023/01/30/pSd5K8H.jpg" alt="防空洞.jpg"></p>
-</li>
-<li><p><strong>迎宾楼废墟</strong> — 玩法定位：BOSS 战场地 + 室内探索区；节奏：露台 BOSS → 室内缓冲探索 → 二层电梯转场；关键事件：阶段性 BOSS 击杀、解锁前往千厮门的电梯<br><img src="https://img.renkuan.xyz/ax1x/2023/01/30/pSd5UPg.jpg" alt="迎宾楼废墟.jpg"></p>
-</li>
-<li><p><strong>千厮门大桥</strong> — 玩法定位：终局开放战场；节奏：宽阔空间 + 长射程 + 多波次敌人；关键事件：最终 BOSS 战，与起点滨江路构成 U 形回归<br><img src="https://img.renkuan.xyz/ax1x/2023/01/30/pSd5QxA.jpg" alt="千厮门大桥.jpg"></p>
-</li>
-<li><p><strong>室内（多处）</strong> — 玩法定位：环境叙事 + 拾取奖励；节奏：低强度探索段；关键事件：散落的食物配方、报纸、便条等环境叙事道具，承担世界观补完与玩家喘息的双重功能</p>
-<p><img src="https://img.renkuan.xyz/ax1x/2023/01/30/pSd5tIS.jpg" alt="室内1.jpg"><br><img src="https://img.renkuan.xyz/ax1x/2023/01/30/pSd58qP.jpg" alt="室内2.jpg"><br><img src="https://img.renkuan.xyz/ax1x/2023/01/30/pSd5JVf.jpg" alt="室内3.jpg"><br><img src="https://img.renkuan.xyz/ax1x/2023/01/30/pSd5Ya8.jpg" alt="室内4.jpg"></p>
-</li>
+<hr>
+<h4 id="千厮门大桥"><a href="#千厮门大桥" class="headerlink" title="千厮门大桥"></a>千厮门大桥</h4><ul>
+<li><strong>场景特征</strong>：跨江大桥、轻轨轨道与坠落车厢残骸</li>
+<li><strong>玩法定位</strong>：终局遭遇战场</li>
+<li><strong>节奏定位</strong>：远距离交火 + 闭塞空间突围 + 最终 BOSS 战</li>
 </ul>
+<p>千厮门大桥是整张关卡的终点，也是视觉和节奏上的高潮区域。<br>桥面空间开阔，适合布置长距离交火、狙击敌人和压迫式推进。</p>
+<p>该区域由两个主要段落构成：</p>
+<ul>
+<li><strong>桥面战斗</strong>：玩家需要利用车辆残骸与桥体结构作为掩体，在敌人换弹和火力间隙中推进</li>
+<li><strong>轻轨车厢战斗</strong>：进入坠落的轻轨残骸后，空间变得狭窄，节奏转为近距离遭遇和最终 BOSS 战</li>
+</ul>
+<p>从高处坠落的轻轨车厢既是视觉奇观，也是结构上的关键路径。<br>它连接了千厮门大桥与关卡起点附近的滨江路区域，使整张地图在终点处完成一次大的空间回环。</p>
+<p><img src="https://img.renkuan.xyz/ax1x/2023/01/30/pSd5QxA.jpg" alt="千厮门大桥.jpg"></p>
+<hr>
+<h2 id="路线图"><a href="#路线图" class="headerlink" title="路线图"></a>路线图</h2><p><img src="https://img.renkuan.xyz/bmp/2023/01/30/f5cde01f28a79027.png" alt="平面图带路线.png"></p>
+<p>路线图在空间布局图的基础上叠加了主线推进路径与捷径回环。</p>
+<p>主路径大致为：</p>
+<blockquote>
+<p>滨江路沉船 → 洪崖滴翠亭 → 吊脚楼 → 栈道 → 防空洞 → 迎宾楼废墟 → 千厮门大桥</p>
+</blockquote>
+<p>图中的彩色实线标记主线推进路径，部分空间由于垂直关系较复杂，因此使用虚线引出，并额外绘制 3D 轴测图辅助说明。</p>
 
   </div>
   <div id="gitalk-container"></div>
